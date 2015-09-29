@@ -1,4 +1,4 @@
-package com.example.admin.e_sapa_ver_3_00;
+package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.admin.e_sapa_ver_3_00.R;
 
 public class ValidateTabacco extends Fragment {
 
@@ -29,7 +31,7 @@ public class ValidateTabacco extends Fragment {
         pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
     }
 
-    static String getTitle(Context context,int position){
+    public static String getTitle(Context context,int position){
         return "Page "+String.valueOf(position+1);
     }
     @Override

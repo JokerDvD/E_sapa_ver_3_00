@@ -1,9 +1,11 @@
-package com.example.admin.e_sapa_ver_3_00;
+package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+
+import com.example.admin.e_sapa_ver_3_00.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,4 +1,4 @@
-package com.example.admin.e_sapa_ver_3_00;
+package com.example.admin.e_sapa_ver_3_00.viewPagerAnimation;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;

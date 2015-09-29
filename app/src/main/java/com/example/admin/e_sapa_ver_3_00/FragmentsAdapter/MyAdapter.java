@@ -1,10 +1,12 @@
-package com.example.admin.e_sapa_ver_3_00;
+package com.example.admin.e_sapa_ver_3_00.FragmentsAdapter;
 
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.admin.e_sapa_ver_3_00.Fragments.ValidateTabacco;
 
 public class MyAdapter extends FragmentPagerAdapter {
     private final Context context;
@@ -16,7 +18,7 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return (10);
+        return (11);
     }
 
     @Override

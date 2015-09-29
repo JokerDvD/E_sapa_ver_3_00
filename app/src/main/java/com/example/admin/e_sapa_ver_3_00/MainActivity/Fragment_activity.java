@@ -1,4 +1,4 @@
-package com.example.admin.e_sapa_ver_3_00;
+package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -9,15 +9,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
+import com.example.admin.e_sapa_ver_3_00.R;
+import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.DepthPageTransformer;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 public class Fragment_activity extends AppCompatActivity {
     private Toolbar toolbar;
     private DrawerBuilder builder;
+    private Drawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +33,25 @@ public class Fragment_activity extends AppCompatActivity {
 //        pager.setPageTransformer(true, new ZoomOutPageTransformer());
         pager.setPageTransformer(true, new DepthPageTransformer());
         setToolbar();
-        builder=new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
-                new SecondaryDrawerItem().withIcon(R.drawable.setting_icon).withName(R.string.action_settings).setEnabled(true)
+        navigationDrawer(pager);
+
+    }
+
+    private void navigationDrawer(final ViewPager pager) {
+        builder = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_home).withName(R.string.nav_home).setEnabled(true),
+                new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_qrcode).withName(R.string.nav_qrcode).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_barcode).withName(R.string.nav_brandcode).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
+                new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_alcohol).setEnabled(true),
+                new SectionDrawerItem().withName(R.string.action_settings),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_settings).withName(R.string.action_settings).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_exit_to_app).withName(R.string.nav_exit).setEnabled(true)
         )
+                .withHeader(R.layout.header)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(AdapterView<?> adapterView, View view, int position, long l, IDrawerItem drawerItem) {
@@ -44,10 +65,11 @@ public class Fragment_activity extends AppCompatActivity {
                         }
                         return false;
                     }
-                });
+                })
 
-        Drawer drawer=builder.build();
+        ;
 
+        drawer = builder.build();
     }
 
     private void setToolbar() {
@@ -76,5 +98,14 @@ public class Fragment_activity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
