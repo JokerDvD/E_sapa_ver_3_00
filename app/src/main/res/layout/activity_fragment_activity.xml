@@ -27,9 +27,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
+        <!--android:background="@color/vp_color_back"-->
 
         <android.support.v4.view.PagerTabStrip
             android:layout_width="match_parent"
+            android:background="@color/vp_white"
+            android:textColor="@color/vp_also_black"
             android:layout_height="wrap_content"
             android:layout_gravity="top" />
 

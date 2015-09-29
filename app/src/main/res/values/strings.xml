@@ -19,4 +19,18 @@
     <string name="nav_SectionDrawerItemValidate">Проверка Продукта</string>
     <string name="nav_SectionDrawerItemHistory">История проверок</string>
 
+    <!--Alcohol fragment-->
+    <string name="alco_header">Услуги проверки действия для алкогольной продукции акцизной маркий</string>
+    <string name="alco_barcode_2_ciril">Серия штрих кода (2 кириллические символы)</string>
+    <string name="alco_part1">1 часть кода</string>
+    <string name="alco_part2">2 часть кода</string>
+    <string name="alco_part3">3 часть кода</string>
+    <string name="alco_textInfo_1">Какой код на рисунке?*</string>
+    <string name="alco_textInfo_2">Введите буквы, показанные на изображении.</string>
+
+
+
+    <!--Common strings-->
+    <string name="comm_btn_find">Проверить</string>
+
 </resources>
