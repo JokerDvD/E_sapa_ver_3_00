@@ -65,7 +65,7 @@ public class MyAdapter extends FragmentPagerAdapter {
             case 6:
                 return settings.newInstance(position);
             default:
-                return ValidateTabacco.newInstance(position);
+                return settings.newInstance(position);
             }
 
     }
