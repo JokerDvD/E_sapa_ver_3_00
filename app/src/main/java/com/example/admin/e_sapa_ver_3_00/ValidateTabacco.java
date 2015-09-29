@@ -1,5 +1,6 @@
 package com.example.admin.e_sapa_ver_3_00;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,6 +29,9 @@ public class ValidateTabacco extends Fragment {
         pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
     }
 
+    static String getTitle(Context context,int position){
+        return "Page "+String.valueOf(position+1);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

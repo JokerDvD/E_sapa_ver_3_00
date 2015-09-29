@@ -12,7 +12,7 @@ public class Fragment_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
         ViewPager pager=(ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        pager.setAdapter(new MyAdapter(this,getSupportFragmentManager()));
     }
 
     @Override
