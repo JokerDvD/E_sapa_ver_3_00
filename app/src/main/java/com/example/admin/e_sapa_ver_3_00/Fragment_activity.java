@@ -23,7 +23,7 @@ public class Fragment_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
-        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
 //        pager.setPageTransformer(true, new ZoomOutPageTransformer());
         pager.setPageTransformer(true, new DepthPageTransformer());
@@ -33,15 +33,15 @@ public class Fragment_activity extends AppCompatActivity {
         )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public boolean onItemClick(AdapterView<?> adapterView, View view, int i, long l, IDrawerItem drawerItem) {
+                    public boolean onItemClick(AdapterView<?> adapterView, View view, int position, long l, IDrawerItem drawerItem) {
 
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable)
                                         drawerItem).getNameRes());
+                                pager.setCurrentItem(position);
                             }
                         }
-
                         return false;
                     }
                 });
