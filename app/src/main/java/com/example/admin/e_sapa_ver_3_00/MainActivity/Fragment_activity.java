@@ -29,7 +29,6 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 public class Fragment_activity extends AppCompatActivity {
     private Toolbar toolbar;
-    private DrawerBuilder builder;
     private Drawer drawer;
 
     @Override
@@ -37,6 +36,7 @@ public class Fragment_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        setToolbar();
         viewPager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -56,7 +56,6 @@ public class Fragment_activity extends AppCompatActivity {
         });
         viewPager.setPageTransformer(true, new DepthPageTransformer());
         viewPager.setCurrentItem(0);
-        setToolbar();
         navigationDrawer(viewPager);
 
     }
@@ -169,6 +168,7 @@ public class Fragment_activity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle(R.string.nav_home);
     }
 
     @Override
