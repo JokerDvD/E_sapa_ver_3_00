@@ -80,6 +80,5 @@ public class MyAdapter extends FragmentPagerAdapter {
                 return settings.getTitle(context, position);
 
         }
-//        return (ValidateTabacco.getTitle(context, position));
     }
 }

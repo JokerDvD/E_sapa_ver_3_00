@@ -10,6 +10,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
+import com.example.admin.e_sapa_ver_3_00.Fragments.barcode;
+import com.example.admin.e_sapa_ver_3_00.Fragments.history;
+import com.example.admin.e_sapa_ver_3_00.Fragments.home;
+import com.example.admin.e_sapa_ver_3_00.Fragments.qrcode;
+import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
+import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.DepthPageTransformer;
@@ -29,13 +36,60 @@ public class Fragment_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
-        final ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
-//        pager.setPageTransformer(true, new ZoomOutPageTransformer());
-        pager.setPageTransformer(true, new DepthPageTransformer());
-        setToolbar();
-        navigationDrawer(pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                setCurrentPage(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        viewPager.setPageTransformer(true, new DepthPageTransformer());
+        viewPager.setCurrentItem(0);
+        setToolbar();
+        navigationDrawer(viewPager);
+
+    }
+
+    private void setCurrentPage(int position) {
+        String toolbarString;
+        switch (position) {
+            case 0:
+                toolbarString = home.getTitle(getBaseContext(), position);
+                break;
+            case 1:
+                toolbarString = qrcode.getTitle(getBaseContext(), position);
+                break;
+            case 2:
+                toolbarString = (barcode.getTitle(getBaseContext(), position));
+                break;
+            case 3:
+                toolbarString = (tabacco.getTitle(getBaseContext(), position));
+                break;
+            case 4:
+                toolbarString = alcohol.getTitle(getBaseContext(), position);
+                break;
+            case 5:
+                toolbarString = history.getTitle(getBaseContext(), position);
+                break;
+            case 6:
+                toolbarString = settings.getTitle(getBaseContext(), position);
+                break;
+            default:
+                toolbarString = settings.getTitle(getBaseContext(), position);
+                break;
+        }
+        toolbar.setTitle(toolbarString);
     }
 
     private void navigationDrawer(final ViewPager pager) {
@@ -60,11 +114,15 @@ public class Fragment_activity extends AppCompatActivity {
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable) drawerItem).getNameRes());
-                                pager.setCurrentItem(position);
-                                int content=drawer.getDrawerItems().get(position).getIdentifier();
-                                if(content==1){
-                                    Toast.makeText(Fragment_activity.this,"Content "+content,Toast.LENGTH_LONG).show();
+                                if (position == 10) {
+                                    finish();
+                                } else {
+                                    setCurrentFragment(position, pager);
                                 }
+                                int content = drawer.getDrawerItems().get(position).getIdentifier();
+                               /* if (content == 1) {
+                                    Toast.makeText(Fragment_activity.this, "Content " + content, Toast.LENGTH_LONG).show();
+                                }*/
                             }
 
                             Toast.makeText(Fragment_activity.this, " Фрагмент " + position, Toast.LENGTH_LONG).show();
@@ -72,8 +130,39 @@ public class Fragment_activity extends AppCompatActivity {
                         return false;
                     }
                 }).build();
-       /* drawer = builder.build();
-        drawer.setSelection(5);*/
+            drawer.setSelection(0);
+    }
+
+    private void setCurrentFragment(int position, ViewPager pager) {
+        int page;
+        switch (position) {
+            case 0:
+                page = 0;
+                break;
+            case 2:
+                page = 1;
+                break;
+            case 3:
+                page = 2;
+                break;
+            case 4:
+                page = 3;
+                break;
+            case 5:
+                page = 4;
+                break;
+            case 7:
+                page = 5;
+                break;
+            case 9:
+                page = 6;
+                break;
+            default:
+                Toast.makeText(Fragment_activity.this, "Position " + position, Toast.LENGTH_LONG).show();
+                page = 0;
+                break;
+        }
+        pager.setCurrentItem(page);
     }
 
     private void setToolbar() {

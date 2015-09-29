@@ -12,6 +12,7 @@ import com.example.admin.e_sapa_ver_3_00.R;
 public class barcode extends Fragment {
 
     private int pageNumber;
+    private static String fragment_name;
 
     public static barcode newInstance(int page) {
         barcode fragment = new barcode();
@@ -31,7 +32,8 @@ public class barcode extends Fragment {
     }
 
     public static String getTitle(Context context,int position){
-        return "Page "+String.valueOf(position+1);
+        fragment_name=context.getResources().getString(R.string.nav_brandcode);
+        return fragment_name;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

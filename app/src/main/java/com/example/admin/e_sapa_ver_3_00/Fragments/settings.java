@@ -32,7 +32,8 @@ public class settings extends Fragment {
     }
 
     public static String getTitle(Context context,int position){
-        return "Page "+String.valueOf(position+1);
+String fragment_name=context.getString(R.string.action_settings);
+    return fragment_name;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
