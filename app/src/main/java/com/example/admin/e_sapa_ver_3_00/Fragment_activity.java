@@ -13,6 +13,9 @@ public class Fragment_activity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment_activity);
         ViewPager pager=(ViewPager)findViewById(R.id.pager);
         pager.setAdapter(new MyAdapter(this,getSupportFragmentManager()));
+//        pager.setPageTransformer(true, new ZoomOutPageTransformer());
+        pager.setPageTransformer(true,new DepthPageTransformer());
+
     }
 
     @Override
