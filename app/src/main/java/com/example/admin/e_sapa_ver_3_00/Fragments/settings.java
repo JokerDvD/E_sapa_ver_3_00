@@ -14,8 +14,8 @@ public class settings extends Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static settings newInstance(int page) {
+        settings fragment = new settings();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);

@@ -13,8 +13,8 @@ public class history extends Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static history newInstance(int page) {
+        history fragment = new history();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);

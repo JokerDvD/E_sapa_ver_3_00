@@ -13,8 +13,8 @@ public class alcohol extends Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static alcohol newInstance(int page) {
+        alcohol fragment = new alcohol();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);

@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.admin.e_sapa_ver_3_00.R;
 
@@ -38,8 +37,8 @@ public class ValidateTabacco extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result=inflater.inflate(R.layout.fragment_validate_tabacco, container, false);
-        TextView pageHeader=(TextView)result.findViewById(R.id.displayText);
-        pageHeader.setText("Фрагмент " + String.valueOf(pageNumber+1));
+       /* TextView pageHeader=(TextView)result.findViewById(R.id.displayText);
+        pageHeader.setText("Фрагмент " + String.valueOf(pageNumber+1));*/
         return result;
     }
 }

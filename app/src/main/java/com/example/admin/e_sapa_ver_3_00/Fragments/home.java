@@ -13,8 +13,8 @@ public class home extends Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static home newInstance(int page) {
+        home fragment = new home();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);

@@ -13,8 +13,8 @@ public class tabacco extends Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static tabacco newInstance(int page) {
+        tabacco fragment = new tabacco();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);

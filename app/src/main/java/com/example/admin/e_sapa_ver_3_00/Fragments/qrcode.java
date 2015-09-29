@@ -12,8 +12,8 @@ public class qrcode extends android.support.v4.app.Fragment {
 
     private int pageNumber;
 
-    public static ValidateTabacco newInstance(int page) {
-        ValidateTabacco fragment = new ValidateTabacco();
+    public static qrcode newInstance(int page) {
+        qrcode fragment = new qrcode();
         Bundle args=new Bundle();
         args.putInt("num", page);
         fragment.setArguments(args);
