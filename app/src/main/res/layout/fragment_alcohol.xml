@@ -20,7 +20,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/background_with_shadow_backround"
             android:orientation="vertical">
 
             <TextView
@@ -31,7 +30,7 @@
                 android:gravity="center"
                 android:text="@string/alco_header"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/TF_color" />
+                android:textColor="@color/Main_text_color" />
 
 
         </LinearLayout>
@@ -44,15 +43,14 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/background_with_shadow_backround">
+            android:layout_marginTop="5dp">
 
             <com.rey.material.widget.EditText
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:focusable="true"
@@ -62,11 +60,108 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/ET_inserting_text_color"
                 android:textColorHint="@color/ET_divider_color"
-                app:et_dividerColor="@color/ET_hint_color"
+                app:et_dividerColor="@color/ET_divider_color"
                 app:et_dividerErrorColor="@color/ET_divider_error_color"
                 app:et_dividerHeight="2dp"
                 app:et_supportMaxChars="3"
-                app:et_supportMode="charCounter" />
+                app:et_supportMode="charCounter"
+                android:id="@+id/view" />
+            <!--android:id="@+id/view" -->
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/view"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/part1a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/alco_part1"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/part2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/part1a"
+                    android:layout_marginRight="10dp"
+
+                    android:layout_toEndOf="@+id/part1a"
+                    android:layout_toRightOf="@+id/part1a"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/alco_part2"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/part3a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/part2a"
+                    android:layout_marginRight="10dp"
+                    android:layout_toEndOf="@+id/part2a"
+                    android:layout_toRightOf="@+id/part2a"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/alco_part3"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/alco_textInfo_1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/Main_text_color" />
+
+            <ImageView
+                android:id="@+id/captcha_image"
+                android:layout_width="180px"
+                android:layout_height="60px"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
 import com.example.admin.e_sapa_ver_3_00.Fragments.barcode;
@@ -20,6 +21,10 @@ public class MyAdapter extends FragmentPagerAdapter {
     public MyAdapter(Context context, FragmentManager mgr) {
         super(mgr);
         this.context = context;
+    }
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        super.destroyItem(container, position, object);
     }
 
     @Override
