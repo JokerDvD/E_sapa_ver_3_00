@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
 import com.example.admin.e_sapa_ver_3_00.R;
@@ -38,7 +39,7 @@ public class Fragment_activity extends AppCompatActivity {
     }
 
     private void navigationDrawer(final ViewPager pager) {
-        builder = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
+        drawer = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_home).withName(R.string.nav_home).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_qrcode).withName(R.string.nav_qrcode).setEnabled(true),
@@ -46,7 +47,7 @@ public class Fragment_activity extends AppCompatActivity {
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_alcohol).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_history).setEnabled(true).withIdentifier(1),
                 new SectionDrawerItem().withName(R.string.action_settings),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_settings).withName(R.string.action_settings).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_exit_to_app).withName(R.string.nav_exit).setEnabled(true)
@@ -58,18 +59,21 @@ public class Fragment_activity extends AppCompatActivity {
 
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
-                                toolbar.setTitle(((Nameable)
-                                        drawerItem).getNameRes());
+                                toolbar.setTitle(((Nameable) drawerItem).getNameRes());
                                 pager.setCurrentItem(position);
+                                int content=drawer.getDrawerItems().get(position).getIdentifier();
+                                if(content==1){
+                                    Toast.makeText(Fragment_activity.this,"Content "+content,Toast.LENGTH_LONG).show();
+                                }
                             }
+
+                            Toast.makeText(Fragment_activity.this, " Фрагмент " + position, Toast.LENGTH_LONG).show();
                         }
                         return false;
                     }
-                })
-
-        ;
-
-        drawer = builder.build();
+                }).build();
+       /* drawer = builder.build();
+        drawer.setSelection(5);*/
     }
 
     private void setToolbar() {

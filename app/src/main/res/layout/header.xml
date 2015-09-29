@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,4 +11,15 @@
     android:adjustViewBounds="true"
     android:orientation="vertical"
     android:scaleType="fitCenter"
-    android:src="@drawable/logo_main"></ImageView>
+    android:src="@drawable/logo_main"
+    android:id="@+id/imageView"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prod by Slamaka"
+        android:id="@+id/textView"
+        android:layout_below="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
+</RelativeLayout>

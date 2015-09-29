@@ -17,7 +17,7 @@
     <string name="nav_exit">Выход</string>
     <string name="nav_history">История</string>
     <string name="nav_SectionDrawerItemValidate">Проверка Продукта</string>
-    <string name="nav_SectionDrawerItemHistory">Исория проверок</string>
+    <string name="nav_SectionDrawerItemHistory">История проверок</string>
 
 
 </resources>
