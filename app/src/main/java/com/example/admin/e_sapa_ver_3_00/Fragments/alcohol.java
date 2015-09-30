@@ -81,6 +81,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private String alco_captcha_text;
     private Document doc;
     private List<String> alco_list_response = new ArrayList<>();
+    private String alco_captcha_referrer;
 
 
     public alcohol() {
@@ -114,20 +115,23 @@ public class alcohol extends Fragment implements View.OnClickListener {
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             view = inflater.inflate(R.layout.fragment_alcohol, container, false);
 
+            alco_connection = new Connection();
+            gps_class = new GPS(getActivity());
+
             animationBase = AnimationUtils.loadAnimation(getActivity(), R.anim.down_anim);
             alco_header = (LinearLayout) view.findViewById(R.id.alco_header);
             alco_header.startAnimation(animationBase);
 
             alco_response = (RelativeLayout) view.findViewById(R.id.alco_response);
-            alco_response.setVisibility(View.GONE);
+
 
             alco_list_view = (ListView) view.findViewById(R.id.alco_list_view);
+            alco_list_view.setVisibility(View.GONE);
+
             RelativeLayout RL = (RelativeLayout) view.findViewById(R.id.alco_body);
             RL.startAnimation(animationBase);
 
             db_helper_class = new dbFuncClass(getActivity());
-            alco_connection = new Connection();
-            gps_class = new GPS(getActivity());
             positive_response = getResources().getStringArray(R.array.common_array_1);
 
             alco_image_captcha = (ImageView) view.findViewById(R.id.alco_captcha_image);
@@ -141,6 +145,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_part_3t = (EditText) view.findViewById(R.id.alco_part3a);
 
             alco_result = (TextView) view.findViewById(R.id.alco_result);
+            alco_result.setVisibility(View.GONE);
             alco_series_label = (EditText) view.findViewById(R.id.alco_series_label);
 
             new alco_get_captcha_1().execute();
@@ -155,7 +160,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0) {
+        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length()!=0) {
 
             if (gps_class.canGetLocation()) {
                 alco_result.setVisibility(View.GONE);
@@ -163,8 +168,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
                 alco_series_Numeration = alco_part_1t.getText().toString().replaceAll(" ", "") + alco_part_2t.getText().toString().replaceAll(" ", "") + alco_part_3t.getText().toString().replaceAll(" ", "");
                 alco_series_label_text = alco_series_label.getText().toString().replaceAll(" ", "");
                 alco_captcha_text = alco_text_captcha.getText().toString().replaceAll(" ", "");
-                new alco_get_captcha_2().execute();
                 new alco_validaty().execute(alco_captcha_text);
+                new alco_get_captcha_2().execute();
 
 
             } else {
@@ -186,7 +191,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
     private class alco_get_captcha_1 extends AsyncTask<Void, Void, String> {
 
-        private String alcp_captcha_referrer;
 
         @Override
         protected void onPreExecute() {
@@ -231,13 +235,13 @@ public class alcohol extends Fragment implements View.OnClickListener {
                     }
                 }
                 Elements img = divCaptcha.select("img").eq(0);
-                alcp_captcha_referrer = img.attr("src");
+                alco_captcha_referrer = img.attr("src");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return alcp_captcha_referrer;
+            return alco_captcha_referrer;
         }
 
         @Override
@@ -255,7 +259,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
     private class alco_get_captcha_2 extends AsyncTask<Void, Void, String> {
 
-        private String alcp_captcha_referrer;
+
 
         @Override
         protected String doInBackground(Void... params) {
@@ -291,13 +295,13 @@ public class alcohol extends Fragment implements View.OnClickListener {
                     }
                 }
                 Elements img = divCaptcha.select("img").eq(0);
-                alcp_captcha_referrer = img.attr("src");
+                alco_captcha_referrer = img.attr("src");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return alcp_captcha_referrer;
+            return alco_captcha_referrer;
         }
 
         @Override
@@ -370,9 +374,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
                             alco_list_view.setVisibility(View.VISIBLE);
                             alco_list_view.setAdapter(alco_adapter);
 
-                            alco_result.setAnimation(animationBase);
+                            alco_result.startAnimation(animationBase);
                             alco_result.setVisibility(View.GONE);
-                            alco_result.clearAnimation();
                         } else {
 
                             alco_result.setVisibility(View.VISIBLE);
