@@ -41,6 +41,35 @@
     <string name="tabac_part2">2 часть кода</string>
     <string name="tabac_part3">3 часть кода</string>
     <string name="tabac_part4">4 часть кода</string>
+
+    <string-array name="tabac_city">
+        <item>Выберите город</item>
+        <item>Актау</item>
+        <item>Актобе</item>
+        <item>Атырау</item>
+        <item>Алматы</item>
+        <item>Астана</item>
+        <item>Караганда</item>
+        <item>Кокшетау</item>
+        <item>Костанай</item>
+        <item>Кызылорда</item>
+        <item>Павлодар</item>
+        <item>етропавлск</item>
+        <item>Талдыкорган</item>
+        <item>Тараз</item>
+        <item>Уральск</item>
+        <item>Уст-Каменагорск</item>
+        <item>Шимкен</item>
+        <item>Семипалатинск</item>
+        <item>Туркистан</item>
+        <item>Екибастуз</item>
+        <item>Рудный</item>
+        <item>Жанаозен</item>
+        <item>Темиртау</item>
+        <item>Жесказган</item>
+        <item>Балхаш</item>
+        <item>Кентау</item>
+    </string-array>
     <!--Common strings-->
     <string name="comm_btn_find">Проверить</string>
 

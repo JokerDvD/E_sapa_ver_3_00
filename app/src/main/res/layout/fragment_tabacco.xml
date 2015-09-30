@@ -1,10 +1,213 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.admin.e_sapa_ver_3_00.Fragments.tabacco">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/tabac_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/tabac_textInfo_1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/Main_text_color" />
+
+
+            <ImageView
+                android:id="@+id/imageCaptcha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/logo_main" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tabac_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tabac_header">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView3"
+                android:orientation="horizontal">
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/tabac_part1t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:hint="@string/tabac_part1"
+                    android:inputType="textCapCharacters"
+                    android:maxEms="3"
+                    android:maxLength="3"
+                    android:minEms="3"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/tabac_input1"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/tabac_part2t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:hint="@string/tabac_part2"
+                    android:inputType="textCapCharacters"
+                    android:maxEms="3"
+                    android:maxLength="3"
+                    android:minEms="3"
+
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/tabac_input2"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/tabac_part3t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:hint="@string/tabac_part3"
+                    android:inputType="textCapCharacters"
+                    android:maxEms="3"
+                    android:maxLength="3"
+                    android:minEms="3"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/tabac_input3"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/tabac_part4t"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:hint="@string/tabac_part4"
+                    android:inputType="textCapCharacters"
+                    android:maxEms="3"
+                    android:maxLength="3"
+                    android:minEms="3"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/tabac_input4"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_with_shadow_backround"
+                android:src="@drawable/tabacco_barcode" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_margin="10dp"
+                android:text="@string/tabac_textInfo_2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/TF_color" />
+
+            <com.rey.material.widget.Button
+                android:id="@+id/tabac_sendrequest_btn"
+                style="Material.Drawable.Ripple.Touch.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tabac_spinner"
+                android:layout_margin="10dp"
+                android:text="@string/comm_btn_find"
+                android:textColor="@color/BTN_text_color"
+                app:rd_enable="true"
+                app:rd_rippleType="wave" />
+
+
+            <com.rey.material.widget.Spinner
+                android:id="@+id/tabac_spinner"
+                style="@style/Material.Widget.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView4"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                app:rd_style="@style/Material.Drawable.Ripple.Wave"
+                app:spn_label="Города"
+                app:spn_labelEnable="true" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
