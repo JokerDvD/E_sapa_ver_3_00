@@ -32,6 +32,43 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color" />
 
+            <ImageView
+                android:layout_width="326px"
+                android:layout_height="139px"
+                android:id="@+id/imageView2"
+                android:background="@drawable/akscis_rk_1"
+                android:layout_gravity="center_horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/captcha_image"
+                android:layout_marginTop="10dp">
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/alco_twoCirilic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:hint="@string/alco_barcode_2_ciril"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/ET_inserting_text_color"
+                    android:textColorHint="@color/ET_divider_color"
+                    app:et_dividerColor="@color/ET_divider_color"
+                    app:et_dividerErrorColor="@color/ET_divider_error_color"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/name_input"
+                    app:et_supportMaxChars="3"
+                    app:et_supportMode="charCounter" />
+            </RelativeLayout>
+
 
         </LinearLayout>
 
@@ -39,51 +76,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginRight="10dp">
 
-            <com.rey.material.widget.EditText
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:focusable="true"
-                android:hint="@string/alco_barcode_2_ciril"
-                android:inputType="textPersonName"
-                android:maxLength="10"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/ET_inserting_text_color"
-                android:textColorHint="@color/ET_divider_color"
-                app:et_dividerColor="@color/ET_divider_color"
-                app:et_dividerErrorColor="@color/ET_divider_error_color"
-                app:et_dividerHeight="2dp"
-                app:et_supportMaxChars="3"
-                app:et_supportMode="charCounter"
-                android:id="@+id/view" />
-            <!--android:id="@+id/view" -->
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/view"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
 
                 <com.rey.material.widget.EditText
-                    android:id="@+id/part1a"
+                    android:id="@+id/alco_part1a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/view"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:ems="10"
@@ -96,18 +105,14 @@
                     app:et_dividerColor="@color/ET_divider_color"
                     app:et_dividerErrorColor="@color/ET_divider_error_color"
                     app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/name_input2"
                     app:et_supportMaxChars="3"
                     app:et_supportMode="charCounter" />
 
                 <com.rey.material.widget.EditText
-                    android:id="@+id/part2a"
+                    android:id="@+id/alco_part2a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/part1a"
-                    android:layout_marginRight="10dp"
-
-                    android:layout_toEndOf="@+id/part1a"
-                    android:layout_toRightOf="@+id/part1a"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/alco_part2"
@@ -119,17 +124,16 @@
                     app:et_dividerColor="@color/ET_divider_color"
                     app:et_dividerErrorColor="@color/ET_divider_error_color"
                     app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/name_input3"
                     app:et_supportMaxChars="3"
                     app:et_supportMode="charCounter" />
 
                 <com.rey.material.widget.EditText
-                    android:id="@+id/part3a"
+                    android:id="@+id/alco_part3a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/part2a"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toEndOf="@+id/part2a"
-                    android:layout_toRightOf="@+id/part2a"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/alco_part3"
@@ -141,6 +145,7 @@
                     app:et_dividerColor="@color/ET_divider_color"
                     app:et_dividerErrorColor="@color/ET_divider_error_color"
                     app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/name_input4"
                     app:et_supportMaxChars="3"
                     app:et_supportMode="charCounter" />
             </LinearLayout>
@@ -153,15 +158,51 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/alco_textInfo_1"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color" />
 
             <ImageView
                 android:id="@+id/captcha_image"
                 android:layout_width="180px"
                 android:layout_height="60px"
+                android:background="@drawable/logo_main"
                 android:layout_below="@+id/textView2"
                 android:layout_centerHorizontal="true" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/captchaEdit"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/captcha_image"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:ems="10"
+                android:hint="@string/alco_textInfo_2"
+                android:inputType="textPersonName"
+                android:maxLength="7"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/ET_inserting_text_color"
+                android:textColorHint="@color/ET_divider_color"
+                app:et_dividerColor="@color/ET_divider_color"
+                app:et_dividerErrorColor="@color/ET_divider_error_color"
+                app:et_dividerHeight="2dp"
+                app:et_supportMode="charCounter"
+                app:et_inputId="@+id/name_input5"
+                />
+            <com.rey.material.widget.Button
+                android:id="@+id/sendRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="Material.Drawable.Ripple.Touch.Light"
+                app:rd_enable="true"
+                android:text="@string/comm_btn_find"
+                android:textColor="@color/BTN_text_color"
+                android:layout_below="@+id/captchaEdit"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                app:rd_rippleType="wave" />
+
+
 
         </RelativeLayout>
 

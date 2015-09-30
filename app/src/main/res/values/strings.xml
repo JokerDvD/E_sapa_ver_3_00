@@ -29,7 +29,18 @@
     <string name="alco_textInfo_2">Введите буквы, показанные на изображении.</string>
 
 
+    <!--Tabacco fragments-->
 
+    <string name="tabac_textInfo_1">Проверка учета и контроля марок на алкогольную продукцию</string>
+    <string name="tabac_textInfo_2">* (код расположен в нижней части пачки сигарет. Код состоит из 12 символов, а именно, 4 части по 3 символов)</string>
+    <!--<string name="tabac_textInfo_2"></string>
+    <string name="tabac_textInfo_2"></string>
+    <string name="tabac_textInfo_2"></string>
+    <string name="tabac_textInfo_2"></string>-->
+    <string name="tabac_part1">1 часть кода</string>
+    <string name="tabac_part2">2 часть кода</string>
+    <string name="tabac_part3">3 часть кода</string>
+    <string name="tabac_part4">4 часть кода</string>
     <!--Common strings-->
     <string name="comm_btn_find">Проверить</string>
 
