@@ -8,13 +8,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <LinearLayout
-            android:id="@+id/header"
+            android:id="@+id/alco_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -28,17 +28,17 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="@string/alco_header"
+                android:text="@string/alco_text_info_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color" />
 
             <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="326px"
                 android:layout_height="139px"
-                android:id="@+id/imageView2"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/background_with_shadow_backround"
-                android:src="@drawable/akscis_rk_1"
-                android:layout_gravity="center_horizontal" />
+                android:src="@drawable/akscis_rk_1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -49,14 +49,14 @@
                 android:layout_marginTop="10dp">
 
                 <com.rey.material.widget.EditText
-                    android:id="@+id/alco_twoCirilic"
+                    android:id="@+id/alco_series_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
                     android:focusable="true"
-                    android:hint="@string/alco_barcode_2_ciril"
+                    android:hint="@string/alco_text_info_2"
                     android:inputType="textPersonName"
                     android:maxLength="10"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -77,9 +77,9 @@
             android:id="@+id/alco_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/header"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/alco_header"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -159,27 +159,27 @@
                 android:layout_below="@+id/linearLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/alco_textInfo_1"
+                android:text="@string/alco_text_info_3"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color" />
 
             <ImageView
-                android:id="@+id/captcha_image"
+                android:id="@+id/alco_captcha_image"
                 android:layout_width="180px"
                 android:layout_height="60px"
-                android:background="@drawable/logo_main"
                 android:layout_below="@+id/textView2"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/logo_main" />
 
             <com.rey.material.widget.EditText
-                android:id="@+id/captchaEdit"
+                android:id="@+id/alco_captcha_text"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/captcha_image"
+                android:layout_below="@+id/alco_captcha_image"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:ems="10"
-                android:hint="@string/alco_textInfo_2"
+                android:hint="@string/alco_text_info_4"
                 android:inputType="textPersonName"
                 android:maxLength="7"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -188,26 +188,59 @@
                 app:et_dividerColor="@color/ET_divider_color"
                 app:et_dividerErrorColor="@color/ET_divider_error_color"
                 app:et_dividerHeight="2dp"
-                app:et_supportMode="charCounter"
                 app:et_inputId="@+id/name_input5"
-                />
+                app:et_supportMode="charCounter" />
+
             <com.rey.material.widget.Button
-                android:id="@+id/sendRequest"
+                android:id="@+id/alco_button"
+                style="Material.Drawable.Ripple.Touch.Light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="Material.Drawable.Ripple.Touch.Light"
-                app:rd_enable="true"
-                android:text="@string/comm_btn_find"
-                android:textColor="@color/BTN_text_color"
-                android:layout_below="@+id/captchaEdit"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                app:rd_rippleType="wave"
+                android:layout_below="@+id/alco_captcha_text"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginTop="10dp"
+                android:text="@string/comm_btn_find"
+                android:textColor="@color/BTN_text_color"
+                app:rd_enable="true"
+                app:rd_rippleType="wave" />
 
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/alco_response"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/alco_body">
+
+            <ListView
+                android:id="@+id/alco_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_with_shadow_backround"
+                android:cacheColorHint="@color/hint_text"
+                android:divider="@color/divider"
+                android:dividerHeight="2dp"
+                 />
+
+            <TextView
+
+                android:id="@+id/alco_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/alco_list_view"
+                android:layout_margin="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
         </RelativeLayout>

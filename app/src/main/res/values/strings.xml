@@ -20,13 +20,14 @@
     <string name="nav_SectionDrawerItemHistory">История проверок</string>
 
     <!--Alcohol fragment-->
-    <string name="alco_header">Услуги проверки действия для алкогольной продукции акцизной маркий</string>
-    <string name="alco_barcode_2_ciril">Серия штрих кода (2 кириллические символы)</string>
+    <string name="alco_text_info_1">Услуги проверки действия для алкогольной продукции акцизной маркий</string>
+    <string name="alco_text_info_2">Серия штрих кода (2 кириллические символы)</string>
     <string name="alco_part1">1 часть кода</string>
     <string name="alco_part2">2 часть кода</string>
     <string name="alco_part3">3 часть кода</string>
-    <string name="alco_textInfo_1">Какой код на рисунке?*</string>
-    <string name="alco_textInfo_2">Введите буквы, показанные на изображении.</string>
+    <string name="alco_text_info_3">Какой код на рисунке?*</string>
+    <string name="alco_text_info_4">Введите буквы, показанные на изображении.</string>
+    <string name="alco_text_info_5">Загрузка...</string>
 
 
     <!--Tabacco fragments-->
@@ -41,6 +42,22 @@
     <string name="tabac_part2">2 часть кода</string>
     <string name="tabac_part3">3 часть кода</string>
     <string name="tabac_part4">4 часть кода</string>
+
+
+    <!--Common strings-->
+    <string name="comm_btn_find">Проверить</string>
+    <string name="comm_no_gps">Подключите GPS </string>
+
+    <!--Common array-->
+    <array name="common_array_1">
+        <item>Город</item>
+        <item>Компания</item>
+        <item>Продукт</item>
+        <item>Этикетка</item>
+        <item>Литр</item>
+        <item>Дата Производства</item>
+        <item>Дата Годности</item>
+    </array>
 
     <string-array name="tabac_city">
         <item>Выберите город</item>
@@ -70,7 +87,11 @@
         <item>Балхаш</item>
         <item>Кентау</item>
     </string-array>
-    <!--Common strings-->
-    <string name="comm_btn_find">Проверить</string>
 
+    <!--Setting fragment-->
+
+    <string name="set_info_1">Выберите тему</string>
+    <string name="set_info_2">Настройки</string>
+    <string name="set_info_3">"Экран Настройки</string>
+    <string name="set_info_4">Выберите язык</string>
 </resources>
