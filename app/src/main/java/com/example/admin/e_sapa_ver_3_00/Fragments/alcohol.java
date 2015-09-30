@@ -160,7 +160,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length()!=0) {
+        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length()!=0 && alco_series_label_text.length()!=0) {
 
             if (gps_class.canGetLocation()) {
                 alco_result.setVisibility(View.GONE);
@@ -179,11 +179,12 @@ public class alcohol extends Fragment implements View.OnClickListener {
             }
 
         } else {
-            YoYo.with(Techniques.BounceInRight).duration(1000).playOn(alco_part_1t);
-            YoYo.with(Techniques.BounceInRight).duration(1000).playOn(alco_part_2t);
-            YoYo.with(Techniques.BounceInRight).duration(1000).playOn(alco_part_3t);
-            YoYo.with(Techniques.BounceInRight).duration(1000).playOn(alco_text_captcha);
-            YoYo.with(Techniques.BounceInRight).duration(1000).playOn(alco_image_captcha);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_part_1t);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_part_2t);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_part_3t);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_series_label);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_text_captcha);
+            YoYo.with(Techniques.Bounce).duration(1000).playOn(alco_image_captcha);
 
         }
 
@@ -307,6 +308,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
         @Override
         protected void onPostExecute(String url) {
             super.onPostExecute(url);
+            alco_text_captcha.setText("");
             Picasso.with(getActivity())
                     .load("http://kgd.gov.kz" + url)
                     .placeholder(R.drawable.logo_main)

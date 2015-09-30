@@ -1,15 +1,15 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.rey.material.widget.Spinner;
 
 public class tabacco extends Fragment {
 
@@ -39,16 +39,21 @@ public class tabacco extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tabacco, container, false);
-        tabac_spinner = (Spinner) view.findViewById(R.id.tabac_spinner);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.tabac_city, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tabac_spinner.setAdapter(adapter);
-//        tabac_spinner.setAnimation();
+        View view = inflater.inflate(R.layout.fragment_tabacco, container, false);
+
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+
+        } else {
+            view = inflater.inflate(R.layout.no_connection_layout, container,
+                    false);
+        }
+
+
         return view;
     }
 }
