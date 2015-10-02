@@ -94,4 +94,16 @@
     <string name="set_info_2">Настройки</string>
     <string name="set_info_3">"Экран Настройки</string>
     <string name="set_info_4">Выберите язык</string>
+
+    <!--History fragment-->
+
+    <string name="history_info_1">Выберите Штрих код</string>
+    <string name="history_info_2">Штрих Код</string>
+    <string name="history_info_3">Результат запроса</string>
+    <string name="history_info_4">Информация о продукте</string>
+    <string name="history_info_5">Очистить всю карту</string>
+    <string name="history_info_6">Поставить все точки сканирования</string>
+    <string name="history_info_Main">История</string>
+
+
 </resources>

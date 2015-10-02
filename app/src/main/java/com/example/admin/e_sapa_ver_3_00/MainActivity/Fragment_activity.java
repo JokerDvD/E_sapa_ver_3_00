@@ -263,10 +263,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alco_series_label:
-                viewPager.setCurrentItem(4);
+                viewPager.setCurrentItem(3);
                 break;
             case R.id.alco_result:
-                viewPager.setCurrentItem(5);
+                viewPager.setCurrentItem(4);
                 break;
             case R.id.alco_part1a:
                 viewPager.setCurrentItem(6);
