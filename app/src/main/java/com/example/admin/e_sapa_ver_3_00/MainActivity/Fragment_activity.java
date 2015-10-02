@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
@@ -26,16 +27,20 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
-public class Fragment_activity extends AppCompatActivity {
+public class Fragment_activity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
     private Drawer drawer;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager = (ViewPager) findViewById(R.id.pager);
         setToolbar();
         viewPager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -46,7 +51,7 @@ public class Fragment_activity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                setCurrentPage(position);
+                setCurrentPageTitle(position);
             }
 
             @Override
@@ -57,10 +62,54 @@ public class Fragment_activity extends AppCompatActivity {
         viewPager.setPageTransformer(true, new DepthPageTransformer());
         viewPager.setCurrentItem(0);
         navigationDrawer(viewPager);
+        CircularFloatingActionMenu();
 
     }
 
-    private void setCurrentPage(int position) {
+    private void CircularFloatingActionMenu() {
+        ImageView imageView = new ImageView(this);
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
+
+        FloatingActionButton actionButton = new FloatingActionButton.Builder(this).setContentView(imageView).build();
+
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+
+        ImageView imageView1 = new ImageView(this);
+        imageView1.setImageDrawable(getResources().getDrawable(R.drawable.ic_smoking));
+        SubActionButton btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
+
+        ImageView imageView2 = new ImageView(this);
+        imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_martini));
+        SubActionButton btn2 = new SubActionButton.Builder(this).setContentView(imageView2).build();
+
+        ImageView imageView3 = new ImageView(this);
+        imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+        SubActionButton btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
+
+        btn1.setOnClickListener(this);
+
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+
+        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
+                .addSubActionView(btn1).addSubActionView(btn2).addSubActionView(btn3).attachTo(actionButton).build();
+
+        actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
+            @Override
+            public void onMenuOpened(FloatingActionMenu floatingActionMenu) {
+
+            }
+
+            @Override
+            public void onMenuClosed(FloatingActionMenu floatingActionMenu) {
+
+            }
+        });
+
+
+    }
+
+    private void setCurrentPageTitle(int position) {
         String toolbarString;
         switch (position) {
             case 0:
@@ -129,7 +178,7 @@ public class Fragment_activity extends AppCompatActivity {
                         return false;
                     }
                 }).build();
-            drawer.setSelection(0);
+        drawer.setSelection(0);
     }
 
     private void setCurrentFragment(int position, ViewPager pager) {
@@ -200,5 +249,12 @@ public class Fragment_activity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        int test=v.getId();
+        Toast.makeText(Fragment_activity.this, "Создание фрагмента ="+test, Toast.LENGTH_LONG).show();
     }
 }

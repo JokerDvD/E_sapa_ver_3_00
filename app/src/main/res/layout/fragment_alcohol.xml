@@ -30,7 +30,8 @@
                 android:gravity="center"
                 android:text="@string/alco_text_info_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Main_text_color" />
+                android:textColor="@color/Main_text_color"
+                />
 
             <ImageView
                 android:id="@+id/imageView2"
