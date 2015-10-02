@@ -35,6 +35,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private Toolbar toolbar;
     private Drawer drawer;
     private ViewPager viewPager;
+    private SubActionButton btn1, btn2, btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,20 +77,26 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
         ImageView imageView1 = new ImageView(this);
         imageView1.setImageDrawable(getResources().getDrawable(R.drawable.ic_smoking));
-        SubActionButton btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
+
+        btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
 
         ImageView imageView2 = new ImageView(this);
         imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_martini));
-        SubActionButton btn2 = new SubActionButton.Builder(this).setContentView(imageView2).build();
+        btn2 = new SubActionButton.Builder(this).setContentView(imageView2).build();
 
         ImageView imageView3 = new ImageView(this);
         imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        SubActionButton btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
+        btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
+        btn3.setMinimumHeight(50);
+        btn3.setMinimumWidth(50);
 
         btn1.setOnClickListener(this);
-
+        btn1.setId(R.id.alco_series_label);
         btn2.setOnClickListener(this);
+        btn2.setId(R.id.alco_result);
         btn3.setOnClickListener(this);
+        btn3.setId(R.id.alco_part1a);
+
 
         FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(btn1).addSubActionView(btn2).addSubActionView(btn3).attachTo(actionButton).build();
@@ -254,7 +261,16 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        int test=v.getId();
-        Toast.makeText(Fragment_activity.this, "Создание фрагмента ="+test, Toast.LENGTH_LONG).show();
+        switch (v.getId()) {
+            case R.id.alco_series_label:
+                viewPager.setCurrentItem(4);
+                break;
+            case R.id.alco_result:
+                viewPager.setCurrentItem(5);
+                break;
+            case R.id.alco_part1a:
+                viewPager.setCurrentItem(6);
+                break;
+        }
     }
 }
