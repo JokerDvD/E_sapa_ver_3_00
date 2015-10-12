@@ -160,7 +160,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length()!=0 && alco_series_label_text.length()!=0) {
+        if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length()!=0 && alco_series_label.length()!=0) {
 
             if (gps_class.canGetLocation()) {
                 alco_result.setVisibility(View.GONE);
@@ -385,7 +385,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                             Elements divResults = doc.select("div#results");
                             Elements pure_form = divResults.select("p");
-
+                            db_helper_class.writeSQLITE(alco_series_label_text+alco_series_Numeration,false,pure_form.toString(),resourceFile.latitude,resourceFile.longitude);
                             alco_result.setText(Html.fromHtml(pure_form.toString()));
 
                             alco_list_view.setVisibility(View.GONE);
@@ -395,6 +395,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                         alco_result.setVisibility(View.VISIBLE);
                         alco_result.setText(Html.fromHtml(data));
+                        db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
 
                         alco_list_view.setVisibility(View.GONE);
 

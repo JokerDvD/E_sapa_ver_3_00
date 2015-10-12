@@ -103,7 +103,10 @@
     <string name="history_info_4">Информация о продукте</string>
     <string name="history_info_5">Очистить всю карту</string>
     <string name="history_info_6">Поставить все точки сканирования</string>
+    <string name="history_info_7">Положительная</string>
+    <string name="history_info_8">Отрицательная</string>
     <string name="history_info_Main">История</string>
+
 
 
 </resources>

@@ -27,8 +27,10 @@
 
 
 
+    <!--Histiory color-->
 
-
+    <color name="hist_positive_color">#3fdd3d</color>
+    <color name="hist_negative_color">#dd213b</color>
     <!--ViewPager color-->
     <color name="vp_color_back">#F5F5F5</color>
     <color name="vp_white">#ffffff</color>
