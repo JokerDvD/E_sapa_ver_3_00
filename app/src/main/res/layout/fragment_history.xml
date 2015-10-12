@@ -149,13 +149,11 @@
                 android:textColor="@color/Main_text_color"
                 android:textSize="23dp" />
 
-            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+            <fragment
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:id="@+id/map"
-                tools:context=".MapsActivity"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:name="com.google.android.gms.maps.MapFragment"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
         </RelativeLayout>
