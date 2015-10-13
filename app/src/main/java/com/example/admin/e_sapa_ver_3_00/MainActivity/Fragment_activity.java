@@ -20,7 +20,7 @@ import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.DepthPageTransformer;
+import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.ZoomOutPageTransformer;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -62,7 +62,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
             }
         });
-        viewPager.setPageTransformer(true, new DepthPageTransformer());
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setCurrentItem(0);
         navigationDrawer(viewPager);
         CircularFloatingActionMenu();
@@ -99,13 +99,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();
 
-        ImageView imageView6 = new ImageView(this);
-        imageView6.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        btn6 = new SubActionButton.Builder(this).setContentView(imageView6).build();
 
-        ImageView imageView7 = new ImageView(this);
-        imageView7.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        btn7 = new SubActionButton.Builder(this).setContentView(imageView7).build();
 
 
         btn1.setOnClickListener(this);
@@ -122,8 +116,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 .addSubActionView(btn3)
                 .addSubActionView(btn4)
                 .addSubActionView(btn5)
-                .addSubActionView(btn6)
-                .addSubActionView(btn7)
                 .setAnimationHandler(new DefaultAnimationHandler())
                 .setRadius(150)
 //                .setStartAngle(0)
@@ -284,7 +276,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         if (drawer.isDrawerOpen()) {
             drawer.closeDrawer();
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            Toast.makeText(this, "Зачем ты жмешь это?!", Toast.LENGTH_LONG).show();
         }
     }
 

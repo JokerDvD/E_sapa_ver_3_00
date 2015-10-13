@@ -2,6 +2,7 @@ package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
@@ -43,6 +44,7 @@ public class history extends Fragment implements View.OnClickListener {
     private dbFuncClass funcClass;
     private Animation animation;
     private RelativeLayout history_rl_2;
+    private Location hist_location;
 
     public history() {
     }
@@ -98,12 +100,12 @@ public class history extends Fragment implements View.OnClickListener {
                 spinner.removeView(view);
                 history_rl_2.setVisibility(View.INVISIBLE);
                 history_rl_2.startAnimation(animation);
-                dbObject dbObject = funcClass.getDataObject(position+1);
-                if (position+1 == 1) {
+                dbObject dbObject = funcClass.getDataObject(position + 1);
+                if (position + 1 == 1) {
 
                     history_rl_2.setVisibility(View.GONE);
                     history_rl_2.startAnimation(animation);
-                    Toast.makeText(getActivity(),R.string.history_info_1,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), R.string.history_info_1, Toast.LENGTH_LONG).show();
 
 
                 } else {
@@ -121,8 +123,10 @@ public class history extends Fragment implements View.OnClickListener {
                 }
             }
         });
+
         createMap();
         setPoint();
+
         return view;
     }
 
@@ -137,6 +141,9 @@ public class history extends Fragment implements View.OnClickListener {
                 if (googleMap.equals(null)) {
                     Toast.makeText(getActivity(), "Error  creating map", Toast.LENGTH_LONG).show();
                 }
+
+                hist_location = googleMap.getMyLocation();
+
             }
         } catch (NullPointerException exception) {
             Log.d(resourceFile.LOG_TAG, exception.toString());
@@ -177,4 +184,5 @@ public class history extends Fragment implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
     }
+
 }

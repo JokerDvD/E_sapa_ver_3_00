@@ -85,11 +85,21 @@
                 android:layout_margin="10dp" />
 
             <ListView
-                android:id="@+id/list"
+                android:id="@+id/setting_list_view"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_below="@+id/set_test_text"
                 android:layout_margin="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:textColor="@color/hist_positive_color"
+                android:id="@+id/textView9"
+                android:layout_below="@+id/setting_list_view"
+                android:layout_centerHorizontal="true" />
 
 
         </RelativeLayout>

@@ -28,6 +28,7 @@
     <string name="alco_text_info_3">Какой код на рисунке?*</string>
     <string name="alco_text_info_4">Введите буквы, показанные на изображении.</string>
     <string name="alco_text_info_5">Загрузка...</string>
+    <string name="alco_text_info_6">Загружаем Рисунок для ввода </string>
 
 
     <!--Tabacco fragments-->
@@ -109,5 +110,19 @@
     <string name="history_info_Main">История</string>
 
 
+    <!--Setting fragment-->
+    <array name="setting_lang">
+        <item>Казахский</item>
+        <item>Русский</item>
+        <item>Англииский</item>
+    </array>
+
+    <array name="setting_theme">
+        <item> Тема 1</item>
+        <item> Тема 2</item>
+        <item> Тема 3</item>
+        <item> Тема 4</item>
+        <item> Тема 5</item>
+    </array>
 
 </resources>
