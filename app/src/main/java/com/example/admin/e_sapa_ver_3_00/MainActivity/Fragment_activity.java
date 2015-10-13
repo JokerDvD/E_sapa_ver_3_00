@@ -30,12 +30,14 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.animation.DefaultAnimationHandler;
 
 public class Fragment_activity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
     private Drawer drawer;
     private ViewPager viewPager;
-    private SubActionButton btn1, btn2, btn3;
+    private SubActionButton btn1, btn2, btn3, btn4, btn5;
+    private SubActionButton btn6, btn7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +74,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
 
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this).setContentView(imageView).build();
-
+        actionButton.setBottom(50);
+        actionButton.setRight(50);
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView imageView1 = new ImageView(this);
@@ -87,8 +90,23 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         ImageView imageView3 = new ImageView(this);
         imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
-        btn3.setMinimumHeight(50);
-        btn3.setMinimumWidth(50);
+
+        ImageView imageView4 = new ImageView(this);
+        imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+        btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
+
+        ImageView imageView5 = new ImageView(this);
+        imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+        btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();
+
+        ImageView imageView6 = new ImageView(this);
+        imageView6.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+        btn6 = new SubActionButton.Builder(this).setContentView(imageView6).build();
+
+        ImageView imageView7 = new ImageView(this);
+        imageView7.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+        btn7 = new SubActionButton.Builder(this).setContentView(imageView7).build();
+
 
         btn1.setOnClickListener(this);
         btn1.setId(R.id.alco_series_label);
@@ -99,7 +117,19 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
 
         FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
-                .addSubActionView(btn1).addSubActionView(btn2).addSubActionView(btn3).attachTo(actionButton).build();
+                .addSubActionView(btn1)
+                .addSubActionView(btn2)
+                .addSubActionView(btn3)
+                .addSubActionView(btn4)
+                .addSubActionView(btn5)
+                .addSubActionView(btn6)
+                .addSubActionView(btn7)
+                .setAnimationHandler(new DefaultAnimationHandler())
+                .setRadius(150)
+//                .setStartAngle(0)
+//                .setEndAngle(90)
+                .attachTo(actionButton)
+                .build();
 
         actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
             @Override

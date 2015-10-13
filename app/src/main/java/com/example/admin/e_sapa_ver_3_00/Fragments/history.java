@@ -98,18 +98,27 @@ public class history extends Fragment implements View.OnClickListener {
                 spinner.removeView(view);
                 history_rl_2.setVisibility(View.INVISIBLE);
                 history_rl_2.startAnimation(animation);
-                dbObject dbObject = funcClass.getDataObject(position);
-                if (dbObject.getResult().equals("1")) {
-                    history_text_view_1.setText(R.string.history_info_7);
-                    history_text_view_1.setTextColor(getResources().getColor(R.color.hist_positive_color));
-                    history_text_view_2.setText(dbObject.getDataofresult());
-                } else {
-                    history_text_view_1.setText(R.string.history_info_8);
-                    history_text_view_1.setTextColor(getResources().getColor(R.color.hist_negative_color));
-                    history_text_view_2.setText(Html.fromHtml(dbObject.getDataofresult()));
-                }
+                dbObject dbObject = funcClass.getDataObject(position+1);
+                if (position+1 == 1) {
 
-                getMapPoints(position);
+                    history_rl_2.setVisibility(View.GONE);
+                    history_rl_2.startAnimation(animation);
+                    Toast.makeText(getActivity(),R.string.history_info_1,Toast.LENGTH_LONG).show();
+
+
+                } else {
+                    if (dbObject.getResult().equals("1")) {
+                        history_text_view_1.setText(R.string.history_info_7);
+                        history_text_view_1.setTextColor(getResources().getColor(R.color.hist_positive_color));
+                        history_text_view_2.setText(dbObject.getDataofresult());
+                    } else {
+                        history_text_view_1.setText(R.string.history_info_8);
+                        history_text_view_1.setTextColor(getResources().getColor(R.color.hist_negative_color));
+                        history_text_view_2.setText(Html.fromHtml(dbObject.getDataofresult()));
+                    }
+
+                    getMapPoints(position);
+                }
             }
         });
         createMap();

@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.dbObject.dbObject;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -41,6 +42,7 @@ public class dbFuncClass {
         Log.d(LOG_SQLITE, "Reade SQLITE DB data");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
+            crudList.add("Нажмите сюда");
 
             codeColIndex = cursor.getColumnIndex(tag_code);
 
