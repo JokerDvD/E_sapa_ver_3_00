@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -31,7 +32,6 @@ import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.github.rahatarmanahmed.cpv.CircularProgressViewListener;
 import com.rey.material.widget.Button;
-import com.rey.material.widget.EditText;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -68,7 +68,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private ImageView alco_image_captcha;
     private EditText alco_text_captcha;
     private Button alco_button;
-    private EditText alco_part_1t;
+    private android.widget.EditText alco_part_1t;
     private EditText alco_part_2t;
     private EditText alco_part_3t;
     private TextView alco_result;
@@ -78,7 +78,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private String captcha_sid;
     private String captchaReferrer;
     private String alco_series_Numeration;
-    private EditText alco_series_label;
+    private android.widget.EditText alco_series_label;
     private String alco_series_label_text;
     private String alco_captcha_text;
     private Document doc;
@@ -175,7 +175,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
             alco_result = (TextView) view.findViewById(R.id.alco_result);
             alco_result.setVisibility(View.GONE);
-            alco_series_label = (EditText) view.findViewById(R.id.alco_series_label);
+            alco_series_label = (android.widget.EditText) view.findViewById(R.id.alco_series_label);
 
             new alco_get_captcha_1().execute();
         } else {
@@ -191,7 +191,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
         if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length() != 0 && alco_series_label.length() != 0) {
 
-            if (!gps_class.canGetLocation()) {
+            if (gps_class.canGetLocation()) {
                 alco_result.setVisibility(View.GONE);
                 alco_list_view.setVisibility(View.GONE);
                 alco_series_Numeration = alco_part_1t.getText().toString().replaceAll(" ", "") + alco_part_2t.getText().toString().replaceAll(" ", "") + alco_part_3t.getText().toString().replaceAll(" ", "");

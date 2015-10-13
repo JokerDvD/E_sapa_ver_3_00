@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -48,26 +48,26 @@
                 android:layout_below="@+id/captcha_image"
                 android:layout_marginTop="10dp">
 
-                <com.rey.material.widget.EditText
-                    android:id="@+id/alco_series_label"
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:focusable="true"
-                    android:hint="@string/alco_text_info_2"
-                    android:inputType="textPersonName"
-                    android:maxLength="10"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/name_input"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:layout_margin="10dp">
+
+                    <EditText
+                        android:id="@+id/alco_series_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:ems="10"
+                        android:focusable="true"
+                        android:hint="@string/alco_text_info_2"
+                        android:inputType="textPersonName"
+                        android:maxLength="10"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </RelativeLayout>
 
 
@@ -91,10 +91,17 @@
                 android:layout_alignParentStart="true"
                 android:orientation="horizontal">
 
-                <com.rey.material.widget.EditText
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <EditText
                     android:id="@+id/alco_part1a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:ems="10"
@@ -103,19 +110,17 @@
                     android:maxLength="5"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/name_input2"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:textColorHint="@color/ET_divider_color" />
 
-                <com.rey.material.widget.EditText
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <EditText
                     android:id="@+id/alco_part2a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/alco_part2"
@@ -123,18 +128,17 @@
                     android:maxLength="5"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/name_input3"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:textColorHint="@color/ET_divider_color" />
 
-                <com.rey.material.widget.EditText
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <EditText
                     android:id="@+id/alco_part3a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
@@ -144,13 +148,7 @@
                     android:maxLength="5"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/name_input4"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:textColorHint="@color/ET_divider_color" />
             </LinearLayout>
 
 
@@ -167,7 +165,8 @@
                     android:layout_height="60px"
                     android:layout_below="@+id/textView2"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/logo_main" />
+                    android:background="@drawable/logo_main"
+                    android:layout_margin="10dp" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -180,7 +179,37 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/Main_text_color" />
 
-                <com.rey.material.widget.EditText
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <com.rey.material.widget.Button
+                    android:id="@+id/alco_button"
+                    style="Material.Drawable.Ripple.Touch.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comm_btn_find"
+                    android:textColor="@color/BTN_text_color"
+                    app:rd_enable="true"
+                    app:rd_rippleType="wave"
+                    android:layout_below="@+id/alco_captcha_text"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="10dp" />
+
+                <com.github.rahatarmanahmed.cpv.CircularProgressView
+                    android:id="@+id/progress_view"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/alco_captcha_image"
+                    android:layout_centerHorizontal="true"
+                    app:cpv_animAutostart="true"
+                    app:cpv_indeterminate="true"
+                    android:layout_margin="10dp" />
+
+                <EditText
                     android:id="@+id/alco_captcha_text"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -192,35 +221,9 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/ET_inserting_text_color"
                     android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/name_input5"
-                    app:et_supportMode="charCounter"
                     android:layout_below="@+id/progress_view"
-                    android:layout_centerHorizontal="true" />
-
-                <com.rey.material.widget.Button
-                    android:id="@+id/alco_button"
-                    style="Material.Drawable.Ripple.Touch.Light"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/alco_captcha_text"
-                    android:text="@string/comm_btn_find"
-                    android:textColor="@color/BTN_text_color"
-                    app:rd_enable="true"
-                    app:rd_rippleType="wave" />
-
-                <com.github.rahatarmanahmed.cpv.CircularProgressView
-                    android:id="@+id/progress_view"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cpv_animAutostart="true"
-                    app:cpv_indeterminate="true"
-                    android:layout_below="@+id/alco_captcha_image"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp" />
             </RelativeLayout>
 
 
@@ -260,4 +263,4 @@
         </RelativeLayout>
 
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

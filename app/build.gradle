@@ -51,6 +51,10 @@ dependencies {
 
     /*Progress bar*/
     compile 'com.github.rahatarmanahmed:circularprogressview:2.4.0'
+
+    /*Edit Text*/
+    compile 'com.wrapp.floatlabelededittext:library:0.0.6'
+
 }
 
 
