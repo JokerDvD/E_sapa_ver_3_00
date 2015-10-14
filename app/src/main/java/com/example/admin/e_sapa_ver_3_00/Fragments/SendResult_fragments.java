@@ -23,12 +23,6 @@ public class SendResult_fragments extends DialogFragment implements DialogInterf
 
         view = getActivity().getLayoutInflater()
                 .inflate(R.layout.send_request_fragments, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        return (builder.setTitle(R.string.srf_text_info_1).setView(view).setPositiveButton(R.string.srf_text_info_2, this).create());
-    }
-
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
         srf_edit_text_1=(EditText)view.findViewById(R.id.TextContactName);
         srf_edit_text_2=(EditText)view.findViewById(R.id.TextContactPhone);
         srf_edit_text_3=(EditText)view.findViewById(R.id.TextEmail);
@@ -38,5 +32,12 @@ public class SendResult_fragments extends DialogFragment implements DialogInterf
         Bundle supicode=getArguments();
 
         srf_edit_text_6.setText(supicode.getString("BarCode"));
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        return (builder.setTitle(R.string.srf_text_info_1).setView(view).setPositiveButton(R.string.srf_text_info_2, this).create());
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
     }
 }

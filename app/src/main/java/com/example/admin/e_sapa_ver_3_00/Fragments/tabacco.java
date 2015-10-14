@@ -190,7 +190,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("BarCode", resourceFile.BatchStatus + " " + resourceFile.BrandDescription);
+                                bundle.putString("BarCode", resourceFile.SupiCode);
 
                                 srf = new SendResult_fragments();
                                 srf.setArguments(bundle);
