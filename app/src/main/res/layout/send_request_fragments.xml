@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SendrequestLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="aonit.ex2dcode.SendRequestActivity.SendRequestForReviewActivity">
+
+    <EditText
+        android:id="@+id/TextContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:hint="@string/srf_text_info_3"
+        android:inputType="textPersonName"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+    <EditText
+        android:id="@+id/TextContactPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TextContactName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TextContactName"
+        android:layout_below="@+id/TextContactName"
+        android:ems="10"
+        android:hint="@string/srf_text_info_4"
+        android:inputType="phone"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+    <EditText
+        android:id="@+id/TextDescription1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TextContactPhone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TextContactPhone"
+        android:layout_below="@+id/TextContactPhone"
+        android:ems="10"
+        android:hint="@string/srf_text_info_5"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+    <EditText
+        android:id="@+id/TextEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TextDescription1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TextDescription1"
+        android:layout_below="@+id/TextDescription1"
+        android:ems="10"
+        android:hint="@string/srf_text_info_6"
+        android:inputType="textPersonName"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+    <EditText
+        android:id="@+id/TextLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TextEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TextEmail"
+        android:layout_below="@+id/TextEmail"
+        android:ems="10"
+        android:hint="@string/srf_text_info_7"
+        android:inputType="textPersonName"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+    <EditText
+        android:id="@+id/TextPuidType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TextLocation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/TextLocation"
+        android:layout_below="@+id/TextLocation"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/ET_inserting_text_color"
+        android:textColorHint="@color/ET_divider_color" />
+
+</RelativeLayout>

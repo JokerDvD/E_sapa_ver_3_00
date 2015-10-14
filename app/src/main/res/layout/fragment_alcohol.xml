@@ -61,6 +61,7 @@
                         android:layout_marginTop="10dp"
                         android:ems="10"
                         android:focusable="true"
+                        android:gravity="center"
                         android:hint="@string/alco_text_info_2"
                         android:inputType="textPersonName"
                         android:maxLength="10"
@@ -93,62 +94,70 @@
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/alco_part1a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/alco_part1"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/alco_part2a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/alco_part2"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/alco_part3a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/alco_part3"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
 
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-                <EditText
-                    android:id="@+id/alco_part1a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/alco_part1"
-                    android:inputType="number"
-                    android:maxLength="5"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color" />
-
-                <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.wrapp.floatlabelededittext.FloatLabeledEditText>
-
-                <EditText
-                    android:id="@+id/alco_part2a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/alco_part2"
-                    android:inputType="number"
-                    android:maxLength="5"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color" />
-
-                <com.wrapp.floatlabelededittext.FloatLabeledEditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.wrapp.floatlabelededittext.FloatLabeledEditText>
-
-                <EditText
-                    android:id="@+id/alco_part3a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/alco_part3"
-                    android:inputType="number"
-                    android:maxLength="5"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color" />
             </LinearLayout>
 
 
@@ -165,8 +174,8 @@
                     android:layout_height="60px"
                     android:layout_below="@+id/textView2"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/logo_main"
-                    android:layout_margin="10dp" />
+                    android:layout_margin="10dp"
+                    android:background="@drawable/logo_main" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -180,6 +189,7 @@
                     android:textColor="@color/Main_text_color" />
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:id="@+id/view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
@@ -190,14 +200,14 @@
                     style="Material.Drawable.Ripple.Touch.Light"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/progress_view"
+                    android:layout_marginTop="68dp"
+                    android:layout_toEndOf="@+id/view"
+                    android:layout_toRightOf="@+id/view"
                     android:text="@string/comm_btn_find"
                     android:textColor="@color/BTN_text_color"
                     app:rd_enable="true"
-                    app:rd_rippleType="wave"
-                    android:layout_below="@+id/alco_captcha_text"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_margin="10dp" />
+                    app:rd_rippleType="wave" />
 
                 <com.github.rahatarmanahmed.cpv.CircularProgressView
                     android:id="@+id/progress_view"
@@ -205,25 +215,33 @@
                     android:layout_height="60dp"
                     android:layout_below="@+id/alco_captcha_image"
                     android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
                     app:cpv_animAutostart="true"
-                    app:cpv_indeterminate="true"
-                    android:layout_margin="10dp" />
+                    app:cpv_indeterminate="true" />
 
-                <EditText
-                    android:id="@+id/alco_captcha_text"
-                    android:layout_width="300dp"
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:ems="10"
-                    android:hint="@string/alco_text_info_4"
-                    android:inputType="textPersonName"
-                    android:maxLength="7"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
+                    android:layout_weight="1"
                     android:layout_below="@+id/progress_view"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp" />
+                    android:layout_centerHorizontal="true">
+
+                    <EditText
+                        android:id="@+id/alco_captcha_text"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/progress_view"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:ems="10"
+                        android:hint="@string/alco_text_info_4"
+                        android:inputType="textPersonName"
+                        android:maxLength="7"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
             </RelativeLayout>
 
 

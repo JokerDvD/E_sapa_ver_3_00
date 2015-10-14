@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -64,95 +64,91 @@
                 android:layout_below="@+id/imageView3"
                 android:orientation="horizontal">
 
-                <com.rey.material.widget.EditText
-                    android:id="@+id/tabac_part1t"
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:hint="@string/tabac_part1"
-                    android:inputType="textCapCharacters"
-                    android:maxEms="3"
-                    android:maxLength="3"
-                    android:minEms="3"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/tabac_input1"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:layout_weight="1">
 
-                <com.rey.material.widget.EditText
-                    android:id="@+id/tabac_part2t"
+                    <EditText
+                        android:id="@+id/tabac_part1t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/tabac_part1"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:hint="@string/tabac_part2"
-                    android:inputType="textCapCharacters"
-                    android:maxEms="3"
-                    android:maxLength="3"
-                    android:minEms="3"
+                    android:layout_weight="1">
 
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/tabac_input2"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    <EditText
+                        android:id="@+id/tabac_part2t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/tabac_part2"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-                <com.rey.material.widget.EditText
-                    android:id="@+id/tabac_part3t"
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:hint="@string/tabac_part3"
-                    android:inputType="textCapCharacters"
-                    android:maxEms="3"
-                    android:maxLength="3"
-                    android:minEms="3"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/tabac_input3"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:layout_weight="1">
 
-                <com.rey.material.widget.EditText
-                    android:id="@+id/tabac_part4t"
+                    <EditText
+                        android:id="@+id/tabac_part3t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/tabac_part3"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:hint="@string/tabac_part4"
-                    android:inputType="textCapCharacters"
-                    android:maxEms="3"
-                    android:maxLength="3"
-                    android:minEms="3"
-                    android:textColor="@color/ET_inserting_text_color"
-                    android:textColorHint="@color/ET_divider_color"
-                    app:et_dividerColor="@color/ET_divider_color"
-                    app:et_dividerErrorColor="@color/ET_divider_error_color"
-                    app:et_dividerHeight="2dp"
-                    app:et_inputId="@+id/tabac_input4"
-                    app:et_supportMaxChars="3"
-                    app:et_supportMode="charCounter" />
+                    android:layout_weight="1">
 
+                    <EditText
+                        android:id="@+id/tabac_part4t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/tabac_part4"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/ET_inserting_text_color"
+                        android:textColorHint="@color/ET_divider_color" />
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
 
             <ImageView
@@ -171,6 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:gravity="center"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/linearLayout2"
                 android:layout_margin="10dp"
@@ -185,29 +182,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/tabac_spinner"
                 android:layout_margin="10dp"
                 android:text="@string/comm_btn_find"
                 android:textColor="@color/BTN_text_color"
                 app:rd_enable="true"
-                app:rd_rippleType="wave" />
-
-
-            <com.rey.material.widget.Spinner
-                android:id="@+id/tabac_spinner"
-                style="@style/Material.Widget.Spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView4"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
-                app:rd_style="@style/Material.Drawable.Ripple.Wave"
-                app:spn_label="Города"
-                app:spn_labelEnable="true" />
+                app:rd_rippleType="wave"
+                android:layout_below="@+id/textView4" />
 
 
         </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

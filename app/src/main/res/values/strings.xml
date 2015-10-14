@@ -35,19 +35,25 @@
 
     <string name="tabac_textInfo_1">Проверка учета и контроля марок на алкогольную продукцию</string>
     <string name="tabac_textInfo_2">* (код расположен в нижней части пачки сигарет. Код состоит из 12 символов, а именно, 4 части по 3 символов)</string>
-    <!--<string name="tabac_textInfo_2"></string>
-    <string name="tabac_textInfo_2"></string>
-    <string name="tabac_textInfo_2"></string>
-    <string name="tabac_textInfo_2"></string>-->
+    <string name="tabac_textInfo_3">Контрафактный товар</string>
+    <string name="tabac_textInfo_4">Сообщить о контрафакте Госорганам. они че нить точно сделают</string>
+    <string name="tabac_textInfo_5">Не отправлять уведомление</string>
+    <string name="tabac_textInfo_6">Отправить уведомление </string>
+    <string name="tabac_textInfo_7">Перейти в настройки сети ? </string>
+    <string name="tabac_textInfo_8">Перейти в настройки сети</string>
+    <string name="tabac_textInfo_9">Подключите Интернет</string>
+
     <string name="tabac_part1">1 часть кода</string>
     <string name="tabac_part2">2 часть кода</string>
     <string name="tabac_part3">3 часть кода</string>
     <string name="tabac_part4">4 часть кода</string>
 
-
     <!--Common strings-->
     <string name="comm_btn_find">Проверить</string>
+    <string name="comm_text_CANCEL">Проверить</string>
+    <string name="comm_text_SEND">Отправить</string>
     <string name="comm_no_gps">Подключите GPS </string>
+    <string name="comm_no_choose_city">Не был выбран Город</string>
 
     <!--Common array-->
     <array name="common_array_1">
@@ -118,11 +124,21 @@
     </array>
 
     <array name="setting_theme">
-        <item> Тема 1</item>
-        <item> Тема 2</item>
-        <item> Тема 3</item>
-        <item> Тема 4</item>
-        <item> Тема 5</item>
+        <item>Тема 1</item>
+        <item>Тема 2</item>
+        <item>Тема 3</item>
+        <item>Тема 4</item>
+        <item>Тема 5</item>
     </array>
+
+    <!--Send request fragment-->
+        <string name="srf_text_info_1">Окно отправки уведомления</string>
+        <string name="srf_text_info_2">Отправить</string>
+        <string name="srf_text_info_3">Контактное Имя</string>
+        <string name="srf_text_info_4">Контактный номер</string>
+        <string name="srf_text_info_5">Электронная почта</string>
+        <string name="srf_text_info_6">Расположение</string>
+        <string name="srf_text_info_7">Описание</string>
+
 
 </resources>
