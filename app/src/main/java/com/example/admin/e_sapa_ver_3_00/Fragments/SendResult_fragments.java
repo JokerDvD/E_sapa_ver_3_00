@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.admin.e_sapa_ver_3_00.R;
 
@@ -17,7 +18,8 @@ import com.example.admin.e_sapa_ver_3_00.R;
 
 public class SendResult_fragments extends DialogFragment implements DialogInterface.OnClickListener,DialogInterface.OnDismissListener {
     private View view;
-    private EditText srf_edit_text_1,srf_edit_text_2,srf_edit_text_3,srf_edit_text_4,srf_edit_text_5,srf_edit_text_6;
+    private EditText srf_edit_text_1,srf_edit_text_2,srf_edit_text_3,srf_edit_text_4,srf_edit_text_5;
+    private TextView srf_edit_text_6;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -28,7 +30,7 @@ public class SendResult_fragments extends DialogFragment implements DialogInterf
         srf_edit_text_3=(EditText)view.findViewById(R.id.TextEmail);
         srf_edit_text_4=(EditText)view.findViewById(R.id.TextLocation);
         srf_edit_text_5=(EditText)view.findViewById(R.id.TextDescription1);
-        srf_edit_text_6=(EditText)view.findViewById(R.id.TextPuidType);
+        srf_edit_text_6=(TextView)view.findViewById(R.id.TextPuidType);
         Bundle supicode=getArguments();
 
         srf_edit_text_6.setText(supicode.getString("BarCode"));
@@ -38,6 +40,22 @@ public class SendResult_fragments extends DialogFragment implements DialogInterf
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
+        srf_func_showdialog();
 
+    }
+
+    private void srf_func_showdialog() {
+        final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+
+        builder.setTitle(R.string.srf_text_info_8)
+                .setCancelable(true)
+                .setTitle(R.string.srf_text_info_9)
+                .setNegativeButton(R.string.comm_ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        builder.show();
     }
 }

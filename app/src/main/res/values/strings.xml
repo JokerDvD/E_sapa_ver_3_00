@@ -54,6 +54,7 @@
     <string name="comm_text_SEND">Отправить</string>
     <string name="comm_no_gps">Подключите GPS </string>
     <string name="comm_no_choose_city">Не был выбран Город</string>
+    <string name="comm_ok">Ok</string>
 
     <!--Common array-->
     <array name="common_array_1">
@@ -129,6 +130,7 @@
         <item>Тема 3</item>
         <item>Тема 4</item>
         <item>Тема 5</item>
+        <item>Тема 6</item>
     </array>
 
     <!--Send request fragment-->
@@ -139,6 +141,9 @@
         <string name="srf_text_info_5">Электронная почта</string>
         <string name="srf_text_info_6">Расположение</string>
         <string name="srf_text_info_7">Описание</string>
+        <string name="srf_text_info_8">Успешно</string>
+        <string name="srf_text_info_9">Мы зарегистрировали вашу заявку</string>
+        <string name="srf_text_info_10">Штрих код</string>
 
 
 </resources>

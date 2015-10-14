@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -91,13 +89,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
 
-        ImageView imageView4 = new ImageView(this);
+       /* ImageView imageView4 = new ImageView(this);
         imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
 
         ImageView imageView5 = new ImageView(this);
         imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();
+        btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();*/
 
 
 
@@ -114,8 +112,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 .addSubActionView(btn1)
                 .addSubActionView(btn2)
                 .addSubActionView(btn3)
-                .addSubActionView(btn4)
-                .addSubActionView(btn5)
+                /*.addSubActionView(btn4)
+                .addSubActionView(btn5)*/
                 .setAnimationHandler(new DefaultAnimationHandler())
                 .setRadius(150)
 //                .setStartAngle(0)
@@ -249,7 +247,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         toolbar.setTitle(R.string.nav_home);
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_fragment_activity, menu);
@@ -269,7 +267,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @Override
     public void onBackPressed() {

@@ -27,14 +27,17 @@ public class settings extends Fragment {
     private int pageNumber;
     private preferenceSave_Load pref;
     private Spinner setting_spinner;
-    private String[] setting_lis_lang,setting_list_theme;
+    private String[] setting_lis_lang, setting_list_theme;
     private ListView setting_list_view;
     private TextView textView;
-    private Integer[] setting_image={R.color.background_1,
-    R.color.accent,
-    R.drawable.bigbang,
-    R.drawable.bigbang,
-    R.drawable.bigbang,
+    private Integer[] setting_image = {
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic6,
+            R.drawable.pic7,
     };
 
     public settings() {
@@ -64,10 +67,10 @@ public class settings extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        textView=(TextView)view.findViewById(R.id.textView9);
+        textView = (TextView) view.findViewById(R.id.textView9);
 
         setting_lis_lang = getActivity().getResources().getStringArray(R.array.setting_lang);
-        setting_list_theme=getActivity().getResources().getStringArray(R.array.setting_theme);
+        setting_list_theme = getActivity().getResources().getStringArray(R.array.setting_theme);
 
         setting_spinner = (Spinner) view.findViewById(R.id.set_lang_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, setting_lis_lang);
@@ -111,8 +114,8 @@ public class settings extends Fragment {
             }
         });
 
-        CustomList setting_customList=new CustomList(getActivity(),setting_list_theme,setting_image);
-        setting_list_view=(ListView)view.findViewById(R.id.setting_list_view);
+        CustomList setting_customList = new CustomList(getActivity(), setting_list_theme, setting_image);
+        setting_list_view = (ListView) view.findViewById(R.id.setting_list_view);
 
         setting_list_view.setAdapter(setting_customList);
         setting_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -123,13 +126,33 @@ public class settings extends Fragment {
                 int themeIndex;
                 switch (position) {
                     case 0:
-                        themeIndex=R.color.background_1;
+                        themeIndex = R.drawable.pic1;
+                        break;
+                    case 1:
+                        themeIndex = R.drawable.pic2;
+                        break;
+                    case 2:
+                        themeIndex = R.drawable.pic3;
+                        break;
+                    case 3:
+                        themeIndex = R.drawable.pic4;
+                        break;
+
+                    case 4:
+                        themeIndex = R.drawable.pic5;
                         break;
                     case 5:
-                        themeIndex = R.color.accent;
+                        themeIndex = R.drawable.pic6;
                         break;
+                    case 6:
+                        themeIndex = R.drawable.pic7;
+                        break;
+                    case 7:
+                        themeIndex = R.drawable.pic8;
+                        break;
+
                     default:
-                        themeIndex=R.color.background_2;
+                        themeIndex = R.color.background_2;
                         break;
                 }
 //                pref.saveThemeTag(resourceFile.theme_tag, themeIndex);
