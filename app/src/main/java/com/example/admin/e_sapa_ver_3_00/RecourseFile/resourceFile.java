@@ -30,4 +30,5 @@ public class resourceFile {
     public static String ajaxreferrer="http://kgd.gov.kz/ru/system/ajax";
     public static double latitude;
     public static double longitude;
+    public static String pageN_tag;
 }

@@ -1,5 +1,6 @@
 package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,8 @@ import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
 import com.example.admin.e_sapa_ver_3_00.R;
+import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
+import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
 import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.ZoomOutPageTransformer;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -30,24 +33,29 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.animation.DefaultAnimationHandler;
 
+import java.util.Locale;
+
 public class Fragment_activity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
     private Drawer drawer;
+    private preferenceSave_Load pref;
     private ViewPager viewPager;
     private SubActionButton btn1, btn2, btn3, btn4, btn5;
     private SubActionButton btn6, btn7;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
+        pref = new preferenceSave_Load(this);
+
         viewPager = (ViewPager) findViewById(R.id.pager);
         setToolbar();
         viewPager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -64,7 +72,30 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         viewPager.setCurrentItem(0);
         navigationDrawer(viewPager);
         CircularFloatingActionMenu();
+        setBackground();
+        setLanguage();
 
+    }
+
+    private void setLanguage() {
+        pref.loadLangTag(resourceFile.lang_tag, "ru");
+        int page = pref.loadPageN(resourceFile.pageN_tag, 0);
+        if (page == 0) {
+            Toast.makeText(this, "Toast make text", Toast.LENGTH_LONG).show();
+        } else if(page ==6){
+            Locale locale = new Locale(pref.loadLangTag(resourceFile.lang_tag, "ru"));
+            Locale.setDefault(locale);
+            Configuration configuration = new Configuration();
+            configuration.locale = locale;
+            getBaseContext().getResources().updateConfiguration(configuration, null);
+
+            pref.savePageNum(resourceFile.pageN_tag, 0);
+            viewPager.setCurrentItem(6);
+        }
+    }
+
+    private void setBackground() {
+        getWindow().getDecorView().setBackgroundResource(pref.loadThemeTag(resourceFile.theme_tag, R.drawable.pic1));
     }
 
     private void CircularFloatingActionMenu() {
@@ -96,8 +127,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         ImageView imageView5 = new ImageView(this);
         imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();*/
-
-
 
 
         btn1.setOnClickListener(this);

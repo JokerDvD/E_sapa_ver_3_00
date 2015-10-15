@@ -19,7 +19,7 @@ import com.rey.material.widget.Button;
 
 import java.util.HashMap;
 
-public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener, View.OnClickListener {
+public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private int pageNumber;
     private SliderLayout mDemoSlider;
@@ -53,7 +53,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        home_btn1 = (Button) view.findViewById(R.id.home_btn1);
+        /*home_btn1 = (Button) view.findViewById(R.id.home_btn1);
         home_btn2 = (Button) view.findViewById(R.id.home_btn2);
         home_btn3 = (Button) view.findViewById(R.id.home_btn3);
         home_btn4 = (Button) view.findViewById(R.id.home_btn4);
@@ -67,7 +67,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         home_btn4.setOnClickListener(this);
         home_btn5.setOnClickListener(this);
         home_btn6.setOnClickListener(this);
-        home_btn7.setOnClickListener(this);
+        home_btn7.setOnClickListener(this);*/
 
         mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
 
@@ -90,7 +90,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
             mDemoSlider.addSlider(textSliderView);
         }
 
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Background2Foreground);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
@@ -125,7 +125,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
     public void onPageScrollStateChanged(int state) {
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.home_btn1:
@@ -150,5 +150,5 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
                 mDemoSlider.setPresetTransformer(SliderLayout.Transformer.FlipPage);
                 break;
         }
-    }
+    }*/
 }

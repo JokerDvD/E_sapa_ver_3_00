@@ -9,9 +9,9 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout3"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true">
+        <!--android:layout_above="@+id/linearLayout3"-->
 
         <com.daimajia.slider.library.SliderLayout
 
@@ -26,10 +26,11 @@
             custom:auto_cycle="true"
             custom:indicator_visibility="visible"
             custom:pager_animation="Accordion"
-            custom:pager_animation_span="1100" />
+            custom:pager_animation_span="1100"
+            android:layout_marginBottom="10dp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,5 +113,5 @@
             android:layout_toRightOf="@+id/home_btn1"
             android:layout_weight="1"
             app:rd_enable="true" />
-    </LinearLayout>
+    </LinearLayout>-->
 </RelativeLayout>

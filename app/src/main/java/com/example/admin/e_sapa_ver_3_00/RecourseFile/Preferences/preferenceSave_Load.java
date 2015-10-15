@@ -35,4 +35,13 @@ public class preferenceSave_Load {
         return Integer.parseInt(sharedPref.getString(loadTag, String.valueOf(defValue)));
     }
 
+    public void savePageNum(String pageN_tag, int i) {
+        SharedPreferences.Editor edpageN=sharedPref.edit();
+        edpageN.putInt(pageN_tag,i);
+        edpageN.commit();
+    }
+
+    public int loadPageN(String pageN_tag, int i) {
+        return sharedPref.getInt(pageN_tag,i);
+    }
 }
