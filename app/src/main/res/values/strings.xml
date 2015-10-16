@@ -137,16 +137,20 @@
     </array>
 
     <!--Send request fragment-->
-        <string name="srf_text_info_1">Окно отправки уведомления</string>
-        <string name="srf_text_info_2">Отправить</string>
-        <string name="srf_text_info_3">Контактное Имя</string>
-        <string name="srf_text_info_4">Контактный номер</string>
-        <string name="srf_text_info_5">Электронная почта</string>
-        <string name="srf_text_info_6">Расположение</string>
-        <string name="srf_text_info_7">Описание</string>
-        <string name="srf_text_info_8">Успешно</string>
-        <string name="srf_text_info_9">Мы зарегистрировали вашу заявку</string>
-        <string name="srf_text_info_10">Штрих код</string>
+    <string name="srf_text_info_1">Окно отправки уведомления</string>
+    <string name="srf_text_info_2">Отправить</string>
+    <string name="srf_text_info_3">Контактное Имя</string>
+    <string name="srf_text_info_4">Контактный номер</string>
+    <string name="srf_text_info_5">Электронная почта</string>
+    <string name="srf_text_info_6">Расположение</string>
+    <string name="srf_text_info_7">Описание</string>
+    <string name="srf_text_info_8">Успешно</string>
+    <string name="srf_text_info_9">Мы зарегистрировали вашу заявку</string>
+    <string name="srf_text_info_10">Штрих код</string>
 
+    <!--Show result-->
 
+    <string name="show_text_info_1">Результат Запроса</string>
+    <string name="show_text_info_2">Повторная проверка</string>
+    <string name="show_text_info_3">Результат Проверки</string>
 </resources>

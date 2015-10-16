@@ -141,9 +141,7 @@ public class history extends Fragment implements View.OnClickListener {
                 if (googleMap.equals(null)) {
                     Toast.makeText(getActivity(), "Error  creating map", Toast.LENGTH_LONG).show();
                 }
-
                 hist_location = googleMap.getMyLocation();
-
             }
         } catch (NullPointerException exception) {
             Log.d(resourceFile.LOG_TAG, exception.toString());

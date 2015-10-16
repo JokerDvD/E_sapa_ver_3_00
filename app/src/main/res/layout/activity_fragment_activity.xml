@@ -15,11 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar_color"
-        android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         android:transitionName="actionBar"
         app:popupTheme="@style/ActionBarPopupThemeOverlay"
-        app:theme="@style/ActionBarThemeOverlay" />
+        app:theme="@style/ActionBarThemeOverlay"
+        android:elevation="4dp" />
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"

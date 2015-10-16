@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -71,7 +70,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private android.widget.EditText alco_part_1t;
     private EditText alco_part_2t;
     private EditText alco_part_3t;
-    private TextView alco_result;
+//    private TextView alco_result;
     private ProgressDialog dialog;
     private String valueFormBuildId;
     private String captcha_token;
@@ -173,8 +172,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_part_2t = (EditText) view.findViewById(R.id.alco_part2a);
             alco_part_3t = (EditText) view.findViewById(R.id.alco_part3a);
 
-            alco_result = (TextView) view.findViewById(R.id.alco_result);
-            alco_result.setVisibility(View.GONE);
+//            alco_result = (TextView) view.findViewById(R.id.alco_result);
+//            alco_result.setVisibility(View.GONE);
             alco_series_label = (android.widget.EditText) view.findViewById(R.id.alco_series_label);
 
             new alco_get_captcha_1().execute();
@@ -192,7 +191,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
         if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length() != 0 && alco_series_label.length() != 0) {
 
             if (gps_class.canGetLocation()) {
-                alco_result.setVisibility(View.GONE);
+//                alco_result.setVisibility(View.GONE);
                 alco_list_view.setVisibility(View.GONE);
                 alco_series_Numeration = alco_part_1t.getText().toString().replaceAll(" ", "") + alco_part_2t.getText().toString().replaceAll(" ", "") + alco_part_3t.getText().toString().replaceAll(" ", "");
                 alco_series_label_text = alco_series_label.getText().toString().replaceAll(" ", "");
@@ -302,6 +301,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_progress_bar.setVisibility(View.VISIBLE);
             alco_image_captcha.setVisibility(View.GONE);
         }
+
         @Override
         protected String doInBackground(Void... params) {
             StringBuffer response = new StringBuffer();
@@ -384,6 +384,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
             String data = null;
             dialog.hide();
             dialog.dismiss();
+            Bundle bundle = new Bundle();
 
             try {
                 JSONArray jsonarray = new JSONArray(result);
@@ -419,31 +420,41 @@ public class alcohol extends Fragment implements View.OnClickListener {
                             alco_list_view.setVisibility(View.VISIBLE);
                             alco_list_view.setAdapter(alco_adapter);
 
-                            alco_result.startAnimation(animationBase);
-                            alco_result.setVisibility(View.GONE);
+//                            alco_result.startAnimation(animationBase);
+//                            alco_result.setVisibility(View.GONE);
                         } else {
 
-                            alco_result.setVisibility(View.VISIBLE);
+//                            alco_result.setVisibility(View.VISIBLE);
                             doc = Jsoup.parse(data);
 
                             Elements divResults = doc.select("div#results");
                             Elements pure_form = divResults.select("p");
                             db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, false, pure_form.toString(), resourceFile.latitude, resourceFile.longitude);
-                            alco_result.setText(Html.fromHtml(pure_form.toString()));
+//                            alco_result.setText(Html.fromHtml(pure_form.toString()));
+                            bundle.putString("Data", pure_form.toString());
 
                             alco_list_view.setVisibility(View.GONE);
                         }
 
                     } else {
 
-                        alco_result.setVisibility(View.VISIBLE);
-                        alco_result.setText(Html.fromHtml(data));
+//                        alco_result.setVisibility(View.VISIBLE);
+//                        alco_result.setText(Html.fromHtml(data));
+
+                        bundle.putString("Data", data.toString());
+
                         db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
 
                         alco_list_view.setVisibility(View.GONE);
 
                     }
+                    if (bundle.equals(null)) {
 
+                    } else {
+                        show show = new show();
+                        show.setArguments(bundle);
+                        show.show(getActivity().getFragmentManager(), "Login");
+                    }
                 } else {
                     Toast.makeText(getActivity(), "You never see that message", Toast.LENGTH_SHORT).show();
 
@@ -455,5 +466,14 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
             }
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // TODO Auto-generated method stub
+
+        Toast.makeText(getActivity(),"Test destroy",Toast.LENGTH_LONG).show();
+
     }
 }

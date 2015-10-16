@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.view.ViewGroup;
 
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
@@ -24,6 +25,10 @@ public class MyAdapter extends FragmentPagerAdapter {
     }
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
+        FragmentManager manager = ((Fragment) object).getFragmentManager();
+        FragmentTransaction trans = manager.beginTransaction();
+        trans.remove((Fragment) object);
+        trans.commit();
         super.destroyItem(container, position, object);
     }
 

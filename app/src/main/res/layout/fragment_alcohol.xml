@@ -30,13 +30,16 @@
                 android:gravity="center"
                 android:text="@string/alco_text_info_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Main_text_color" />
+                android:textColor="@color/Main_text_color"
+                android:textIsSelectable="false"
+                android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="326px"
                 android:layout_height="139px"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/background_with_shadow_backround"
                 android:src="@drawable/akscis_rk_1" />
 
@@ -50,6 +53,7 @@
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp">
 
@@ -67,7 +71,8 @@
                         android:maxLength="10"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </RelativeLayout>
 
@@ -95,6 +100,7 @@
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
                     android:layout_weight="1">
 
                     <EditText
@@ -110,12 +116,14 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
+                    android:layout_margin="3dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
 
@@ -131,13 +139,16 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+
                     android:layout_weight="1">
 
                     <EditText
@@ -154,7 +165,8 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
 
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -186,7 +198,8 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/alco_text_info_3"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/Main_text_color" />
+                    android:textColor="@color/Main_text_color"
+                    android:textSize="20sp" />
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:id="@+id/view"
@@ -206,6 +219,7 @@
                     android:layout_toRightOf="@+id/view"
                     android:text="@string/comm_btn_find"
                     android:textColor="@color/BTN_text_color"
+                    android:textSize="20sp"
                     app:rd_enable="true"
                     app:rd_rippleType="wave" />
 
@@ -222,24 +236,23 @@
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_below="@+id/progress_view"
-                    android:layout_centerHorizontal="true">
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1">
 
                     <EditText
                         android:id="@+id/alco_captcha_text"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/progress_view"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center_horizontal"
                         android:ems="10"
                         android:hint="@string/alco_text_info_4"
                         android:inputType="textPersonName"
                         android:maxLength="7"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             </RelativeLayout>
@@ -266,17 +279,17 @@
                 android:divider="@color/divider"
                 android:dividerHeight="2dp" />
 
-            <TextView
+            <!-- <TextView
 
-                android:id="@+id/alco_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/alco_list_view"
-                android:layout_margin="10dp"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
+                 android:id="@+id/alco_result"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentLeft="true"
+                 android:layout_alignParentStart="true"
+                 android:layout_below="@+id/alco_list_view"
+                 android:layout_margin="10dp"
+                 android:textAppearance="?android:attr/textAppearanceMedium" />
+ -->
 
         </RelativeLayout>
 

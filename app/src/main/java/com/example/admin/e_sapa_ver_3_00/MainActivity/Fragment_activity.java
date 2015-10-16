@@ -132,7 +132,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         btn1.setOnClickListener(this);
         btn1.setId(R.id.alco_series_label);
         btn2.setOnClickListener(this);
-        btn2.setId(R.id.alco_result);
+        btn2.setId(R.id.alco_list_view);
         btn3.setOnClickListener(this);
         btn3.setId(R.id.alco_part1a);
 
@@ -315,7 +315,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case R.id.alco_series_label:
                 viewPager.setCurrentItem(3);
                 break;
-            case R.id.alco_result:
+            case R.id.alco_list_view:
                 viewPager.setCurrentItem(4);
                 break;
             case R.id.alco_part1a:
