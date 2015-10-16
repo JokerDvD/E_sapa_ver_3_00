@@ -126,14 +126,13 @@ public class history extends Fragment implements View.OnClickListener {
 
         createMap();
         setPoint();
-
         return view;
     }
+
 
     private void createMap() {
         try {
             if (null == googleMap) {
-
                 googleMap = ((MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map)).getMap();
                 googleMap.setMyLocationEnabled(true);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -182,5 +181,6 @@ public class history extends Fragment implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(fragment).commit();
     }
+
 
 }
