@@ -30,7 +30,8 @@
                 android:gravity="center"
                 android:text="@string/tabac_textInfo_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Main_text_color" />
+                android:textColor="@color/Main_text_color"
+                android:textSize="25sp" />
 
 
             <ImageView
@@ -83,7 +84,8 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -104,7 +106,8 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -125,7 +128,8 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -147,7 +151,8 @@
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
-                        android:textColorHint="@color/ET_divider_color" />
+                        android:textColorHint="@color/ET_divider_color"
+                        android:textSize="20sp" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
 
@@ -173,7 +178,8 @@
                 android:layout_margin="10dp"
                 android:text="@string/tabac_textInfo_2"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/TF_color" />
+                android:textColor="@color/TF_color"
+                android:textSize="18sp" />
 
             <com.rey.material.widget.Button
                 android:id="@+id/tabac_sendrequest_btn"
@@ -187,7 +193,8 @@
                 android:textColor="@color/BTN_text_color"
                 app:rd_enable="true"
                 app:rd_rippleType="wave"
-                android:layout_below="@+id/textView4" />
+                android:layout_below="@+id/textView4"
+                android:textSize="20sp" />
 
 
         </RelativeLayout>

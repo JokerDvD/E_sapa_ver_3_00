@@ -51,8 +51,8 @@ public class CustomList extends ArrayAdapter<String> {
     public static class history_list_view extends ArrayAdapter<String> {
         private final Activity context;
         private List<String> code=new ArrayList<>();
-        private final List<String> description;
-        private final List<String> bool;
+        private List<String> description=new ArrayList<>();
+        private List<String> bool=new ArrayList<>();
 
         public history_list_view(Activity context,
                           List<String>code, List<String> description,List<String>bool) {

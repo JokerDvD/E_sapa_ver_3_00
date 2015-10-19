@@ -23,7 +23,9 @@ public class dbFuncClass {
     private ContentValues cv;
     private Cursor cursor;
     private List<String> crudList;
-    private List<Double> position;
+    private List<String> description;
+    private List<String> bool;
+    private List<String> data_select_item;
     private LatLng latlng;
     private dbObject dbObject;
 
@@ -35,17 +37,16 @@ public class dbFuncClass {
         db = dbHelper.getWritableDatabase();
         cv = new ContentValues();
         crudList = new ArrayList<>();
+        description = new ArrayList<>();
+        bool = new ArrayList<>();
+        data_select_item = new ArrayList<>();
         dbObject = new dbObject();
     }
 
-    public List<String> getFullDB() {
-        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+    public List<String> get_all_barcode() {
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
-            crudList.add("Нажмите сюда");
-
             codeColIndex = cursor.getColumnIndex(tag_code);
-
             do {
                 crudList.add(" " + cursor.getString(codeColIndex) + " ");
             } while (cursor.moveToNext());
@@ -55,58 +56,37 @@ public class dbFuncClass {
         return crudList;
     }
 
-    public List<String> getAllCode() {
+    public List<String> get_all_result() {
         Log.d(LOG_SQLITE, "Reade SQLITE DB data");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
-            crudList.add("Нажмите сюда");
-
-            codeColIndex = cursor.getColumnIndex(tag_code);
-
-            do {
-                crudList.add(" " + cursor.getString(resultColIndex) + " ");
-            } while (cursor.moveToNext());
-        } else {
-            crudList.add("no data");
-        }
-        return crudList;
-    }
-
-    public List<String> getAllResult() {
-        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
-        cursor = db.query(tableName, null, null, null, null, null, null);
-        if (cursor.moveToFirst()) {
-            crudList.add("Нажмите сюда");
-
             resultColIndex = cursor.getColumnIndex(tag_result);
 
             do {
-                crudList.add(" " + cursor.getString(resultColIndex) + " ");
+                bool.add(" " + cursor.getString(resultColIndex) + " ");
             } while (cursor.moveToNext());
         } else {
-            crudList.add("no data");
+            bool.add("no data");
         }
-        return crudList;
+        return bool;
     }
 
-    public List<String> getAllDescription() {
+    public List<String> get_all_description() {
         Log.d(LOG_SQLITE, "Reade SQLITE DB data");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
-            crudList.add("Нажмите сюда");
-
             resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);
             do {
-                crudList.add(" " + cursor.getString(resullofDataColIndex) + " ");
+                description.add(" " + cursor.getString(resullofDataColIndex) + " ");
             } while (cursor.moveToNext());
         } else {
-            crudList.add("no data");
+            description.add("no data");
         }
-        return crudList;
+        return description;
     }
 
 
-    public LatLng getLocation(int id) {
+    public LatLng get_location(int id) {
 
         String str = new String(String.valueOf(id));
         cursor = db.query(tableName, new String[]{tag_latitude, tag_longitude}, tag_id + "=" + str, null, null, null, null, null);
@@ -126,7 +106,7 @@ public class dbFuncClass {
     }
 
 
-    public void writeSQLITE(String code, boolean result, String dataofresult, double latitude, double longitude) {
+    public void write_data(String code, boolean result, String dataofresult, double latitude, double longitude) {
 
         Log.d(LOG_SQLITE, "Write SQLITE DB data");
 
@@ -138,7 +118,7 @@ public class dbFuncClass {
         db.insert(tableName, null, cv);
     }
 
-    public dbObject getDataObject(int id) {
+    public dbObject get_db_object(int id) {
 
         String str = new String(String.valueOf(id));
         cursor = db.query(tableName, new String[]{tag_code, tag_result, tag_dataofresult}, tag_id + "=" + str, null, null, null, null, null);
@@ -159,6 +139,24 @@ public class dbFuncClass {
             dbObject.setIsEmpty(false);
         }
         return dbObject;
+    }
+
+    public List<String>get_item_selected(int position){
+        data_select_item.clear();
+        String str = new String(String.valueOf(position));
+        cursor = db.query(tableName, new String[]{tag_code,tag_dataofresult}, tag_id + "=" + str, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            /*codeColIndex = cursor.getColumnIndex(tag_code);*/
+            resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);
+
+            do {
+                data_select_item.add(/*cursor.getString(codeColIndex) + " " +*/ cursor.getString(resullofDataColIndex));
+            } while (cursor.moveToNext());
+        }else {
+            data_select_item.add("No Selected Point");
+        }
+
+        return data_select_item;
     }
 
 

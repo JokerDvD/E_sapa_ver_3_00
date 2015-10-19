@@ -414,7 +414,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
                             }
 
                             boolean bool = true;
-                            db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, bool, alco_list_response.toString(), resourceFile.latitude, resourceFile.longitude);
+                            db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, bool, alco_list_response.toString(), resourceFile.latitude, resourceFile.longitude);
                             response_list alco_adapter = new response_list(getActivity(), positive_response, alco_list_response);
 
                             alco_list_view.setVisibility(View.VISIBLE);
@@ -429,7 +429,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                             Elements divResults = doc.select("div#results");
                             Elements pure_form = divResults.select("p");
-                            db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, false, pure_form.toString(), resourceFile.latitude, resourceFile.longitude);
+                            db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, false, pure_form.toString(), resourceFile.latitude, resourceFile.longitude);
 //                            alco_result.setText(Html.fromHtml(pure_form.toString()));
                             bundle.putString("Data", pure_form.toString());
 
@@ -443,7 +443,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                         bundle.putString("Data", data.toString());
 
-                        db_helper_class.writeSQLITE(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
+                        db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
 
                         alco_list_view.setVisibility(View.GONE);
 
