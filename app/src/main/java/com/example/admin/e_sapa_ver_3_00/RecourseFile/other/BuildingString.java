@@ -2,6 +2,7 @@ package com.example.admin.e_sapa_ver_3_00.RecourseFile.other;
 
 import android.util.Log;
 
+import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
 
 import org.json.JSONException;
@@ -45,5 +46,12 @@ public class BuildingString {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public String showOnDialogFragment(){
+        return R.string.comm_BrandDescription + " " +resourceFile.BrandDescription+ " " +
+                R.string.comm_BatchStatus + " "+ resourceFile.BatchStatus +" "+
+                R.string.comm_BrandCode + " " + resourceFile.BrandCode + " " +
+                R.string.comm_StartDate+" " + resourceFile.StartDate + " " ;
     }
 }

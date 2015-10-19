@@ -35,10 +35,10 @@
 
     <string name="tabac_textInfo_1">Проверка учета и контроля марок на алкогольную продукцию</string>
     <string name="tabac_textInfo_2">* (код расположен в нижней части пачки сигарет. Код состоит из 12 символов, а именно, 4 части по 3 символов)</string>
-    <string name="tabac_textInfo_3">Контрафактный товар</string>
+    <string name="tabac_textInfo_3">Хотите собщить о контрафактном товаре?</string>
     <string name="tabac_textInfo_4">Сообщить о контрафакте Госорганам. они че нить точно сделают</string>
-    <string name="tabac_textInfo_5">Не отправлять уведомление</string>
-    <string name="tabac_textInfo_6">Отправить уведомление </string>
+    <string name="tabac_textInfo_5">Не сообщать</string>
+    <string name="tabac_textInfo_6">Сообщить</string>
     <string name="tabac_textInfo_7">Перейти в настройки сети ? </string>
     <string name="tabac_textInfo_8">Перейти в настройки сети</string>
     <string name="tabac_textInfo_9">Подключите Интернет</string>
@@ -55,6 +55,7 @@
     <string name="comm_no_gps">Подключите GPS </string>
     <string name="comm_no_choose_city">Не был выбран Город</string>
     <string name="comm_ok">Ok</string>
+    <string name="comm_wait">Подождите, Идет проверка введенных данных</string>
 
     <!--Common array-->
     <array name="common_array_1">
@@ -153,4 +154,11 @@
     <string name="show_text_info_1">Результат Запроса</string>
     <string name="show_text_info_2">Повторная проверка</string>
     <string name="show_text_info_3">Результат Проверки</string>
+    <string name="title_activity_scanner_actv">scanner_actv</string>
+    <string name="scan_process_label">Сканирование...</string>
+    <string name="scan_result_label">result</string>
+    <string name="comm_BrandDescription">BrandDescription</string>
+    <string name="comm_BrandCode">BrandCode</string>
+    <string name="comm_BatchStatus">BatchStatus</string>
+    <string name="comm_StartDate">StartDate</string>
 </resources>

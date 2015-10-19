@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin.e_sapa_ver_3_00">
+    package="com.example.admin.e_sapa_ver_3_00" >
 
     <permission
         android:name="example.gps.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -20,16 +23,14 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_main"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity.Splash_Screen"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,15 +39,20 @@
         </activity>
         <activity
             android:name=".MainActivity.Fragment_activity"
-            android:label="@string/title_activity_fragment_activity">
-
+            android:label="@string/title_activity_fragment_activity" >
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAMfVH80Zyd36lT9D7afPIG_-q_Wmi12KE" />
+
+        <activity
+            android:name=".BarcodeActivity.scanner_actv"
+            android:label="@string/title_activity_scanner_actv" >
+        </activity>
     </application>
 
 </manifest>

@@ -51,6 +51,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
     private dbFuncClass tab_FuncClass;
     private BuildingString tab_BuildingString;
     private SendResult_fragments srf;
+    private Bundle bundle;
 
     public tabacco() {
     }
@@ -186,7 +187,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
                                 dialog.cancel();
                             }
                         })
-                .setPositiveButton(R.string.comm_text_SEND,
+                .setPositiveButton(R.string.tabac_textInfo_6,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Bundle bundle = new Bundle();
@@ -209,7 +210,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
         @Override
         protected void onPreExecute() {
             dialog = new ProgressDialog(getActivity());
-//            dialog.setMessage(getResources().getString(R.string.please));
+            dialog.setMessage(getResources().getString(R.string.comm_wait));
             dialog.setCancelable(false);
             dialog.show();
         }
@@ -248,6 +249,12 @@ public class tabacco extends Fragment implements View.OnClickListener {
                         resourceFile.BatchStatus + " " + resourceFile.BrandDescription,
                         resourceFile.latitude,
                         resourceFile.longitude);
+                bundle=new Bundle();
+                BuildingString buildingString=new BuildingString();
+                bundle.putString("Data",buildingString.showOnDialogFragment());
+                show show = new show();
+                show.setArguments(bundle);
+                show.show(getActivity().getFragmentManager(), "Login");
             } else {
                 tab_FuncClass.writeSQLITE(resourceFile.SupiCode,
                         resourceFile.IsValid,

@@ -3,7 +3,7 @@
  *
  * Created by lisah0 on 2012-02-24
  */
-package com.example.admin.e_sapa_ver_3_00.RecourseFile.other;
+package com.example.admin.e_sapa_ver_3_00.BarcodeActivity;
 
 import android.content.Context;
 import android.graphics.ImageFormat;

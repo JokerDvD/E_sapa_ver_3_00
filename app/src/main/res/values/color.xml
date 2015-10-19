@@ -7,12 +7,12 @@
 
     <color name="TF_color">#727272</color>
 
-    <color name="BTN_text_color">#747474</color>
+    <color name="BTN_text_color">#5d5d5d</color>
 
     <color name="ET_text_color">#212121</color>
-    <color name="ET_inserting_text_color">#abdce7</color>
+    <color name="ET_inserting_text_color">#7ba8cb</color>
     <color name="ET_hint_color">#607D8B</color>
-    <color name="ET_divider_color">#b6b6b6</color>
+    <color name="ET_divider_color">#919191</color>
     <color name="ET_divider_error_color">#ed8130</color>
 
 

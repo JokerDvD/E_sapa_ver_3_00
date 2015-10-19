@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.example.admin.e_sapa_ver_3_00.RecourseFile.Other_List_View.history_list_view;
+import com.example.admin.e_sapa_ver_3_00.RecourseFile.CustomList.CustomList;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.SQLITE.dbFuncClass;
 import com.google.android.gms.maps.GoogleMap;
 import com.rey.material.widget.Button;
@@ -36,7 +36,7 @@ public class history extends Fragment  {
     private RelativeLayout history_rl_2;
     private Location hist_location;
     private ListView history_listView;
-    private history_list_view hist_adapter;
+    private CustomList.history_list_view hist_adapter;
 
     public history() {
     }

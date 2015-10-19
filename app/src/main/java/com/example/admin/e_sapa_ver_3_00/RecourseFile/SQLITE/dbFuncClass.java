@@ -16,6 +16,7 @@ import java.util.List;
  * Created by Optimus on 13.09.2015.
  */
 public class dbFuncClass {
+    int idColIndex, codeColIndex, resultColIndex, resullofDataColIndex, latitudeColIndex, longitudeColIndex;
     private String LOG_SQLITE = "LOG_SQLITE", tableName = "E_sapa2", tag_id = "id", tag_result = "result", tag_code = "code", tag_dataofresult = "dataofresult", tag_latitude = "latitude", tag_longitude = "longitude";
     private SQLiteDatabase db;
     private DBHelper dbHelper;
@@ -25,7 +26,6 @@ public class dbFuncClass {
     private List<Double> position;
     private LatLng latlng;
     private dbObject dbObject;
-    int idColIndex, codeColIndex, resultColIndex, resullofDataColIndex, latitudeColIndex, longitudeColIndex;
 
 
     public dbFuncClass(Activity activity) {
@@ -47,7 +47,57 @@ public class dbFuncClass {
             codeColIndex = cursor.getColumnIndex(tag_code);
 
             do {
-                crudList.add(" " + cursor.getString(codeColIndex)+" ");
+                crudList.add(" " + cursor.getString(codeColIndex) + " ");
+            } while (cursor.moveToNext());
+        } else {
+            crudList.add("no data");
+        }
+        return crudList;
+    }
+
+    public List<String> getAllCode() {
+        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+        cursor = db.query(tableName, null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            crudList.add("Нажмите сюда");
+
+            codeColIndex = cursor.getColumnIndex(tag_code);
+
+            do {
+                crudList.add(" " + cursor.getString(resultColIndex) + " ");
+            } while (cursor.moveToNext());
+        } else {
+            crudList.add("no data");
+        }
+        return crudList;
+    }
+
+    public List<String> getAllResult() {
+        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+        cursor = db.query(tableName, null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            crudList.add("Нажмите сюда");
+
+            resultColIndex = cursor.getColumnIndex(tag_result);
+
+            do {
+                crudList.add(" " + cursor.getString(resultColIndex) + " ");
+            } while (cursor.moveToNext());
+        } else {
+            crudList.add("no data");
+        }
+        return crudList;
+    }
+
+    public List<String> getAllDescription() {
+        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+        cursor = db.query(tableName, null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            crudList.add("Нажмите сюда");
+
+            resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);
+            do {
+                crudList.add(" " + cursor.getString(resullofDataColIndex) + " ");
             } while (cursor.moveToNext());
         } else {
             crudList.add("no data");

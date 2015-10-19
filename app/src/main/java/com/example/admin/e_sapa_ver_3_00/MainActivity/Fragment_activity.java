@@ -1,5 +1,6 @@
 package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.admin.e_sapa_ver_3_00.BarcodeActivity.scanner_actv;
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
 import com.example.admin.e_sapa_ver_3_00.Fragments.barcode;
 import com.example.admin.e_sapa_ver_3_00.Fragments.history;
@@ -82,7 +84,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         int page = pref.loadPageN(resourceFile.pageN_tag, 0);
         if (page == 0) {
             Toast.makeText(this, "Toast make text", Toast.LENGTH_LONG).show();
-        } else if(page ==6){
+        } else if (page == 6) {
             Locale locale = new Locale(pref.loadLangTag(resourceFile.lang_tag, "ru"));
             Locale.setDefault(locale);
             Configuration configuration = new Configuration();
@@ -112,6 +114,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
         btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
 
+
         ImageView imageView2 = new ImageView(this);
         imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_martini));
         btn2 = new SubActionButton.Builder(this).setContentView(imageView2).build();
@@ -120,11 +123,12 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView3.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn3 = new SubActionButton.Builder(this).setContentView(imageView3).build();
 
-       /* ImageView imageView4 = new ImageView(this);
-        imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
+
+        ImageView imageView4 = new ImageView(this);
+        imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
         btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
 
-        ImageView imageView5 = new ImageView(this);
+       /* ImageView imageView5 = new ImageView(this);
         imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
         btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();*/
 
@@ -135,13 +139,15 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         btn2.setId(R.id.alco_list_view);
         btn3.setOnClickListener(this);
         btn3.setId(R.id.alco_part1a);
+        btn4.setOnClickListener(this);
+        btn4.setId(R.id.alco_header);
 
 
         FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(btn1)
                 .addSubActionView(btn2)
                 .addSubActionView(btn3)
-                /*.addSubActionView(btn4)
+                .addSubActionView(btn4)/*
                 .addSubActionView(btn5)*/
                 .setAnimationHandler(new DefaultAnimationHandler())
                 .setRadius(150)
@@ -320,6 +326,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.alco_part1a:
                 viewPager.setCurrentItem(6);
+                break;
+            case R.id.alco_header:
+                Intent intent_barcode=new Intent(this, scanner_actv.class);
+                startActivity(intent_barcode);
                 break;
         }
     }

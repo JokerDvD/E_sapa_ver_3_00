@@ -472,8 +472,5 @@ public class alcohol extends Fragment implements View.OnClickListener {
     public void onDestroyView() {
         super.onDestroyView();
         // TODO Auto-generated method stub
-
-        Toast.makeText(getActivity(),"Test destroy",Toast.LENGTH_LONG).show();
-
     }
 }
