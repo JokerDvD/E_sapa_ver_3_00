@@ -18,7 +18,15 @@
         android:layout_marginTop="10dp">
         <!--android:layout_above="@+id/linearLayout3"-->
 
-        <com.daimajia.slider.library.SliderLayout
+
+        <VideoView
+            android:id="@+id/home_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+       <!-- <com.daimajia.slider.library.SliderLayout
 
             android:id="@+id/slider"
             android:layout_width="match_parent"
@@ -32,7 +40,7 @@
             custom:indicator_visibility="visible"
             custom:pager_animation="Accordion"
             custom:pager_animation_span="1100"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp" />-->
     </RelativeLayout>
 
     <!--<LinearLayout
