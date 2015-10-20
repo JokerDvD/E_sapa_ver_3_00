@@ -283,7 +283,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
         @Override
         protected void onPostExecute(String url) {
             super.onPostExecute(url);
-            Picasso.with(getActivity())
+            Picasso.with(getActivity().getBaseContext())
                     .load("http://kgd.gov.kz" + url)
                     .placeholder(R.drawable.logo_main)
                     .error(R.drawable.logo_main)

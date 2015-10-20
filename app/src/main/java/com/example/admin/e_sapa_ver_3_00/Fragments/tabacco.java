@@ -179,7 +179,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
     private void tab_func_show_Alert_dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.tabac_textInfo_3)
-                .setMessage(R.string.tabac_textInfo_3)
+                .setMessage(R.string.tabac_textInfo_10)
                 .setCancelable(true)
                 .setNegativeButton(R.string.tabac_textInfo_5,
                         new DialogInterface.OnClickListener() {

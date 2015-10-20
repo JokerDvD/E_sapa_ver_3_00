@@ -84,22 +84,37 @@
                 android:layout_alignParentStart="true"
                 android:layout_margin="10dp" />
 
-            <ListView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/set_test_text">
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:id="@+id/set_i_b"
+                    android:layout_below="@+id/set_test_text"
+                    android:layout_alignLeft="@+id/set_test_text"
+                    android:layout_alignStart="@+id/set_test_text"
+                    android:background="@drawable/pic1"
+                    android:layout_marginLeft="10sp" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:background="@drawable/pic4"
+                    android:id="@+id/set_i_b_2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10sp" />
+            </LinearLayout>
+
+            <!--<ListView
                 android:id="@+id/setting_list_view"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_below="@+id/set_test_text"
-                android:layout_margin="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:textColor="@color/hist_positive_color"
-                android:id="@+id/textView9"
-                android:layout_below="@+id/setting_list_view"
-                android:layout_centerHorizontal="true" />
+                android:layout_margin="10dp" />-->
 
 
         </RelativeLayout>

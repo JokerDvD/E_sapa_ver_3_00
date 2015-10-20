@@ -9,10 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.ViewGroup;
 
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
-import com.example.admin.e_sapa_ver_3_00.Fragments.barcode;
 import com.example.admin.e_sapa_ver_3_00.Fragments.history;
 import com.example.admin.e_sapa_ver_3_00.Fragments.home;
-import com.example.admin.e_sapa_ver_3_00.Fragments.qrcode;
 import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 
@@ -34,7 +32,7 @@ public class MyAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return (7);
+        return (5);
     }
 
     @Override
@@ -44,22 +42,22 @@ public class MyAdapter extends FragmentPagerAdapter {
             case 0:
                 fragment = home.newInstance(position);
                 break;
-            case 1:
+           /* case 1:
                 fragment = qrcode.newInstance(position);
                 break;
             case 2:
                 fragment = barcode.newInstance(position);
-                break;
-            case 3:
+                break;*/
+            case 1:
                 fragment = tabacco.newInstance(position);
                 break;
-            case 4:
+            case 2:
                 fragment = alcohol.newInstance(position);
                 break;
-            case 5:
+            case 3:
                 fragment = history.newInstance(position);
                 break;
-            case 6:
+            case 4:
                 fragment = settings.newInstance(position);
                 break;
             default:
@@ -74,17 +72,17 @@ public class MyAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return home.getTitle(context, position);
-            case 1:
+            /*case 1:
                 return qrcode.getTitle(context, position);
             case 2:
-                return (barcode.getTitle(context, position));
-            case 3:
+                return (barcode.getTitle(context, position));*/
+            case 1:
                 return (tabacco.getTitle(context, position));
-            case 4:
+            case 2:
                 return alcohol.getTitle(context, position);
-            case 5:
+            case 3:
                 return history.getTitle(context, position);
-            case 6:
+            case 4:
                 return settings.getTitle(context, position);
             default:
                 return settings.getTitle(context, position);

@@ -9,41 +9,32 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.MainActivity.Fragment_activity;
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.example.admin.e_sapa_ver_3_00.RecourseFile.CustomList.CustomList;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
 import com.rey.material.widget.Spinner;
 
 import java.util.Locale;
 
-public class settings extends Fragment {
+public class settings extends Fragment implements View.OnClickListener{
 
     private int pageNumber;
     private preferenceSave_Load pref;
     private Spinner setting_spinner;
-    private String[] setting_lis_lang, setting_list_theme;
-    private ListView setting_list_view;
+    private String[] setting_lis_lang;
+    private String[] setting_list_theme;
+    private ListView setting_list_view = null;
     private TextView textView;
-    private Integer[] setting_image = {
-            R.drawable.pic1,
-            R.drawable.pic2,
-            R.drawable.pic3,
-            R.drawable.pic4,
-            R.drawable.pic5,
-            R.drawable.pic6,
-            R.drawable.pic7,
-            R.drawable.pic8,
-            R.drawable.pic9,
 
-    };
+
+    private View view;
 
     public settings() {
     }
@@ -70,14 +61,14 @@ public class settings extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        textView = (TextView) view.findViewById(R.id.textView9);
 
-        pref=new preferenceSave_Load(getActivity());
+        pref = new preferenceSave_Load(getActivity());
 
         setting_lis_lang = getActivity().getResources().getStringArray(R.array.setting_lang);
         setting_list_theme = getActivity().getResources().getStringArray(R.array.setting_theme);
+
 
         setting_spinner = (Spinner) view.findViewById(R.id.set_lang_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, setting_lis_lang);
@@ -111,8 +102,8 @@ public class settings extends Fragment {
                 }
 
                 if (lang.equals(null)) {
-                    Toast.makeText(getActivity()," ты никогда не увидишь это ",Toast.LENGTH_LONG).show();
-                }else{
+                    Toast.makeText(getActivity(), " ты никогда не увидишь это ", Toast.LENGTH_LONG).show();
+                } else {
                     Locale locale = new Locale(lang);
                     Locale.setDefault(locale);
                     Configuration configuration = new Configuration();
@@ -120,13 +111,13 @@ public class settings extends Fragment {
                     getActivity().getBaseContext().getResources().updateConfiguration(configuration, null);
                     pref.saveLangTag(resourceFile.lang_tag, lang);
                     pref.savePageNum(resourceFile.pageN_tag, 6);
-                    Intent intent=new Intent(getActivity(), Fragment_activity.class);
+                    Intent intent = new Intent(getActivity(), Fragment_activity.class);
                     startActivity(intent);
                 }
             }
         });
 
-        CustomList setting_customList = new CustomList(getActivity(), setting_list_theme, setting_image);
+        /*CustomList setting_customList = new CustomList(getActivity(), setting_list_theme);
         setting_list_view = (ListView) view.findViewById(R.id.setting_list_view);
 
         setting_list_view.setAdapter(setting_customList);
@@ -149,7 +140,6 @@ public class settings extends Fragment {
                     case 3:
                         themeIndex = R.drawable.pic4;
                         break;
-
                     case 4:
                         themeIndex = R.drawable.pic5;
                         break;
@@ -175,7 +165,35 @@ public class settings extends Fragment {
                     getActivity().getWindow().getDecorView().setBackgroundResource(themeIndex);
                 }
             }
-        });
+        });*/
+
+        ImageButton set_i_b=(ImageButton)view.findViewById(R.id.set_i_b);
+        set_i_b.setOnClickListener(this);
+        ImageButton set_i_b_2=(ImageButton)view.findViewById(R.id.set_i_b_2);
+        set_i_b_2.setOnClickListener(this);
         return view;
+    }
+
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        int themeIndex=0;
+        switch (v.getId()){
+            case R.id.set_i_b:
+                themeIndex = R.drawable.pic4;
+                break;
+            case R.id.set_i_b_2:
+                themeIndex=R.drawable.pic1;
+                break;
+        }
+        if (themeIndex != 0) {
+            pref.saveThemeTag(resourceFile.theme_tag, themeIndex);
+            getActivity().getWindow().getDecorView().setBackgroundResource(themeIndex);
+        }
+
     }
 }

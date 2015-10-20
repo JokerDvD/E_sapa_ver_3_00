@@ -42,6 +42,7 @@
     <string name="tabac_textInfo_7">Перейти в настройки сети ? </string>
     <string name="tabac_textInfo_8">Перейти в настройки сети</string>
     <string name="tabac_textInfo_9">Подключите Интернет</string>
+    <string name="tabac_textInfo_10">Товар не прошел проверку на соответствие.\n Возможно, введенный вами Штрих код содержит отпечатку.\n Если вы уверены что ввели его правильно просьба отправить нам уведомление.</string>
 
     <string name="tabac_part1">1 часть кода</string>
     <string name="tabac_part2">2 часть кода</string>
@@ -154,11 +155,26 @@
     <string name="show_text_info_1">Результат Запроса</string>
     <string name="show_text_info_2">Повторная проверка</string>
     <string name="show_text_info_3">Результат Проверки</string>
+
+
     <string name="title_activity_scanner_actv">scanner_actv</string>
     <string name="scan_process_label">Сканирование...</string>
     <string name="scan_result_label">result</string>
+
+
     <string name="comm_BrandDescription">BrandDescription</string>
     <string name="comm_BrandCode">BrandCode</string>
     <string name="comm_BatchStatus">BatchStatus</string>
     <string name="comm_StartDate">StartDate</string>
+
+
+
+    <string name="home_text_info_1">Ваше неотъемлемое право вне зависимости</string>
+    <string name="home_text_info_2">Внезависимости  от вашего местонахождения</string>
+    <string name="home_text_info_3">Проверьте уникальный код на бутылке</string>
+    <string name="home_text_info_7">Так же вы можете проверить подлинность на сайте www.e-sapa.kz</string>
+    <string name="home_text_info_4">Пример проверки товара на сайте www.e-sapa.kz</string>
+    <string name="home_text_info_5">Вы должны быть уверены в качестве купленного товара</string>
+    <string name="home_text_info_8">Проверка с помощью мобильного приложения E-сапа</string>
+    <string name="home_text_info_6">Посетите портал www.E-sapa.kz</string>
 </resources>

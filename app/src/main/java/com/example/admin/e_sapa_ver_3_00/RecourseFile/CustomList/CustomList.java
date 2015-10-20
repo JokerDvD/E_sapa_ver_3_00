@@ -20,15 +20,27 @@ import java.util.List;
  */
 public class CustomList extends ArrayAdapter<String> {
     private final Activity context;
-    private final String[] web;
-    private final Integer[] imageId;
+    private final String []setting_list_theme;
 
-    public CustomList(Activity context,
-                      String[] web, Integer[] imageId) {
-        super(context, R.layout.list_single, web);
+    private Integer[] setting_image = {
+            R.drawable.pic1,
+            R.drawable.pic2,
+            R.drawable.pic3,
+            R.drawable.pic4,
+            R.drawable.pic5,
+            R.drawable.pic6,
+            R.drawable.pic7,
+            R.drawable.pic8,
+            R.drawable.pic9,
+
+    };
+
+
+    public CustomList(Activity context,String[] text) {
+        super(context, R.layout.list_single,text);
         this.context = context;
-        this.web = web;
-        this.imageId = imageId;
+        this.setting_list_theme=text;
+
 
     }
 
@@ -39,9 +51,9 @@ public class CustomList extends ArrayAdapter<String> {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
-        txtTitle.setText(web[position]);
+        txtTitle.setText(setting_list_theme[position]);
 
-        imageView.setImageResource(imageId[position]);
+        imageView.setImageResource(setting_image[position]);
         return rowView;
     }
 
@@ -86,4 +98,6 @@ public class CustomList extends ArrayAdapter<String> {
             return rowView;
         }
     }
+
+
 }
