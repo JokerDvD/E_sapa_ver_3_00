@@ -1,34 +1,36 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
-import android.widget.VideoView;
+import android.widget.Toast;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.rey.material.widget.Button;
 
-public class home extends Fragment /*implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener*/ {
+import java.util.HashMap;
 
+public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+
+    MediaPlayer mediaPlayer;
+    SurfaceView surfaceView;
+    SurfaceHolder surfaceHolder;
+    boolean pausing = false;
     private int pageNumber;
-    private SliderLayout mDemoSlider;
     private View view;
-    private Button home_btn1, home_btn2, home_btn3, home_btn4, home_btn5, home_btn6, home_btn7;
-    private VideoView home_video_view;
-    private ProgressDialog home_dailog_progress;
-    private String URL_Video = "https://www.youtube.com/watch?v=oaaEczJXqbM";
-    private int position=0;
-    String videoSource = "https://www.youtube.com/watch?v=oaaEczJXqbM";
+    private SliderLayout mDemoSlider;
+
     public home() {
     }
 
@@ -54,80 +56,48 @@ public class home extends Fragment /*implements BaseSliderView.OnSliderClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().getWindow().setFormat(PixelFormat.TRANSPARENT);
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        home_video_view = (VideoView) view.findViewById(R.id.home_video_view);
 
+        mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
 
-        MediaController mediaController = new MediaController(getActivity());
-        try {
-            mediaController.setAnchorView(home_video_view);
-            home_video_view.setMediaController(mediaController);
-            home_video_view.setVideoURI(Uri.parse(videoSource));
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-        home_video_view.requestFocus();
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put(getResources().getString(R.string.home_text_info_6), R.drawable.fon_6);
+        file_maps.put(getResources().getString(R.string.home_text_info_3), R.drawable.fon_3);
+        file_maps.put(getResources().getString(R.string.home_text_info_7), R.drawable.fon_7);
+        file_maps.put(getResources().getString(R.string.home_text_info_1), R.drawable.fon_1);
 
-        home_video_view.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-
-            @Override
-            public void onPrepared(MediaPlayer arg0)
-            {
-                home_video_view.start();
-            }
-        });
-        return view;
-    }
-
-    private void home_func_Image_slider() {
-
-        /*home_btn1 = (Button) view.findViewById(R.id.home_btn1);
-        home_btn2 = (Button) view.findViewById(R.id.home_btn2);
-        home_btn3 = (Button) view.findViewById(R.id.home_btn3);
-        home_btn4 = (Button) view.findViewById(R.id.home_btn4);
-        home_btn5 = (Button) view.findViewById(R.id.home_btn5);
-        home_btn6 = (Button) view.findViewById(R.id.home_btn6);
-        home_btn7 = (Button) view.findViewById(R.id.home_btn7);
-
-        home_btn1.setOnClickListener(this);
-        home_btn2.setOnClickListener(this);
-        home_btn3.setOnClickListener(this);
-        home_btn4.setOnClickListener(this);
-        home_btn5.setOnClickListener(this);
-        home_btn6.setOnClickListener(this);
-        home_btn7.setOnClickListener(this);*/
-        /*mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
-
-        HashMap<String, Integer> file_maps = new HashMap<>();
-        file_maps.put("Hannibal", R.drawable.hannibal);
-        file_maps.put("Big Bang Theory", R.drawable.bigbang);
-        file_maps.put("House of Cards", R.drawable.house);
-        file_maps.put("Game of Thrones", R.drawable.game_of_thrones);
 
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(getActivity());
-
-            textSliderView.description(name)
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
                     .image(file_maps.get(name))
                     .setScaleType(BaseSliderView.ScaleType.Fit)
                     .setOnSliderClickListener(this);
 
+            //add your extra information
             textSliderView.bundle(new Bundle());
-            textSliderView.getBundle().putString("extra", name);
+            textSliderView.getBundle()
+                    .putString("extra", name);
+
             mDemoSlider.addSlider(textSliderView);
         }
-
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Background2Foreground);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+        mDemoSlider.setCurrentPosition(1);
         mDemoSlider.setDuration(4000);
-        mDemoSlider.addOnPageChangeListener(this);*/
+        mDemoSlider.addOnPageChangeListener(this);
+        return view;
     }
 
-   /* @Override
+    @Override
+    public void onPageScrolled(int i, float v, int i1) {
+
+    }
+
+    @Override
     public void onStop() {
         // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
         mDemoSlider.stopAutoCycle();
@@ -136,12 +106,9 @@ public class home extends Fragment /*implements BaseSliderView.OnSliderClickList
 
     @Override
     public void onSliderClick(BaseSliderView slider) {
-        Toast.makeText(getActivity(), slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
-    }
+        Toast toast = Toast.makeText(getActivity(), slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT);
 
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        toast.show();
     }
 
     @Override
@@ -151,32 +118,5 @@ public class home extends Fragment /*implements BaseSliderView.OnSliderClickList
 
     @Override
     public void onPageScrollStateChanged(int state) {
-    }*/
-
-    /*@Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.home_btn1:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.CubeIn);
-                break;
-            case R.id.home_btn2:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.DepthPage);
-                break;
-            case R.id.home_btn3:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Background2Foreground);
-                break;
-            case R.id.home_btn4:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.FlipHorizontal);
-                break;
-            case R.id.home_btn5:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomIn);
-                break;
-            case R.id.home_btn6:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOutSlide);
-                break;
-            case R.id.home_btn7:
-                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.FlipPage);
-                break;
-        }
-    }*/
+    }
 }

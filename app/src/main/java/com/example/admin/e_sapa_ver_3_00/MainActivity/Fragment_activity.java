@@ -13,10 +13,8 @@ import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.BarcodeActivity.scanner_actv;
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
-import com.example.admin.e_sapa_ver_3_00.Fragments.barcode;
 import com.example.admin.e_sapa_ver_3_00.Fragments.history;
 import com.example.admin.e_sapa_ver_3_00.Fragments.home;
-import com.example.admin.e_sapa_ver_3_00.Fragments.qrcode;
 import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
@@ -44,6 +42,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private ViewPager viewPager;
     private SubActionButton btn1, btn2, btn3, btn4, btn5;
     private SubActionButton btn6, btn7;
+    private FloatingActionMenu actionMenu;
 
 
     @Override
@@ -82,9 +81,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private void setLanguage() {
         pref.loadLangTag(resourceFile.lang_tag, "ru");
         int page = pref.loadPageN(resourceFile.pageN_tag, 0);
-        if (page == 0) {
-            Toast.makeText(this, "Toast make text", Toast.LENGTH_LONG).show();
-        } else if (page == 6) {
+
+        if (page == 6) {
             Locale locale = new Locale(pref.loadLangTag(resourceFile.lang_tag, "ru"));
             Locale.setDefault(locale);
             Configuration configuration = new Configuration();
@@ -92,7 +90,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             getBaseContext().getResources().updateConfiguration(configuration, null);
 
             pref.savePageNum(resourceFile.pageN_tag, 0);
-            viewPager.setCurrentItem(6);
+            viewPager.setCurrentItem(page);
         }
     }
 
@@ -143,7 +141,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         btn4.setId(R.id.alco_header);
 
 
-        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
+        actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(btn1)
                 .addSubActionView(btn2)
                 .addSubActionView(btn3)
@@ -177,22 +175,22 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 toolbarString = home.getTitle(getBaseContext(), position);
                 break;
-            case 1:
+            /*case 1:
                 toolbarString = qrcode.getTitle(getBaseContext(), position);
                 break;
             case 2:
                 toolbarString = (barcode.getTitle(getBaseContext(), position));
-                break;
-            case 3:
+                break;*/
+            case 1:
                 toolbarString = (tabacco.getTitle(getBaseContext(), position));
                 break;
-            case 4:
+            case 2:
                 toolbarString = alcohol.getTitle(getBaseContext(), position);
                 break;
-            case 5:
+            case 3:
                 toolbarString = history.getTitle(getBaseContext(), position);
                 break;
-            case 6:
+            case 4:
                 toolbarString = settings.getTitle(getBaseContext(), position);
                 break;
             default:
@@ -206,8 +204,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         drawer = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_home).withName(R.string.nav_home).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_qrcode).withName(R.string.nav_qrcode).setEnabled(true),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_barcode).withName(R.string.nav_brandcode).setEnabled(true),
+                /*new SecondaryDrawerItem().withIcon(R.drawable.ic_qrcode).withName(R.string.nav_qrcode).setEnabled(true),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_barcode).withName(R.string.nav_brandcode).setEnabled(true),*/
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
@@ -224,7 +222,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable) drawerItem).getNameRes());
-                                if (position == 10) {
+                                if (position == 8) {
                                     finish();
                                 } else {
                                     setCurrentFragment(position, pager);
@@ -235,7 +233,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                                 }*/
                             }
 
-                            Toast.makeText(Fragment_activity.this, " Фрагмент " + position, Toast.LENGTH_LONG).show();
+//                            Toast.makeText(Fragment_activity.this, " Фрагмент " + position, Toast.LENGTH_LONG).show();
                         }
                         return false;
                     }
@@ -249,23 +247,23 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 page = 0;
                 break;
+           /* case 2:
+                page = 1;
+                break;
+            case 3:
+                page = 2;
+                break;*/
             case 2:
                 page = 1;
                 break;
             case 3:
                 page = 2;
                 break;
-            case 4:
+            case 5:
                 page = 3;
                 break;
-            case 5:
-                page = 4;
-                break;
             case 7:
-                page = 5;
-                break;
-            case 9:
-                page = 6;
+                page = 4;
                 break;
             default:
                 Toast.makeText(Fragment_activity.this, "Position " + position, Toast.LENGTH_LONG).show();
@@ -308,6 +306,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     public void onBackPressed() {
         if (drawer.isDrawerOpen()) {
             drawer.closeDrawer();
+        } else if (actionMenu.isOpen()) {
+            actionMenu.close(true);
         } else {
 //            super.onBackPressed();
             Toast.makeText(this, "Зачем ты жмешь это?!", Toast.LENGTH_LONG).show();
@@ -319,16 +319,16 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.alco_series_label:
-                viewPager.setCurrentItem(3);
+                viewPager.setCurrentItem(1);
                 break;
             case R.id.alco_list_view:
-                viewPager.setCurrentItem(4);
+                viewPager.setCurrentItem(2);
                 break;
             case R.id.alco_part1a:
-                viewPager.setCurrentItem(6);
+                viewPager.setCurrentItem(4);
                 break;
             case R.id.alco_header:
-                Intent intent_barcode=new Intent(this, scanner_actv.class);
+                Intent intent_barcode = new Intent(this, scanner_actv.class);
                 startActivity(intent_barcode);
                 break;
         }

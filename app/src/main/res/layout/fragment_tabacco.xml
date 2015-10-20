@@ -80,7 +80,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part1"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
@@ -102,12 +102,12 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part2"
-                        android:inputType="number"
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:inputType="text" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -124,7 +124,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part3"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
@@ -147,12 +147,12 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part4"
-                        android:inputType="number"
                         android:maxLength="5"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:inputType="text" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
 
