@@ -70,7 +70,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private android.widget.EditText alco_part_1t;
     private EditText alco_part_2t;
     private EditText alco_part_3t;
-//    private TextView alco_result;
+    //    private TextView alco_result;
     private ProgressDialog dialog;
     private String valueFormBuildId;
     private String captcha_token;
@@ -218,6 +218,12 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // TODO Auto-generated method stub
+    }
+
     private class alco_get_captcha_1 extends AsyncTask<Void, Integer, String> {
 
 
@@ -283,14 +289,20 @@ public class alcohol extends Fragment implements View.OnClickListener {
         @Override
         protected void onPostExecute(String url) {
             super.onPostExecute(url);
-            Picasso.with(getActivity().getBaseContext())
-                    .load("http://kgd.gov.kz" + url)
-                    .placeholder(R.drawable.logo_main)
-                    .error(R.drawable.logo_main)
-                    .into(alco_image_captcha);
-            alco_image_captcha.setVisibility(View.VISIBLE);
-            alco_progress_bar.resetAnimation();
-            alco_progress_bar.setVisibility(View.GONE);
+            if (view != null) {
+                try {
+                    Picasso.with(getActivity().getBaseContext())
+                            .load("http://kgd.gov.kz" + url)
+                            .placeholder(R.drawable.logo_main)
+                            .error(R.drawable.logo_main)
+                            .into(alco_image_captcha);
+                }catch (NullPointerException e){
+                    e.printStackTrace();
+                }
+                alco_image_captcha.setVisibility(View.VISIBLE);
+                alco_progress_bar.resetAnimation();
+                alco_progress_bar.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -466,11 +478,5 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
             }
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        // TODO Auto-generated method stub
     }
 }

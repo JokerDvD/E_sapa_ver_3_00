@@ -89,6 +89,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         mDemoSlider.setCurrentPosition(1);
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
+
         return view;
     }
 
