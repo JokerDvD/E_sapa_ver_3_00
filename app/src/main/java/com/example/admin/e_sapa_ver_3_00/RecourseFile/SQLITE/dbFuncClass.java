@@ -32,7 +32,7 @@ public class dbFuncClass {
 
     public dbFuncClass(Activity activity) {
 
-        Log.d(LOG_SQLITE, "Create SQLITE DB");
+        Log.d(LOG_SQLITE, "dbFuncClass Contr");
         dbHelper = new DBHelper(activity);
         db = dbHelper.getWritableDatabase();
         cv = new ContentValues();
@@ -57,7 +57,7 @@ public class dbFuncClass {
     }
 
     public List<String> get_all_result() {
-        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+        Log.d(LOG_SQLITE, "dbFuncClass get_all_result");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             resultColIndex = cursor.getColumnIndex(tag_result);
@@ -72,7 +72,7 @@ public class dbFuncClass {
     }
 
     public List<String> get_all_description() {
-        Log.d(LOG_SQLITE, "Reade SQLITE DB data");
+        Log.d(LOG_SQLITE, "dbFuncClass get_all_description");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);

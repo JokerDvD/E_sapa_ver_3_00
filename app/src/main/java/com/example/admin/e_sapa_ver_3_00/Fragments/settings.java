@@ -71,7 +71,7 @@ public class settings extends Fragment implements View.OnClickListener {
         setting_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String lang = null;
+                String lang;
                 switch (position) {
                     case 1:
                         lang = "kk";

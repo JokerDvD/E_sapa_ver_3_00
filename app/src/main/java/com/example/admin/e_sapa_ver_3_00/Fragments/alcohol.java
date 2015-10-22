@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private android.widget.EditText alco_part_1t;
     private EditText alco_part_2t;
     private EditText alco_part_3t;
-    //    private TextView alco_result;
     private ProgressDialog dialog;
     private String valueFormBuildId;
     private String captcha_token;
@@ -84,6 +84,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private CircularProgressView alco_progress_bar;
     private List<String> alco_list_response = new ArrayList<>();
     private String alco_captcha_referrer;
+    private alco_get_captcha_1 get_captcha_1;
+
 
     public alcohol() {
     }
@@ -108,8 +110,40 @@ public class alcohol extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onDetach() {
+        super.onDetach();
+        Log.d(resourceFile.LOG_TAG, "onDetach Alco");
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(resourceFile.LOG_TAG, "OnDestroy Alco");
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(resourceFile.LOG_TAG, "OnResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(resourceFile.LOG_TAG, "OnPause alco");
+        get_captcha_1.cancel(false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(resourceFile.LOG_TAG, "OnStart Alco");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -172,15 +206,12 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_part_2t = (EditText) view.findViewById(R.id.alco_part2a);
             alco_part_3t = (EditText) view.findViewById(R.id.alco_part3a);
 
-//            alco_result = (TextView) view.findViewById(R.id.alco_result);
-//            alco_result.setVisibility(View.GONE);
             alco_series_label = (android.widget.EditText) view.findViewById(R.id.alco_series_label);
-
-            new alco_get_captcha_1().execute();
+            get_captcha_1=new alco_get_captcha_1();
+            get_captcha_1.execute();
         } else {
-
+            view = inflater.inflate(R.layout.no_connection_layout, container, false);
             Toast.makeText(getActivity(), "Connect To Internet", Toast.LENGTH_LONG).show();
-
         }
         return view;
     }
@@ -229,13 +260,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
         @Override
         protected void onPreExecute() {
-
-            /*dialog = new ProgressDialog(getActivity());
-            dialog.setMessage(getResources().getString(R.string.alco_text_info_5));
-            dialog.setCancelable(false);
-            dialog.show();*/
             alco_progress_bar.startAnimation();
-
         }
 
         @Override
@@ -296,7 +321,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
                             .placeholder(R.drawable.logo_main)
                             .error(R.drawable.logo_main)
                             .into(alco_image_captcha);
-                }catch (NullPointerException e){
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
                 alco_image_captcha.setVisibility(View.VISIBLE);

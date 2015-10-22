@@ -1,6 +1,8 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -53,6 +55,13 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
         mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
+
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.fon_6);
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_3);
+        Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_7);
+        Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_1);
+
+
 
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
         file_maps.put(getResources().getString(R.string.home_text_info_6), R.drawable.fon_6);

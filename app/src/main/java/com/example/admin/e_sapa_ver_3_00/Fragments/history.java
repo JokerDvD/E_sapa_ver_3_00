@@ -2,6 +2,7 @@ package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.content.Context;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
@@ -32,9 +33,17 @@ public class history extends Fragment  {
     private Button history_btn_1, history_btn_2;
     private GoogleMap googleMap;
     private TextView history_text_view_1, history_text_view_2;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+                
+    }
+
     private View view;
     private Spinner history_spinner;
     private List<String> history_list = new ArrayList<>();
+    private List<String> history_list2 = new ArrayList<>();
     private dbFuncClass funcClass;
     private Animation animation;
     private RelativeLayout history_rl_2;
@@ -87,6 +96,18 @@ public class history extends Fragment  {
         return view;
     }
 
+private class load_data_of_BD extends AsyncTask<Void,Void,Void>{
 
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected Void doInBackground(Void... params) {
+        
+        return null;
+    }
+}
 
 }
