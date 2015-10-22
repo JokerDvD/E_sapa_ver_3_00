@@ -15,6 +15,7 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.admin.e_sapa_ver_3_00.R;
+import com.rey.material.widget.SnackBar;
 
 import java.util.HashMap;
 
@@ -82,7 +83,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         mDemoSlider.setCurrentPosition(1);
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
-
+        /*For update VCS*/
         return view;
     }
 
