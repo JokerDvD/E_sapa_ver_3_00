@@ -31,10 +31,10 @@
                 android:text="@string/tabac_textInfo_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color"
-                android:textSize="25sp" />
+                android:textSize="@dimen/abc_action_bar_content_inset_material" />
 
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/imageCaptcha"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_below="@+id/textView3"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/logo_main" />
+                android:src="@drawable/logo_main" />-->
 
         </RelativeLayout>
 
@@ -85,7 +85,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -106,7 +106,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/abc_text_size_medium_material"
                         android:inputType="text" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -129,7 +129,8 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material"
+                        android:textIsSelectable="false" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -151,8 +152,9 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp"
-                        android:inputType="text" />
+                        android:textSize="@dimen/abc_text_size_medium_material"
+                        android:inputType="text"
+                        android:textIsSelectable="false" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
 
@@ -164,7 +166,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/background_with_shadow_backround"
                 android:src="@drawable/tabacco_barcode" />
 
             <TextView
@@ -179,7 +180,7 @@
                 android:text="@string/tabac_textInfo_2"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/TF_color"
-                android:textSize="18sp" />
+                android:textSize="@dimen/abc_text_size_small_material" />
 
             <com.rey.material.widget.Button
                 android:id="@+id/tabac_sendrequest_btn"
@@ -194,7 +195,7 @@
                 app:rd_enable="true"
                 app:rd_rippleType="wave"
                 android:layout_below="@+id/textView4"
-                android:textSize="20sp" />
+                android:textSize="@dimen/abc_text_size_medium_material" />
 
 
         </RelativeLayout>

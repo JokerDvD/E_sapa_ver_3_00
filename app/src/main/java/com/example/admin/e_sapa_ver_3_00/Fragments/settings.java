@@ -9,31 +9,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.MainActivity.Fragment_activity;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
-import com.rey.material.widget.Spinner;
 
 import java.util.Locale;
 
-public class settings extends Fragment implements View.OnClickListener{
+public class settings extends Fragment implements View.OnClickListener {
 
     private int pageNumber;
     private preferenceSave_Load pref;
     private Spinner setting_spinner;
     private String[] setting_lis_lang;
-    private String[] setting_list_theme;
-    private ListView setting_list_view = null;
-    private TextView textView;
-
-
     private View view;
 
     public settings() {
@@ -67,7 +61,6 @@ public class settings extends Fragment implements View.OnClickListener{
         pref = new preferenceSave_Load(getActivity());
 
         setting_lis_lang = getActivity().getResources().getStringArray(R.array.setting_lang);
-        setting_list_theme = getActivity().getResources().getStringArray(R.array.setting_theme);
 
 
         setting_spinner = (Spinner) view.findViewById(R.id.set_lang_spinner);
@@ -75,35 +68,29 @@ public class settings extends Fragment implements View.OnClickListener{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         setting_spinner.setAdapter(adapter);
 
-        setting_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+        setting_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(Spinner spinner, View view, int i, long l) {
-                String lang;
-                spinner.removeView(view);
-
-                switch (i) {
-                    case 0:
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String lang = null;
+                switch (position) {
+                    case 1:
                         lang = "kk";
                         break;
-                    case 1:
+                    case 2:
                         lang = "ru";
                         break;
 
-                    case 2:
+                    case 3:
                         lang = "en";
                         break;
 
                     default:
-                        lang = "ru";
-                        Toast.makeText(getActivity(), "Select Language", Toast.LENGTH_LONG).show();
-
+                        lang="empty";
                         break;
 
                 }
 
-                if (lang.equals(null)) {
-                    Toast.makeText(getActivity(), " ты никогда не увидишь это ", Toast.LENGTH_LONG).show();
-                } else {
+                if (lang.equals("en")||lang.equals("ru")||lang.equals("kk")) {
                     Locale locale = new Locale(lang);
                     Locale.setDefault(locale);
                     Configuration configuration = new Configuration();
@@ -112,65 +99,36 @@ public class settings extends Fragment implements View.OnClickListener{
                     pref.saveLangTag(resourceFile.lang_tag, lang);
                     pref.savePageNum(resourceFile.pageN_tag, 6);
                     Intent intent = new Intent(getActivity(), Fragment_activity.class);
+                    getActivity().finish();
                     startActivity(intent);
                 }
+
             }
-        });
-
-        /*CustomList setting_customList = new CustomList(getActivity(), setting_list_theme);
-        setting_list_view = (ListView) view.findViewById(R.id.setting_list_view);
-
-        setting_list_view.setAdapter(setting_customList);
-        setting_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                int themeIndex = 0;
-                switch (position) {
-                    case 0:
-                        themeIndex = R.drawable.pic1;
-                        break;
-                    case 1:
-                        themeIndex = R.drawable.pic2;
-                        break;
-                    case 2:
-                        themeIndex = R.drawable.pic3;
-                        break;
-                    case 3:
-                        themeIndex = R.drawable.pic4;
-                        break;
-                    case 4:
-                        themeIndex = R.drawable.pic5;
-                        break;
-                    case 5:
-                        themeIndex = R.drawable.pic6;
-                        break;
-                    case 6:
-                        themeIndex = R.drawable.pic7;
-                        break;
-                    case 7:
-                        themeIndex = R.drawable.pic8;
-                        break;
-                    case 8:
-                        themeIndex = R.drawable.pic9;
-                        break;
-
-                    default:
-                        themeIndex = R.color.background_2;
-                        break;
-                }
-                if (themeIndex != 0) {
-                    pref.saveThemeTag(resourceFile.theme_tag, themeIndex);
-                    getActivity().getWindow().getDecorView().setBackgroundResource(themeIndex);
-                }
+            public void onNothingSelected(AdapterView<?> parentView) {
+                Toast.makeText(getActivity(), "onNothingSelected", Toast.LENGTH_LONG).show();
             }
-        });*/
 
-        ImageButton set_i_b=(ImageButton)view.findViewById(R.id.set_i_b);
+        });
+        ImageButton set_i_b = (ImageButton) view.findViewById(R.id.set_i_b);
         set_i_b.setOnClickListener(this);
-        ImageButton set_i_b_2=(ImageButton)view.findViewById(R.id.set_i_b_2);
+
+        ImageButton set_i_b_2 = (ImageButton) view.findViewById(R.id.set_i_b_2);
         set_i_b_2.setOnClickListener(this);
+        ImageButton set_i_b_3 = (ImageButton) view.findViewById(R.id.set_i_b_3);
+        set_i_b_3.setOnClickListener(this);
+
+        ImageButton set_i_b_4 = (ImageButton) view.findViewById(R.id.set_i_b_4);
+        set_i_b_4.setOnClickListener(this);
+
+        ImageButton set_i_b_5 = (ImageButton) view.findViewById(R.id.set_i_b_5);
+        set_i_b_5.setOnClickListener(this);
+
+        ImageButton set_i_b_6 = (ImageButton) view.findViewById(R.id.set_i_b_6);
+        set_i_b_6.setOnClickListener(this);
+
+
         return view;
     }
 
@@ -181,13 +139,28 @@ public class settings extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        int themeIndex=0;
-        switch (v.getId()){
+        int themeIndex = 0;
+        switch (v.getId()) {
             case R.id.set_i_b:
-                themeIndex = R.drawable.pic4;
+                themeIndex = R.color.theme_color_1;
                 break;
             case R.id.set_i_b_2:
-                themeIndex=R.drawable.pic1;
+                themeIndex = R.color.theme_color_2;
+                break;
+            case R.id.set_i_b_3:
+                themeIndex = R.color.theme_color_3;
+                break;
+
+            case R.id.set_i_b_4:
+                themeIndex = R.color.theme_color_4;
+                break;
+
+            case R.id.set_i_b_5:
+                themeIndex = R.color.theme_color_5;
+                break;
+
+            case R.id.set_i_b_6:
+                themeIndex = R.color.theme_color_6;
                 break;
         }
         if (themeIndex != 0) {

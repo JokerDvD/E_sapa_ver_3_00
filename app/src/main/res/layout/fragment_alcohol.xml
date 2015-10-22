@@ -32,7 +32,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/Main_text_color"
                 android:textIsSelectable="false"
-                android:textSize="25sp" />
+                android:textSize="@dimen/abc_action_bar_content_inset_material" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -72,7 +72,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </RelativeLayout>
 
@@ -117,7 +117,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
 
@@ -140,7 +140,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
 
@@ -166,7 +166,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
 
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -199,7 +199,7 @@
                     android:text="@string/alco_text_info_3"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/Main_text_color"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/abc_text_size_medium_material" />
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:id="@+id/view"
@@ -219,7 +219,7 @@
                     android:layout_toRightOf="@+id/view"
                     android:text="@string/comm_btn_find"
                     android:textColor="@color/BTN_text_color"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/abc_text_size_medium_material"
                     app:rd_enable="true"
                     app:rd_rippleType="wave" />
 
@@ -252,7 +252,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/abc_text_size_medium_material" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
             </RelativeLayout>

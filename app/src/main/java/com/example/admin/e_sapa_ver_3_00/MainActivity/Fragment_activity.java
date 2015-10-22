@@ -95,7 +95,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     }
 
     private void setBackground() {
-        getWindow().getDecorView().setBackgroundResource(pref.loadThemeTag(resourceFile.theme_tag, R.drawable.pic1));
+//        getWindow().getDecorView().setBackgroundResource(pref.loadThemeTag(resourceFile.theme_tag, R.drawable.akscis_rk_1));
     }
 
     private void CircularFloatingActionMenu() {
