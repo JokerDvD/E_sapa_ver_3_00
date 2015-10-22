@@ -1,13 +1,10 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -23,10 +20,6 @@ import java.util.HashMap;
 
 public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
-    MediaPlayer mediaPlayer;
-    SurfaceView surfaceView;
-    SurfaceHolder surfaceHolder;
-    boolean pausing = false;
     private int pageNumber;
     private View view;
     private SliderLayout mDemoSlider;
