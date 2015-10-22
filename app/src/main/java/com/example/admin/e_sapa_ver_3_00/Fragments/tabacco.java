@@ -244,7 +244,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
             }
 
             if (resourceFile.IsValid) {
-                tab_FuncClass.writeSQLITE(resourceFile.SupiCode,
+                tab_FuncClass.write_data(resourceFile.SupiCode,
                         resourceFile.IsValid,
                         resourceFile.BatchStatus + " " + resourceFile.BrandDescription,
                         resourceFile.latitude,
@@ -256,7 +256,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
                 show.setArguments(bundle);
                 show.show(getActivity().getFragmentManager(), "Login");
             } else {
-                tab_FuncClass.writeSQLITE(resourceFile.SupiCode,
+                tab_FuncClass.write_data(resourceFile.SupiCode,
                         resourceFile.IsValid,
                         "Продукт не прошел провеку",
                         resourceFile.latitude,

@@ -1,31 +1,34 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.PixelFormat;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.rey.material.widget.Button;
 
-import java.util.HashMap;
-
-public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class home extends Fragment /*implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener*/ {
 
     private int pageNumber;
     private SliderLayout mDemoSlider;
     private View view;
     private Button home_btn1, home_btn2, home_btn3, home_btn4, home_btn5, home_btn6, home_btn7;
-
+    private VideoView home_video_view;
+    private ProgressDialog home_dailog_progress;
+    private String URL_Video = "https://www.youtube.com/watch?v=oaaEczJXqbM";
+    private int position=0;
+    String videoSource = "https://www.youtube.com/watch?v=oaaEczJXqbM";
     public home() {
     }
 
@@ -51,7 +54,35 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().getWindow().setFormat(PixelFormat.TRANSPARENT);
         view = inflater.inflate(R.layout.fragment_home, container, false);
+        home_video_view = (VideoView) view.findViewById(R.id.home_video_view);
+
+
+        MediaController mediaController = new MediaController(getActivity());
+        try {
+            mediaController.setAnchorView(home_video_view);
+            home_video_view.setMediaController(mediaController);
+            home_video_view.setVideoURI(Uri.parse(videoSource));
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        home_video_view.requestFocus();
+
+        home_video_view.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+
+            @Override
+            public void onPrepared(MediaPlayer arg0)
+            {
+                home_video_view.start();
+            }
+        });
+        return view;
+    }
+
+    private void home_func_Image_slider() {
 
         /*home_btn1 = (Button) view.findViewById(R.id.home_btn1);
         home_btn2 = (Button) view.findViewById(R.id.home_btn2);
@@ -68,8 +99,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         home_btn5.setOnClickListener(this);
         home_btn6.setOnClickListener(this);
         home_btn7.setOnClickListener(this);*/
-
-        mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
+        /*mDemoSlider = (SliderLayout) view.findViewById(R.id.slider);
 
         HashMap<String, Integer> file_maps = new HashMap<>();
         file_maps.put("Hannibal", R.drawable.hannibal);
@@ -94,12 +124,10 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
-        mDemoSlider.addOnPageChangeListener(this);
-
-        return view;
+        mDemoSlider.addOnPageChangeListener(this);*/
     }
 
-    @Override
+   /* @Override
     public void onStop() {
         // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
         mDemoSlider.stopAutoCycle();
@@ -123,7 +151,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
 
     @Override
     public void onPageScrollStateChanged(int state) {
-    }
+    }*/
 
     /*@Override
     public void onClick(View v) {

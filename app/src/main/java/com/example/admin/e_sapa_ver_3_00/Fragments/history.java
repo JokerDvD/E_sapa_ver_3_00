@@ -4,13 +4,17 @@ import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.CustomList.CustomList;
@@ -63,18 +67,23 @@ public class history extends Fragment  {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_history, container, false);
-        /*funcClass=new dbFuncClass(getActivity());
-        history_list=funcClass.getFullDB();
-        hist_adapter =new history_list_view(getActivity(),funcClass.getAllCode(),funcClass.getAllDescription(),funcClass.getAllResult());
+       funcClass=new dbFuncClass(getActivity());
+        hist_adapter =new CustomList.history_list_view(getActivity(),
+                funcClass.get_all_barcode(),
+                funcClass.get_all_description(),
+                funcClass.get_all_result());
+
         history_listView=(ListView)view.findViewById(R.id.history_list_view);
         history_listView.setAdapter(hist_adapter);
         history_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(),history_listView.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+              Toast toast=  Toast.makeText(getActivity(), Html.fromHtml(funcClass.get_item_selected(position + 1).toString()), Toast.LENGTH_LONG);
+                      toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
             }
         });
-*/
+
         return view;
     }
 
