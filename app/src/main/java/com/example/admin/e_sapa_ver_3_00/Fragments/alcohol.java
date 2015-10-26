@@ -207,7 +207,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_part_3t = (EditText) view.findViewById(R.id.alco_part3a);
 
             alco_series_label = (android.widget.EditText) view.findViewById(R.id.alco_series_label);
-            get_captcha_1=new alco_get_captcha_1();
+            get_captcha_1 = new alco_get_captcha_1();
             get_captcha_1.execute();
         } else {
             view = inflater.inflate(R.layout.no_connection_layout, container, false);
@@ -403,7 +403,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
         protected void onPreExecute() {
             dialog = new ProgressDialog(getActivity());
             dialog.setMessage("Send request ... ");
-            dialog.setCancelable(false);
+            dialog.setCancelable(true);
             dialog.show();
         }
 

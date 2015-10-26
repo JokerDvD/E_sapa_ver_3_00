@@ -155,6 +155,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 .addSubActionView(btn5)*/
                 .setAnimationHandler(new DefaultAnimationHandler())
                 .setRadius(150)
+                .setRadius(150)
 //                .setStartAngle(0)
 //                .setEndAngle(90)
                 .attachTo(actionButton)

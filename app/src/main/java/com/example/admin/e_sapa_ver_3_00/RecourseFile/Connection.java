@@ -64,7 +64,7 @@ public class Connection {
             conn.setRequestProperty("Host", "kgd.gov.kz");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             conn.setRequestProperty("Content-Length", String.valueOf(request.getBytes().length));
-
+            conn.setConnectTimeout(4000);
             DataOutputStream DOS = new DataOutputStream(conn.getOutputStream());
             DOS.write(request.getBytes());
             DOS.flush();
