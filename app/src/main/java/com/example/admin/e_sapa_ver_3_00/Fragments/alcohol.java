@@ -271,8 +271,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
                 HttpURLConnection alco_conn = (HttpURLConnection) url.openConnection();
                 alco_conn.setRequestMethod("GET");
                 InputStream is = alco_conn.getInputStream();
-
-
+                alco_conn.setConnectTimeout(5000);
                 BufferedReader rd = new BufferedReader(new InputStreamReader(is));
                 String line;
 
@@ -283,6 +282,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
                 }
 
                 rd.close();
+
                 Document doc = Jsoup.parse(response.toString());
                 Elements divCaptcha = doc.select("div.captcha").eq(0);
                 Elements input = divCaptcha.select("input");

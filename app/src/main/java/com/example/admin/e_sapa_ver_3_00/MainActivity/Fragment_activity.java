@@ -43,6 +43,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private SubActionButton btn1, btn2, btn3, btn4, btn5;
     private SubActionButton btn6, btn7;
     private FloatingActionMenu actionMenu;
+    private FloatingActionButton actionButton;
 
 
     @Override
@@ -95,14 +96,19 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     }
 
     private void setBackground() {
-//        getWindow().getDecorView().setBackgroundResource(pref.loadThemeTag(resourceFile.theme_tag, R.drawable.akscis_rk_1));
+        int theme_color = pref.loadThemeTag(resourceFile.theme_tag, R.color.theme_color_3);
+            getWindow().getDecorView().setBackgroundResource(theme_color);
+            actionButton.setBackgroundColor(theme_color);
     }
 
     private void CircularFloatingActionMenu() {
         ImageView imageView = new ImageView(this);
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
 
-        FloatingActionButton actionButton = new FloatingActionButton.Builder(this).setContentView(imageView).build();
+        actionButton = new FloatingActionButton.Builder(this)
+                .setContentView(imageView)
+                .build();
+
         actionButton.setBottom(50);
         actionButton.setRight(50);
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);

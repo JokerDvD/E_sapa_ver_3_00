@@ -35,6 +35,14 @@
     <color name="theme_color_6">#F1F8E9</color>
 
 
+    <!--Action Button color-->
+    <color name="action_button_color_0">#ddd</color>
+    <color name="action_button_color_1">#eac9c9</color>
+    <color name="action_button_color_2">#b1adad</color>
+    <color name="action_button_color_3">#5c714444</color>
+    <color name="action_button_color_4">#bddcc7</color>
+    <color name="action_button_color_5">#4f527378</color>
+
     <!--Histiory color-->
 
     <color name="hist_positive_color">#3fdd3d</color>
