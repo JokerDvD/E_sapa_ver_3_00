@@ -17,7 +17,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -25,7 +24,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Connection;
-import com.example.admin.e_sapa_ver_3_00.RecourseFile.CustomList.response_list;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.SQLITE.dbFuncClass;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.other.GPS;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
@@ -63,7 +61,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private dbFuncClass db_helper_class;
     private RelativeLayout alco_response;
     private LinearLayout alco_header;
-    private ListView alco_list_view;
+//    private ListView alco_list_view;
     private Animation animationBase;
     private ImageView alco_image_captcha;
     private EditText alco_text_captcha;
@@ -187,8 +185,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_response = (RelativeLayout) view.findViewById(R.id.alco_response);
 
 
-            alco_list_view = (ListView) view.findViewById(R.id.alco_list_view);
-            alco_list_view.setVisibility(View.GONE);
+//            alco_list_view = (ListView) view.findViewById(R.id.alco_list_view);
+//            alco_list_view.setVisibility(View.GONE);
 
             RelativeLayout RL = (RelativeLayout) view.findViewById(R.id.alco_body);
             RL.startAnimation(animationBase);
@@ -225,7 +223,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
             if (gps_class.canGetLocation()) {
 //                alco_result.setVisibility(View.GONE);
-                alco_list_view.setVisibility(View.GONE);
+//                alco_list_view.setVisibility(View.GONE);
                 alco_series_Numeration = alco_part_1t.getText().toString().replaceAll(" ", "") + alco_part_2t.getText().toString().replaceAll(" ", "") + alco_part_3t.getText().toString().replaceAll(" ", "");
                 alco_series_label_text = alco_series_label.getText().toString().replaceAll(" ", "");
                 alco_captcha_text = alco_text_captcha.getText().toString().replaceAll(" ", "");
@@ -445,7 +443,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                         if (!td.isEmpty()) {
 
-                            alco_list_view.setVisibility(View.VISIBLE);
+//                            alco_list_view.setVisibility(View.VISIBLE);
 
                             for (Element tagTd : td) {
                                 String span = tagTd.select("span").toString();
@@ -454,10 +452,10 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                             boolean bool = true;
                             db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, bool, alco_list_response.toString(), resourceFile.latitude, resourceFile.longitude);
-                            response_list alco_adapter = new response_list(getActivity(), positive_response, alco_list_response);
+//                            response_list alco_adapter = new response_list(getActivity(), positive_response, alco_list_response);
 
-                            alco_list_view.setVisibility(View.VISIBLE);
-                            alco_list_view.setAdapter(alco_adapter);
+//                            alco_list_view.setVisibility(View.VISIBLE);
+//                            alco_list_view.setAdapter(alco_adapter);
                             bundle.putString("Data", alco_list_response.toString());
 //                            alco_result.startAnimation(animationBase);
 //                            alco_result.setVisibility(View.GONE);
@@ -472,7 +470,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 //                            alco_result.setText(Html.fromHtml(pure_form.toString()));
                             bundle.putString("Data", pure_form.toString());
 
-                            alco_list_view.setVisibility(View.GONE);
+//                            alco_list_view.setVisibility(View.GONE);
                         }
 
                     } else {
@@ -484,7 +482,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                         db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
 
-                        alco_list_view.setVisibility(View.GONE);
+//                        alco_list_view.setVisibility(View.GONE);
 
                     }
                     if (bundle.equals(null)) {
