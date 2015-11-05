@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:text="@string/positive_fragment"
         android:layout_height="wrap_content"
+        android:textColor="@color/Main_text_color"
         android:layout_gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textView6"/>
@@ -23,6 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/Main_text_color"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/positive_fragment_1"
         android:id="@+id/textView8"
@@ -42,6 +44,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/positive_fragment_2"
+        android:textColor="@color/Main_text_color"
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal"/>
 
@@ -57,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/Main_text_color"
         android:text="@string/positive_fragment_3"
         android:id="@+id/textView13"
         android:layout_gravity="center_horizontal"/>
@@ -72,6 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/Main_text_color"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/positive_fragment_4"
         android:id="@+id/textView15"
@@ -87,6 +92,7 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:textColor="@color/Main_text_color"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/positive_fragment_5"
@@ -104,6 +110,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/Main_text_color"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/positive_fragment_6"
         android:id="@+id/textView19"
