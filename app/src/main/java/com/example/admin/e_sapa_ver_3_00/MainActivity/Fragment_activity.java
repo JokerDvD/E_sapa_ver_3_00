@@ -31,7 +31,6 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
-import com.oguzdev.circularfloatingactionmenu.library.animation.DefaultAnimationHandler;
 
 import java.util.Locale;
 
@@ -153,7 +152,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 .addSubActionView(btn3)
                 .addSubActionView(btn4)/*
                 .addSubActionView(btn5)*/
-                .setAnimationHandler(new DefaultAnimationHandler())
+//                .setAnimationHandler(new DefaultAnimationHandler())
                 .setRadius(150)
                 .setRadius(150)
 //                .setStartAngle(0)

@@ -133,7 +133,9 @@ public class alcohol extends Fragment implements View.OnClickListener {
     public void onPause() {
         super.onPause();
         Log.d(resourceFile.LOG_TAG, "OnPause alco");
-        get_captcha_1.cancel(false);
+        if (get_captcha_1 != null) {
+            get_captcha_1.cancel(false);
+        }
     }
 
     @Override
@@ -456,7 +458,7 @@ public class alcohol extends Fragment implements View.OnClickListener {
 
                             alco_list_view.setVisibility(View.VISIBLE);
                             alco_list_view.setAdapter(alco_adapter);
-
+                            bundle.putString("Data", alco_list_response.toString());
 //                            alco_result.startAnimation(animationBase);
 //                            alco_result.setVisibility(View.GONE);
                         } else {
