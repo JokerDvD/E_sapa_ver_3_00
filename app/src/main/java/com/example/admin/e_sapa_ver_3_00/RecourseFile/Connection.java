@@ -23,7 +23,6 @@ public class Connection {
             connection.setRequestProperty("Content-type", "text/xml; charset=utf-8");
             connection.setConnectTimeout(4000);
             connection.setRequestProperty("Content-Length", String.valueOf(resourceFile.envelope.length()));
-            //Send request
             DataOutputStream wr = new DataOutputStream(
                     connection.getOutputStream());
             wr.writeBytes(resourceFile.envelope);

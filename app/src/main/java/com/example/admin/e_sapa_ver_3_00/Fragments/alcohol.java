@@ -48,7 +48,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 public class alcohol extends Fragment implements View.OnClickListener {
 
@@ -57,11 +56,8 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private View view;
     private Connection alco_connection;
     private GPS gps_class;
-    private String[] positive_response;
     private dbFuncClass db_helper_class;
-    private RelativeLayout alco_response;
     private LinearLayout alco_header;
-//    private ListView alco_list_view;
     private Animation animationBase;
     private ImageView alco_image_captcha;
     private EditText alco_text_captcha;
@@ -73,16 +69,16 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private String valueFormBuildId;
     private String captcha_token;
     private String captcha_sid;
-    private String captchaReferrer;
     private String alco_series_Numeration;
     private android.widget.EditText alco_series_label;
     private String alco_series_label_text;
     private String alco_captcha_text;
     private Document doc;
     private CircularProgressView alco_progress_bar;
-    private List<String> alco_list_response = new ArrayList<>();
     private String alco_captcha_referrer;
     private alco_get_captcha_1 get_captcha_1;
+    private Bundle bundle;
+
 
 
     public alcohol() {
@@ -182,17 +178,11 @@ public class alcohol extends Fragment implements View.OnClickListener {
             alco_header = (LinearLayout) view.findViewById(R.id.alco_header);
             alco_header.startAnimation(animationBase);
 
-            alco_response = (RelativeLayout) view.findViewById(R.id.alco_response);
-
-
-//            alco_list_view = (ListView) view.findViewById(R.id.alco_list_view);
-//            alco_list_view.setVisibility(View.GONE);
 
             RelativeLayout RL = (RelativeLayout) view.findViewById(R.id.alco_body);
             RL.startAnimation(animationBase);
 
             db_helper_class = new dbFuncClass(getActivity());
-            positive_response = getResources().getStringArray(R.array.common_array_1);
 
             alco_image_captcha = (ImageView) view.findViewById(R.id.alco_captcha_image);
             alco_image_captcha.setVisibility(View.GONE);
@@ -222,8 +212,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
         if (alco_part_1t.length() != 0 && alco_part_2t.length() != 0 && alco_part_3t.length() != 0 && alco_text_captcha.length() != 0 && alco_series_label.length() != 0) {
 
             if (gps_class.canGetLocation()) {
-//                alco_result.setVisibility(View.GONE);
-//                alco_list_view.setVisibility(View.GONE);
                 alco_series_Numeration = alco_part_1t.getText().toString().replaceAll(" ", "") + alco_part_2t.getText().toString().replaceAll(" ", "") + alco_part_3t.getText().toString().replaceAll(" ", "");
                 alco_series_label_text = alco_series_label.getText().toString().replaceAll(" ", "");
                 alco_captcha_text = alco_text_captcha.getText().toString().replaceAll(" ", "");
@@ -421,7 +409,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
             String data = null;
             dialog.hide();
             dialog.dismiss();
-            Bundle bundle = new Bundle();
 
             try {
                 JSONArray jsonarray = new JSONArray(result);
@@ -442,62 +429,42 @@ public class alcohol extends Fragment implements View.OnClickListener {
                         Elements td = tr_odd.select("td");
 
                         if (!td.isEmpty()) {
-
-//                            alco_list_view.setVisibility(View.VISIBLE);
+                            ArrayList<String> alco_list_response = new ArrayList<String>();
 
                             for (Element tagTd : td) {
                                 String span = tagTd.select("span").toString();
                                 alco_list_response.add(String.valueOf(Html.fromHtml(span)));
                             }
+                            db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, true, td.toString(), resourceFile.latitude, resourceFile.longitude);
+                            bundle=new Bundle();
+                            bundle.putStringArrayList("Data", alco_list_response);
+                            ShowPositiveResponse fragment=new ShowPositiveResponse();
+                            fragment.setArguments(bundle);
+                            fragment.show(getActivity().getFragmentManager(),"sdf");
 
-                            boolean bool = true;
-                            db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, bool, alco_list_response.toString(), resourceFile.latitude, resourceFile.longitude);
-//                            response_list alco_adapter = new response_list(getActivity(), positive_response, alco_list_response);
-
-//                            alco_list_view.setVisibility(View.VISIBLE);
-//                            alco_list_view.setAdapter(alco_adapter);
-                            bundle.putString("Data", alco_list_response.toString());
-//                            alco_result.startAnimation(animationBase);
-//                            alco_result.setVisibility(View.GONE);
                         } else {
-
-//                            alco_result.setVisibility(View.VISIBLE);
                             doc = Jsoup.parse(data);
-
                             Elements divResults = doc.select("div#results");
                             Elements pure_form = divResults.select("p");
                             db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, false, pure_form.toString(), resourceFile.latitude, resourceFile.longitude);
-//                            alco_result.setText(Html.fromHtml(pure_form.toString()));
                             bundle.putString("Data", pure_form.toString());
-
-//                            alco_list_view.setVisibility(View.GONE);
                         }
-
                     } else {
-
-//                        alco_result.setVisibility(View.VISIBLE);
-//                        alco_result.setText(Html.fromHtml(data));
-
+                        bundle=new Bundle();
                         bundle.putString("Data", data.toString());
-
                         db_helper_class.write_data(alco_series_label_text + alco_series_Numeration, false, data.toString(), resourceFile.latitude, resourceFile.longitude);
-
-//                        alco_list_view.setVisibility(View.GONE);
-
-                    }
-                    if (bundle.equals(null)) {
-
-                    } else {
-                        show show = new show();
-                        show.setArguments(bundle);
-                        show.show(getActivity().getFragmentManager(), "Login");
+                        if (bundle.equals(null)) {
+//do
+                        } else {
+                            ShowNegativeResponse show = new ShowNegativeResponse();
+                            show.setArguments(bundle);
+                            show.show(getActivity().getFragmentManager(), "Login");
+                        }
                     }
                 } else {
                     Toast.makeText(getActivity(), "You never see that message", Toast.LENGTH_SHORT).show();
 
                 }
-
-
             } catch (JSONException e1) {
                 e1.printStackTrace();
 

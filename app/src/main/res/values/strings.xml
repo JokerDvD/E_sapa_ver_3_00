@@ -177,4 +177,13 @@
     <string name="home_text_info_5">Вы должны быть уверены в качестве купленного товара</string>
     <string name="home_text_info_8">Проверка с помощью мобильного приложения E-сапа</string>
     <string name="home_text_info_6">Посетите портал www.E-sapa.kz</string>
+
+    <!--Positive Fragment-->
+    <string name="positive_fragment">Наименование региона производства продукции</string>
+    <string name="positive_fragment_1">Организация</string>
+    <string name="positive_fragment_2">Группа продуктов</string>
+    <string name="positive_fragment_3">Сокращенное наименование продукта</string>
+    <string name="positive_fragment_4">Емкость тары (бутылки), л</string>
+    <string name="positive_fragment_5">Дата печати марки</string>
+    <string name="positive_fragment_6">Дата розлива</string>
 </resources>

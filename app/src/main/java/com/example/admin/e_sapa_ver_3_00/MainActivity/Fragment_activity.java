@@ -150,13 +150,9 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 .addSubActionView(btn1)
                 .addSubActionView(btn2)
                 .addSubActionView(btn3)
-                .addSubActionView(btn4)/*
-                .addSubActionView(btn5)*/
-//                .setAnimationHandler(new DefaultAnimationHandler())
+                .addSubActionView(btn4)
                 .setRadius(150)
                 .setRadius(150)
-//                .setStartAngle(0)
-//                .setEndAngle(90)
                 .attachTo(actionButton)
                 .build();
 
@@ -181,12 +177,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 toolbarString = home.getTitle(getBaseContext(), position);
                 break;
-            /*case 1:
-                toolbarString = qrcode.getTitle(getBaseContext(), position);
-                break;
-            case 2:
-                toolbarString = (barcode.getTitle(getBaseContext(), position));
-                break;*/
             case 1:
                 toolbarString = (tabacco.getTitle(getBaseContext(), position));
                 break;
@@ -210,8 +200,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         drawer = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_home).withName(R.string.nav_home).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
-                /*new SecondaryDrawerItem().withIcon(R.drawable.ic_qrcode).withName(R.string.nav_qrcode).setEnabled(true),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_barcode).withName(R.string.nav_brandcode).setEnabled(true),*/
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
@@ -234,12 +222,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                                     setCurrentFragment(position, pager);
                                 }
                                 int content = drawer.getDrawerItems().get(position).getIdentifier();
-                               /* if (content == 1) {
-                                    Toast.makeText(Fragment_activity.this, "Content " + content, Toast.LENGTH_LONG).show();
-                                }*/
                             }
 
-//                            Toast.makeText(Fragment_activity.this, " Фрагмент " + position, Toast.LENGTH_LONG).show();
                         }
                         return false;
                     }
@@ -253,12 +237,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 page = 0;
                 break;
-           /* case 2:
-                page = 1;
-                break;
-            case 3:
-                page = 2;
-                break;*/
             case 2:
                 page = 1;
                 break;
@@ -286,27 +264,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         toolbar.setTitle(R.string.nav_home);
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_fragment_activity, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @Override
     public void onBackPressed() {
@@ -315,7 +272,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         } else if (actionMenu.isOpen()) {
             actionMenu.close(true);
         } else {
-//            super.onBackPressed();
             Toast.makeText(this, "Зачем ты жмешь это?!", Toast.LENGTH_LONG).show();
         }
     }

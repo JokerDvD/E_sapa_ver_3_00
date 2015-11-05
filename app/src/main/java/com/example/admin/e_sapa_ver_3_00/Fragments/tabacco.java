@@ -252,7 +252,7 @@ public class tabacco extends Fragment implements View.OnClickListener {
                 bundle=new Bundle();
                 BuildingString buildingString=new BuildingString();
                 bundle.putString("Data",buildingString.showOnDialogFragment());
-                show show = new show();
+                ShowNegativeResponse show = new ShowNegativeResponse();
                 show.setArguments(bundle);
                 show.show(getActivity().getFragmentManager(), "Login");
             } else {
