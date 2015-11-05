@@ -1,14 +1,15 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 
-import android.content.Context;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -29,41 +30,20 @@ public class settings extends Fragment implements View.OnClickListener {
     private Spinner setting_spinner;
     private String[] setting_lis_lang;
     private View view;
-
-    public settings() {
-    }
-
-    public static settings newInstance(int page) {
-        settings fragment = new settings();
-        Bundle args = new Bundle();
-        args.putInt("num", page);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static String getTitle(Context context, int position) {
-        String fragment_name = context.getString(R.string.action_settings);
-        return fragment_name;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
-    }
+    private Animation animationBase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        animationBase = AnimationUtils.loadAnimation(getActivity(), R.anim.down_anim);
         view = inflater.inflate(R.layout.fragment_settings, container, false);
-
-
+        view.startAnimation(animationBase);
         pref = new preferenceSave_Load(getActivity());
-
         setting_lis_lang = getActivity().getResources().getStringArray(R.array.setting_lang);
 
-
         setting_spinner = (Spinner) view.findViewById(R.id.set_lang_spinner);
+        setting_spinner.startAnimation(animationBase);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, setting_lis_lang);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         setting_spinner.setAdapter(adapter);
@@ -142,13 +122,13 @@ public class settings extends Fragment implements View.OnClickListener {
         int themeIndex = 0;
         switch (v.getId()) {
             case R.id.set_i_b:
-                themeIndex = R.color.theme_color_1;
+                themeIndex = R.drawable.back1;
                 break;
             case R.id.set_i_b_2:
-                themeIndex = R.color.theme_color_2;
+                themeIndex = R.drawable.back2;
                 break;
             case R.id.set_i_b_3:
-                themeIndex = R.color.theme_color_3;
+                themeIndex = R.drawable.back3;
                 break;
 
             case R.id.set_i_b_4:

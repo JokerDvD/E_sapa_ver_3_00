@@ -1,12 +1,12 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -79,50 +79,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
     private alco_get_captcha_1 get_captcha_1;
     private Bundle bundle;
 
-
-
-    public alcohol() {
-    }
-
-    public static alcohol newInstance(int page) {
-        alcohol fragment = new alcohol();
-        Bundle args = new Bundle();
-        args.putInt("num", page);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static String getTitle(Context context, int position) {
-        fragment_name = context.getResources().getString(R.string.nav_alcohol);
-        return fragment_name;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d(resourceFile.LOG_TAG, "onDetach Alco");
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(resourceFile.LOG_TAG, "OnDestroy Alco");
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(resourceFile.LOG_TAG, "OnResume");
-    }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -132,11 +88,6 @@ public class alcohol extends Fragment implements View.OnClickListener {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(resourceFile.LOG_TAG, "OnStart Alco");
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

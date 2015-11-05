@@ -1,10 +1,9 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,19 +26,12 @@ import com.rey.material.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class history extends Fragment  {
+public class history extends Fragment {
 
     private int pageNumber;
     private Button history_btn_1, history_btn_2;
     private GoogleMap googleMap;
     private TextView history_text_view_1, history_text_view_2;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-                
-    }
-
     private View view;
     private Spinner history_spinner;
     private List<String> history_list = new ArrayList<>();
@@ -52,23 +44,6 @@ public class history extends Fragment  {
     private CustomList.history_list_view hist_adapter;
 
     public history() {
-    }
-
-    public static history newInstance(int page) {
-        history fragment = new history();
-        Bundle args = new Bundle();
-        args.putInt("num", page);
-        return fragment;
-    }
-
-    public static String getTitle(Context context, int position) {
-        String fragment_name = context.getString(R.string.nav_history);
-        return fragment_name;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override

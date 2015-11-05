@@ -1,6 +1,7 @@
 package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
-import android.content.Intent;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -11,17 +12,14 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.admin.e_sapa_ver_3_00.BarcodeActivity.scanner_actv;
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
 import com.example.admin.e_sapa_ver_3_00.Fragments.history;
 import com.example.admin.e_sapa_ver_3_00.Fragments.home;
 import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
-import com.example.admin.e_sapa_ver_3_00.FragmentsAdapter.MyAdapter;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
-import com.example.admin.e_sapa_ver_3_00.viewPagerAnimation.ZoomOutPageTransformer;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -38,11 +36,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private Toolbar toolbar;
     private Drawer drawer;
     private preferenceSave_Load pref;
-    private ViewPager viewPager;
-    private SubActionButton btn1, btn2, btn3, btn4, btn5;
-    private SubActionButton btn6, btn7;
+    private SubActionButton btn1, btn2, btn3, btn4;
     private FloatingActionMenu actionMenu;
     private FloatingActionButton actionButton;
+    private Fragment navigationFragment;
 
 
     @Override
@@ -50,28 +47,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
         pref = new preferenceSave_Load(this);
-
-        viewPager = (ViewPager) findViewById(R.id.pager);
         setToolbar();
-        viewPager.setAdapter(new MyAdapter(this, getSupportFragmentManager()));
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                setCurrentPageTitle(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        viewPager.setCurrentItem(0);
-        navigationDrawer(viewPager);
+        navigationDrawer();
         CircularFloatingActionMenu();
         setBackground();
         setLanguage();
@@ -90,14 +67,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             getBaseContext().getResources().updateConfiguration(configuration, null);
 
             pref.savePageNum(resourceFile.pageN_tag, 0);
-            viewPager.setCurrentItem(page);
         }
     }
 
     private void setBackground() {
         int theme_color = pref.loadThemeTag(resourceFile.theme_tag, R.color.theme_color_3);
-            getWindow().getDecorView().setBackgroundResource(theme_color);
-            actionButton.setBackgroundColor(theme_color);
+        getWindow().getDecorView().setBackgroundResource(theme_color);
+        actionButton.setBackgroundColor(theme_color);
     }
 
     private void CircularFloatingActionMenu() {
@@ -167,36 +143,9 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
             }
         });
-
-
     }
 
-    private void setCurrentPageTitle(int position) {
-        String toolbarString;
-        switch (position) {
-            case 0:
-                toolbarString = home.getTitle(getBaseContext(), position);
-                break;
-            case 1:
-                toolbarString = (tabacco.getTitle(getBaseContext(), position));
-                break;
-            case 2:
-                toolbarString = alcohol.getTitle(getBaseContext(), position);
-                break;
-            case 3:
-                toolbarString = history.getTitle(getBaseContext(), position);
-                break;
-            case 4:
-                toolbarString = settings.getTitle(getBaseContext(), position);
-                break;
-            default:
-                toolbarString = settings.getTitle(getBaseContext(), position);
-                break;
-        }
-        toolbar.setTitle(toolbarString);
-    }
-
-    private void navigationDrawer(final ViewPager pager) {
+    private void navigationDrawer() {
         drawer = new DrawerBuilder().withActivity(this).withToolbar(toolbar).addDrawerItems(
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_home).withName(R.string.nav_home).setEnabled(true),
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
@@ -215,20 +164,49 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
-                                toolbar.setTitle(((Nameable) drawerItem).getNameRes());
+                                toolbar.setTitle(((Nameable) drawerItem).getName());
+//                                toolbar.setTitle(String.valueOf(((Nameable) drawerItem).getName()));
+
                                 if (position == 8) {
                                     finish();
-                                } else {
-                                    setCurrentFragment(position, pager);
                                 }
-                                int content = drawer.getDrawerItems().get(position).getIdentifier();
                             }
-
+                        }
+                        if (position == position) {
+                            Toast.makeText(getApplicationContext(),"Position "+position,Toast.LENGTH_LONG).show();
+                            OpenPositionFragment(position);
                         }
                         return false;
                     }
                 }).build();
+
         drawer.setSelection(0);
+    }
+
+    private void OpenPositionFragment(int position) {
+        switch (position) {
+            case 0:
+                navigationFragment = new home();
+                break;
+            case 2:
+                navigationFragment = new tabacco();
+                break;
+            case 3:
+                navigationFragment = new alcohol();
+                break;
+            case 5:
+                navigationFragment = new history();
+                break;
+            case 7:
+                navigationFragment = new settings();
+                break;
+        }
+
+        if (navigationFragment != null) {
+            FragmentManager manager = getFragmentManager();
+            manager.beginTransaction().replace(R.id.content_frame, navigationFragment).commit();
+        }
+
     }
 
     private void setCurrentFragment(int position, ViewPager pager) {
@@ -276,23 +254,26 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
     @Override
     public void onClick(View v) {
+        int pos;
         switch (v.getId()) {
             case R.id.alco_series_label:
-                viewPager.setCurrentItem(1);
+                pos=2;
                 break;
             case R.id.alco_list_view:
-                viewPager.setCurrentItem(2);
+                pos=3;
                 break;
             case R.id.alco_part1a:
-                viewPager.setCurrentItem(4);
+                pos=7;
                 break;
             case R.id.alco_header:
-                Intent intent_barcode = new Intent(this, scanner_actv.class);
-                startActivity(intent_barcode);
+                pos=5;
                 break;
+            default:
+                pos=0;
         }
+
+        OpenPositionFragment(pos);
     }
 }

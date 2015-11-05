@@ -22,7 +22,7 @@ public class CustomList extends ArrayAdapter<String> {
     private final Activity context;
     private final String []setting_list_theme;
 
-    private Integer[] setting_image = {
+    /*private Integer[] setting_image = {
             R.drawable.pic1,
             R.drawable.pic2,
             R.drawable.pic3,
@@ -33,7 +33,7 @@ public class CustomList extends ArrayAdapter<String> {
             R.drawable.pic8,
             R.drawable.pic9,
 
-    };
+    };*/
 
 
     public CustomList(Activity context,String[] text) {
@@ -53,7 +53,7 @@ public class CustomList extends ArrayAdapter<String> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
         txtTitle.setText(setting_list_theme[position]);
 
-        imageView.setImageResource(setting_image[position]);
+//        imageView.setImageResource(setting_image[position]);
         return rowView;
     }
 

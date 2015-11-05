@@ -14,26 +14,23 @@
         style="@style/HeaderBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/toolbar_color"
+        android:background="@null"
         android:minHeight="?attr/actionBarSize"
         android:transitionName="actionBar"
         app:popupTheme="@style/ActionBarPopupThemeOverlay"
         app:theme="@style/ActionBarThemeOverlay"
         android:elevation="4dp" />
 
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
-        <!--android:background="@color/vp_color_back"-->
+        android:layout_below="@+id/toolbar"
+        >
 
-        <android.support.v4.view.PagerTabStrip
-            android:layout_width="match_parent"
-            android:background="@color/vp_white"
-            android:textColor="@color/vp_also_black"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top" />
+    </FrameLayout>
 
-    </android.support.v4.view.ViewPager>
+
+
+
 </RelativeLayout>

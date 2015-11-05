@@ -1,10 +1,9 @@
 package com.example.admin.e_sapa_ver_3_00.Fragments;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,37 +16,14 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.admin.e_sapa_ver_3_00.R;
-import com.rey.material.widget.SnackBar;
 
 import java.util.HashMap;
 
 public class home extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
-    private int pageNumber;
+
     private View view;
     private SliderLayout mDemoSlider;
-
-    public home() {
-    }
-
-    public static home newInstance(int page) {
-        home fragment = new home();
-        Bundle args = new Bundle();
-        args.putInt("num", page);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static String getTitle(Context context, int position) {
-        String fragment_name = context.getString(R.string.nav_home);
-        return fragment_name;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,7 +62,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
 
             mDemoSlider.addSlider(textSliderView);
         }
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Background2Foreground);
+        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.FlipHorizontal);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setCurrentPosition(1);
