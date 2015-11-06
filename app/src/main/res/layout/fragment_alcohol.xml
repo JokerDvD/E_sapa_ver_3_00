@@ -20,17 +20,6 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="@string/alco_text_info_1"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Main_text_color"
-                android:textIsSelectable="false"
-                android:textSize="@dimen/abc_action_bar_content_inset_material" />
-
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="326px"

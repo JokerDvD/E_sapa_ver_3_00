@@ -29,6 +29,8 @@
     <string name="alco_text_info_4">Введите буквы, показанные на изображении.</string>
     <string name="alco_text_info_5">Загрузка...</string>
     <string name="alco_text_info_6">Загружаем Рисунок для ввода </string>
+    <string name="alco_title">Алкоголь</string>
+
 
 
     <!--Tabacco fragments-->
@@ -43,6 +45,8 @@
     <string name="tabac_textInfo_8">Перейти в настройки сети</string>
     <string name="tabac_textInfo_9">Подключите Интернет</string>
     <string name="tabac_textInfo_10">Товар не прошел проверку на соответствие.\n Возможно, введенный вами Штрих код содержит отпечатку.\n Если вы уверены что ввели его правильно просьба отправить нам уведомление.</string>
+
+    <string name="tabac_title">Табак</string>
 
     <string name="tabac_part1">1 часть кода</string>
     <string name="tabac_part2">2 часть кода</string>

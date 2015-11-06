@@ -36,7 +36,6 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.fon_6);
         Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_3);
         Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_7);
-        Bitmap bitmap4 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_1);
 
 
 

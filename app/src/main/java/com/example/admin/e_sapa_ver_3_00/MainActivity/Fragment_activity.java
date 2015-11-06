@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -67,7 +66,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             Configuration configuration = new Configuration();
             configuration.locale = locale;
             getBaseContext().getResources().updateConfiguration(configuration, null);
-
+            drawer.setSelection(7);
             pref.savePageNum(resourceFile.pageN_tag, 0);
         }
     }
@@ -75,7 +74,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private void setBackground() {
         int theme_color = pref.loadThemeTag(resourceFile.theme_tag, R.color.theme_color_3);
         getWindow().getDecorView().setBackgroundResource(theme_color);
-        actionButton.setBackgroundColor(theme_color);
     }
 
     private void CircularFloatingActionMenu() {
@@ -88,13 +86,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
         actionButton.setBottom(50);
         actionButton.setRight(50);
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
-
         ImageView imageView1 = new ImageView(this);
         imageView1.setImageDrawable(getResources().getDrawable(R.drawable.ic_smoking));
 
         btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
-
 
         ImageView imageView2 = new ImageView(this);
         imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_martini));
@@ -109,11 +104,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
         btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
 
-       /* ImageView imageView5 = new ImageView(this);
-        imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();*/
-
-
         btn1.setOnClickListener(this);
         btn1.setId(R.id.alco_series_label);
         btn2.setOnClickListener(this);
@@ -122,7 +112,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         btn3.setId(R.id.alco_part1a);
         btn4.setOnClickListener(this);
         btn4.setId(R.id.alco_header);
-
 
         actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(btn1)
@@ -153,8 +142,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
-                new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_history).setEnabled(true).withIdentifier(1),
+                new SectionDrawerItem().withName(R.string.nav_history),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_SectionDrawerItemHistory).setEnabled(true).withIdentifier(1),
                 new SectionDrawerItem().withName(R.string.action_settings),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_settings).withName(R.string.action_settings).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_exit_to_app).withName(R.string.nav_exit).setEnabled(true)
@@ -167,7 +156,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable) drawerItem).getName());
-//                                toolbar.setTitle(String.valueOf(((Nameable) drawerItem).getName()));
 
                                 if (position == 8) {
                                     finish();
@@ -194,10 +182,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 break;
             case 2:
                 navigationFragment = new tabacco();
-                toolbar.setTitle(getResources().getString(R.string.tabac_textInfo_1));
+                toolbar.setTitle(getResources().getString(R.string.tabac_title));
+
+                toolbar.setSubtitle(getResources().getString(R.string.tabac_textInfo_1));
                 break;
             case 3:
                 navigationFragment = new alcohol();
+                toolbar.setTitle(getResources().getString(R.string.alco_title));
                 toolbar.setSubtitle(getResources().getString(R.string.alco_text_info_1));
                 break;
             case 5:
@@ -217,36 +208,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     }
 
-    private void setCurrentFragment(int position, ViewPager pager) {
-        int page;
-        switch (position) {
-            case 0:
-                page = 0;
-                break;
-            case 2:
-                page = 1;
-                break;
-            case 3:
-                page = 2;
-                break;
-            case 5:
-                page = 3;
-                break;
-            case 7:
-                page = 4;
-                break;
-            default:
-                Toast.makeText(Fragment_activity.this, "Position " + position, Toast.LENGTH_LONG).show();
-                page = 0;
-                break;
-        }
-        pager.setCurrentItem(page);
-    }
-
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.null1));
         setSupportActionBar(toolbar);
+        toolbar.setSelected(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.nav_home);
     }

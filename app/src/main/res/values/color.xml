@@ -7,7 +7,7 @@
 
     <color name="TF_color">#727272</color>
 
-    <color name="BTN_text_color">#5d5d5d</color>
+    <color name="BTN_text_color">#ffffff</color>
 
     <color name="ET_text_color">#212121</color>
     <color name="ET_inserting_text_color">#7ba8cb</color>

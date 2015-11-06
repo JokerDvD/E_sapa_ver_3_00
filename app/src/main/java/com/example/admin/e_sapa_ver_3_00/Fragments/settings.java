@@ -142,6 +142,8 @@ public class settings extends Fragment implements View.OnClickListener {
             case R.id.set_i_b_6:
                 themeIndex = R.color.theme_color_6;
                 break;
+            default:
+                break;
         }
         if (themeIndex != 0) {
             pref.saveThemeTag(resourceFile.theme_tag, themeIndex);
