@@ -116,7 +116,7 @@
     <string name="history_info_7">Положительная</string>
     <string name="history_info_8">Отрицательная</string>
     <string name="history_info_9">Нажмите сюда</string>
-    <string name="history_info_Main">История</string>
+    <string name="history_info_title">История</string>
 
 
     <!--Setting fragment-->
@@ -177,6 +177,7 @@
     <string name="home_text_info_5">Вы должны быть уверены в качестве купленного товара</string>
     <string name="home_text_info_8">Проверка с помощью мобильного приложения E-сапа</string>
     <string name="home_text_info_6">Посетите портал www.E-sapa.kz</string>
+    <string name="home_title">Главная</string>
 
     <!--Positive Fragment-->
     <string name="positive_fragment">Наименование региона производства продукции</string>

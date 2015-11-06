@@ -52,4 +52,7 @@
     <color name="vp_white">#ffffff</color>
     <color name="vp_also_black">#03A9F4</color>
 
+
+    <!--Null color-->
+    <color name="null1">#000</color>
 </resources>

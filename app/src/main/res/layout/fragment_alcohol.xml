@@ -17,8 +17,6 @@
             android:id="@+id/alco_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
@@ -26,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="@string/alco_text_info_1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -39,7 +36,7 @@
                 android:layout_width="326px"
                 android:layout_height="139px"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/background_with_shadow_backround"
                 android:src="@drawable/akscis_rk_1" />
 
@@ -49,13 +46,13 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/captcha_image"
-                android:layout_marginTop="10dp">
+                >
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="match_parent"
 
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
+                    >
 
                     <EditText
                         android:id="@+id/alco_series_label"
@@ -86,8 +83,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/alco_header"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            >
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -186,8 +182,8 @@
                     android:layout_height="60px"
                     android:layout_below="@+id/textView2"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/logo_main" />
+                    android:background="@drawable/logo_main"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
                     android:id="@+id/textView2"
@@ -195,7 +191,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
                     android:text="@string/alco_text_info_3"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/Main_text_color"
@@ -229,7 +224,7 @@
                     android:layout_height="60dp"
                     android:layout_below="@+id/alco_captcha_image"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     app:cpv_animAutostart="true"
                     app:cpv_indeterminate="true" />
 

@@ -20,6 +20,7 @@ import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
+import com.example.admin.e_sapa_ver_3_00.WTF;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -40,6 +41,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private FloatingActionMenu actionMenu;
     private FloatingActionButton actionButton;
     private Fragment navigationFragment;
+    private int count = 0;
 
 
     @Override
@@ -173,12 +175,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                             }
                         }
                         if (position == position) {
-                            Toast.makeText(getApplicationContext(),"Position "+position,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Position " + position, Toast.LENGTH_LONG).show();
                             OpenPositionFragment(position);
                         }
                         return false;
                     }
                 }).build();
+
 
         drawer.setSelection(0);
     }
@@ -187,18 +190,23 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         switch (position) {
             case 0:
                 navigationFragment = new home();
+                toolbar.setTitle(getResources().getString(R.string.home_text_info_1));
                 break;
             case 2:
                 navigationFragment = new tabacco();
+                toolbar.setTitle(getResources().getString(R.string.tabac_textInfo_1));
                 break;
             case 3:
                 navigationFragment = new alcohol();
+                toolbar.setSubtitle(getResources().getString(R.string.alco_text_info_1));
                 break;
             case 5:
                 navigationFragment = new history();
+                toolbar.setSubtitle(getResources().getString(R.string.history_info_title));
                 break;
             case 7:
                 navigationFragment = new settings();
+                toolbar.setTitle(getResources().getString(R.string.set_info_3));
                 break;
         }
 
@@ -237,6 +245,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.null1));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.nav_home);
@@ -245,12 +254,21 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen()) {
             drawer.closeDrawer();
         } else if (actionMenu.isOpen()) {
             actionMenu.close(true);
         } else {
-            Toast.makeText(this, "Зачем ты жмешь это?!", Toast.LENGTH_LONG).show();
+            if (count == 5) {
+                count = 0;
+                navigationFragment = new WTF();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.content_frame, navigationFragment).commit();
+                Toast.makeText(this, "ну и ачем ты нажал это ?!", Toast.LENGTH_LONG).show();
+
+            }
+            count++;
         }
     }
 
@@ -259,19 +277,19 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         int pos;
         switch (v.getId()) {
             case R.id.alco_series_label:
-                pos=2;
+                pos = 2;
                 break;
             case R.id.alco_list_view:
-                pos=3;
+                pos = 3;
                 break;
             case R.id.alco_part1a:
-                pos=7;
+                pos = 7;
                 break;
             case R.id.alco_header:
-                pos=5;
+                pos = 5;
                 break;
             default:
-                pos=0;
+                pos = 0;
         }
 
         OpenPositionFragment(pos);
