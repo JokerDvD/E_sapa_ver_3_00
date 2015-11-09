@@ -55,4 +55,7 @@
 
     <!--Null color-->
     <color name="null1">#000</color>
+
+    <!--Color-->
+    <color name="sinch_purple">#ff63029d</color>
 </resources>

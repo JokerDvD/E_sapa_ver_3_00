@@ -55,6 +55,7 @@ dependencies {
     compile files('libs/zxing_core.jar')
     compile files('libs/jsoup-1.8.3.jar')
     compile files('libs/YouTubeAndroidPlayerApi.jar')
+    /*parse com*/
 }
 
 

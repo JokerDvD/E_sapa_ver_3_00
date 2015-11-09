@@ -32,7 +32,9 @@
     <string name="alco_title">Алкоголь</string>
 
 
-
+<!--Login Fragment-->
+    <string name="username">Login</string>
+    <string name="password">Password</string>
     <!--Tabacco fragments-->
 
     <string name="tabac_textInfo_1">Проверка учета и контроля марок на алкогольную продукцию</string>
