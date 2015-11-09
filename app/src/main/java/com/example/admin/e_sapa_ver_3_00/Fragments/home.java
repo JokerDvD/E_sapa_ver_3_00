@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +38,11 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
 
 
 
-        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put(getResources().getString(R.string.home_text_info_6),/* R.drawable.fon_6*/bitmap1.getScaledWidth(new DisplayMetrics()));
-        file_maps.put(getResources().getString(R.string.home_text_info_3), /*R.drawable.fon_3*/bitmap2.getScaledWidth(new DisplayMetrics()));
-        file_maps.put(getResources().getString(R.string.home_text_info_7), /*R.drawable.fon_7*/bitmap1.getScaledWidth(new DisplayMetrics()));
-        file_maps.put(getResources().getString(R.string.home_text_info_1), /*R.drawable.fon_1*/bitmap1.getScaledWidth(new DisplayMetrics()));
+        HashMap<String, Bitmap> file_maps = new HashMap<>();
+        file_maps.put(getResources().getString(R.string.home_text_info_6), bitmap1);
+        file_maps.put(getResources().getString(R.string.home_text_info_3), bitmap2);
+        file_maps.put(getResources().getString(R.string.home_text_info_7), bitmap3);
+        file_maps.put(getResources().getString(R.string.home_text_info_1), bitmap3);
 
 
         for (String name : file_maps.keySet()) {
@@ -51,7 +50,7 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
             // initialize a SliderLayout
             textSliderView
                     .description(name)
-                    .image(file_maps.get(name))
+                    .image(String.valueOf(file_maps.get(name)))
                     .setScaleType(BaseSliderView.ScaleType.Fit)
                     .setOnSliderClickListener(this);
 
