@@ -11,17 +11,20 @@ import android.widget.EditText;
 
 public class WTF extends Fragment implements View.OnClickListener {
 
-
+    double latitude, longitude;
     Button loginBtn/*, signupButton*/;
-    EditText loginUsername,loginPassword;
+    EditText loginUsername, loginPassword;
+    private boolean gps_enabled = false;
+    private boolean network_enabled = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wt, container, false);
 
-        loginUsername=(EditText) view.findViewById(R.id.loginUsername);
-        loginPassword=(EditText)view.findViewById(R.id.loginPassword);
+        loginUsername = (EditText) view.findViewById(R.id.loginUsername);
+        loginPassword = (EditText) view.findViewById(R.id.loginPassword);
 
-        loginBtn=(Button) view.findViewById(R.id.loginButton);
+        loginBtn = (Button) view.findViewById(R.id.loginButton);
         loginBtn.setOnClickListener(this);
         /*signupButton =(Button)view.findViewById(R.id.signupButton);
         signupButton.setOnClickListener(this);*/
@@ -30,11 +33,7 @@ public class WTF extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.loginButton:
-
-                break;
+        switch (v.getId()) {
         }
-
     }
 }

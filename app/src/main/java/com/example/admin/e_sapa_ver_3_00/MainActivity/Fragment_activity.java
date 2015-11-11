@@ -18,6 +18,7 @@ import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
+import com.example.admin.e_sapa_ver_3_00.RecourseFile.other.GPS;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
 import com.example.admin.e_sapa_ver_3_00.WTF;
 import com.mikepenz.materialdrawer.Drawer;
@@ -43,12 +44,14 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private int count = 0;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_activity);
         pref = new preferenceSave_Load(this);
         setToolbar();
+        getLocationPoints();
         navigationDrawer();
         CircularFloatingActionMenu();
         setBackground();
@@ -57,7 +60,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     }
 
     private void setLanguage() {
-        pref.loadLangTag(resourceFile.lang_tag, "ru");
         int page = pref.loadPageN(resourceFile.pageN_tag, 0);
 
         if (page == 6) {
@@ -178,7 +180,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         switch (position) {
             case 0:
                 navigationFragment = new home();
-                toolbar.setTitle(getResources().getString(R.string.home_text_info_1));
+                toolbar.setTitle(getResources().getString(R.string.home_title));
                 break;
             case 2:
                 navigationFragment = new tabacco();
@@ -193,11 +195,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 break;
             case 5:
                 navigationFragment = new history();
-                toolbar.setSubtitle(getResources().getString(R.string.history_info_title));
+                toolbar.setTitle(getResources().getString(R.string.history_info_title));
+                toolbar.setSubtitle("");
                 break;
             case 7:
                 navigationFragment = new settings();
                 toolbar.setTitle(getResources().getString(R.string.set_info_3));
+                toolbar.setSubtitle("");
                 break;
         }
 
@@ -258,5 +262,17 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         }
 
         OpenPositionFragment(pos);
+    }
+
+    public void getLocationPoints() {
+        GPS gps = new GPS(getApplicationContext());
+        if (gps.canGetLocation()) {
+            resourceFile.latitude = gps.getLatitude();
+            resourceFile.longitude = gps.getLongitude();
+        } else {
+            gps.showSettingsAlert();
+        }
+
+
     }
 }

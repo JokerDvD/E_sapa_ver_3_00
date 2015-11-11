@@ -66,24 +66,25 @@ public class CustomList extends ArrayAdapter<String> {
             LayoutInflater inflater = context.getLayoutInflater();
 
             View rowView = inflater.inflate(R.layout.history_list_view, null, true);
+            if(dateTime.get(position) !="No data to show") {
+                TextView text_code = (TextView) rowView.findViewById(R.id.text_code);
+                TextView text_description = (TextView) rowView.findViewById(R.id.text_description);
+                TextView text_bool = (TextView) rowView.findViewById(R.id.text_bool);
+                TextView text_dateTime = (TextView) rowView.findViewById(R.id.text_dateTime);
+                int bool_int = Integer.parseInt(bool.get(position));
 
-            TextView text_code = (TextView) rowView.findViewById(R.id.text_code);
-            TextView text_description = (TextView) rowView.findViewById(R.id.text_description);
-            TextView text_bool = (TextView) rowView.findViewById(R.id.text_bool);
-            TextView text_dateTime = (TextView) rowView.findViewById(R.id.text_dateTime);
-            int bool_int = Integer.parseInt(bool.get(position));
+                if (bool_int == 1) {
+                    text_bool.setText(R.string.history_info_7);
+                    text_bool.setTextColor(getContext().getResources().getColor(R.color.hist_positive_color));
+                } else {
+                    text_bool.setTextColor(getContext().getResources().getColor(R.color.hist_negative_color));
+                    text_bool.setText(R.string.history_info_8);
+                }
 
-            if (bool_int == 1) {
-                text_bool.setText(R.string.history_info_7);
-                text_bool.setTextColor(getContext().getResources().getColor(R.color.hist_positive_color));
-            } else {
-                text_bool.setTextColor(getContext().getResources().getColor(R.color.hist_negative_color));
-                text_bool.setText(R.string.history_info_8);
+                text_code.setText(Html.fromHtml(code.get(position).toString()));
+                text_description.setText(Html.fromHtml(description.get(position).toString()));
+                text_dateTime.setText(dateTime.get(position));
             }
-
-            text_code.setText(Html.fromHtml(code.get(position).toString()));
-            text_description.setText(Html.fromHtml(description.get(position).toString()));
-            text_dateTime.setText(dateTime.get(position));
             return rowView;
         }
     }
