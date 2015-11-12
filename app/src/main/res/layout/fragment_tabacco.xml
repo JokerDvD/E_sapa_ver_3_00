@@ -21,18 +21,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="@string/tabac_textInfo_1"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/Main_text_color"
-                android:textSize="@dimen/abc_action_bar_content_inset_material" />
-
 
             <!--<ImageView
                 android:id="@+id/imageCaptcha"
@@ -63,12 +51,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/imageView3"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1">
 
                     <EditText
@@ -80,12 +68,12 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part1"
-                        android:inputType="text"
-                        android:maxLength="5"
+                        android:maxLength="3"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
-                        android:textSize="@dimen/abc_text_size_medium_material" />
+                        android:textSize="@dimen/abc_text_size_medium_material"
+                        android:inputType="number"/>
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -102,12 +90,12 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part2"
-                        android:maxLength="5"
+                        android:maxLength="3"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:inputType="text" />
+                        android:inputType="text|number" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -124,8 +112,8 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part3"
-                        android:inputType="text"
-                        android:maxLength="5"
+                        android:inputType="text|number"
+                        android:maxLength="3"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
@@ -136,7 +124,6 @@
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
                     android:layout_weight="1">
 
                     <EditText
@@ -148,12 +135,12 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part4"
-                        android:maxLength="5"
+                        android:maxLength="3"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:inputType="text"
+                        android:inputType="text|number"
                         android:textIsSelectable="false" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
@@ -189,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_margin="10dp"
                 android:text="@string/comm_btn_find"
                 android:textColor="@color/BTN_text_color"
                 app:rd_enable="true"

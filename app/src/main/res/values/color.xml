@@ -7,7 +7,7 @@
 
     <color name="TF_color">#727272</color>
 
-    <color name="BTN_text_color">#5d5d5d</color>
+    <color name="BTN_text_color">#ffffff</color>
 
     <color name="ET_text_color">#212121</color>
     <color name="ET_inserting_text_color">#7ba8cb</color>
@@ -52,4 +52,10 @@
     <color name="vp_white">#ffffff</color>
     <color name="vp_also_black">#03A9F4</color>
 
+
+    <!--Null color-->
+    <color name="null1">#000</color>
+
+    <!--Color-->
+    <color name="sinch_purple">#ff63029d</color>
 </resources>

@@ -19,6 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "code text,"
                 +"result boolean,"
                 +"dataofresult text,"
+                +"date text,"
                 +"latitude INTEGER,"
                 +"longitude INTEGER" + ");");
     }

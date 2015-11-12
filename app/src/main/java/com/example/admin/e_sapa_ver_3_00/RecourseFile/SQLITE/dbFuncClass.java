@@ -9,15 +9,18 @@ import android.util.Log;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.dbObject.dbObject;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Optimus on 13.09.2015.
  */
 public class dbFuncClass {
-    int idColIndex, codeColIndex, resultColIndex, resullofDataColIndex, latitudeColIndex, longitudeColIndex;
-    private String LOG_SQLITE = "LOG_SQLITE", tableName = "E_sapa2", tag_id = "id", tag_result = "result", tag_code = "code", tag_dataofresult = "dataofresult", tag_latitude = "latitude", tag_longitude = "longitude";
+    int idColIndex, codeColIndex, resultColIndex, resullofDataColIndex, latitudeColIndex, longitudeColIndex, dateTimeColIndex;
+    private String LOG_SQLITE = "LOG_SQLITE", tableName = "E_sapa2", tag_id = "id", tag_result = "result", tag_code = "code", tag_dataofresult = "dataofresult", tag_latitude = "latitude", tag_longitude = "longitude", tag_dateTime = "date";
     private SQLiteDatabase db;
     private DBHelper dbHelper;
     private ContentValues cv;
@@ -25,6 +28,7 @@ public class dbFuncClass {
     private List<String> crudList;
     private List<String> description;
     private List<String> bool;
+    private List<String> dateTime;
     private List<String> data_select_item;
     private LatLng latlng;
     private dbObject dbObject;
@@ -40,6 +44,8 @@ public class dbFuncClass {
         description = new ArrayList<>();
         bool = new ArrayList<>();
         data_select_item = new ArrayList<>();
+        dateTime=new ArrayList<>();
+
         dbObject = new dbObject();
     }
 
@@ -51,22 +57,21 @@ public class dbFuncClass {
                 crudList.add(" " + cursor.getString(codeColIndex) + " ");
             } while (cursor.moveToNext());
         } else {
-            crudList.add("no data");
+            crudList.add("No data to show");
         }
         return crudList;
     }
 
-    public List<String> get_all_result() {
-        Log.d(LOG_SQLITE, "dbFuncClass get_all_result");
+    public List<String> get_all_result_boolean() {
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             resultColIndex = cursor.getColumnIndex(tag_result);
 
             do {
-                bool.add(" " + cursor.getString(resultColIndex) + " ");
+                bool.add(cursor.getString(resultColIndex));
             } while (cursor.moveToNext());
         } else {
-            bool.add("no data");
+            bool.add("3");
         }
         return bool;
     }
@@ -80,9 +85,25 @@ public class dbFuncClass {
                 description.add(" " + cursor.getString(resullofDataColIndex) + " ");
             } while (cursor.moveToNext());
         } else {
-            description.add("no data");
+            description.add("3");
         }
         return description;
+    }
+
+    public List<String> get_all_dateTime() {
+        Log.d(LOG_SQLITE, "getDateTime");
+        cursor = db.query(tableName, null, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            dateTimeColIndex = cursor.getColumnIndex(tag_dateTime);
+            do {
+                dateTime.add(" " + cursor.getString(dateTimeColIndex));
+            } while (cursor.moveToNext());
+        } else {
+                dateTime.add("No data to show");
+        }
+        return dateTime;
+
     }
 
 
@@ -115,6 +136,7 @@ public class dbFuncClass {
         cv.put(tag_dataofresult, dataofresult);
         cv.put(tag_latitude, latitude);
         cv.put(tag_longitude, longitude);
+        cv.put(tag_dateTime, getDateTime());
         db.insert(tableName, null, cv);
     }
 
@@ -141,10 +163,10 @@ public class dbFuncClass {
         return dbObject;
     }
 
-    public List<String>get_item_selected(int position){
+    public List<String> get_item_selected(int position) {
         data_select_item.clear();
         String str = new String(String.valueOf(position));
-        cursor = db.query(tableName, new String[]{tag_code,tag_dataofresult}, tag_id + "=" + str, null, null, null, null, null);
+        cursor = db.query(tableName, new String[]{tag_code, tag_dataofresult}, tag_id + "=" + str, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             /*codeColIndex = cursor.getColumnIndex(tag_code);*/
             resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);
@@ -152,7 +174,7 @@ public class dbFuncClass {
             do {
                 data_select_item.add(/*cursor.getString(codeColIndex) + " " +*/ cursor.getString(resullofDataColIndex));
             } while (cursor.moveToNext());
-        }else {
+        } else {
             data_select_item.add("No Selected Point");
         }
 
@@ -160,4 +182,10 @@ public class dbFuncClass {
     }
 
 
+    public String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 }

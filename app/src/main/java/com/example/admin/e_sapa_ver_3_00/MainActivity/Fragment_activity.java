@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -19,7 +18,9 @@ import com.example.admin.e_sapa_ver_3_00.Fragments.settings;
 import com.example.admin.e_sapa_ver_3_00.Fragments.tabacco;
 import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
+import com.example.admin.e_sapa_ver_3_00.RecourseFile.other.GPS;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
+import com.example.admin.e_sapa_ver_3_00.WTF;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -40,6 +41,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private FloatingActionMenu actionMenu;
     private FloatingActionButton actionButton;
     private Fragment navigationFragment;
+    private int count = 0;
+
 
 
     @Override
@@ -48,6 +51,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_fragment_activity);
         pref = new preferenceSave_Load(this);
         setToolbar();
+        getLocationPoints();
         navigationDrawer();
         CircularFloatingActionMenu();
         setBackground();
@@ -56,7 +60,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     }
 
     private void setLanguage() {
-        pref.loadLangTag(resourceFile.lang_tag, "ru");
         int page = pref.loadPageN(resourceFile.pageN_tag, 0);
 
         if (page == 6) {
@@ -65,7 +68,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             Configuration configuration = new Configuration();
             configuration.locale = locale;
             getBaseContext().getResources().updateConfiguration(configuration, null);
-
+            drawer.setSelection(7);
             pref.savePageNum(resourceFile.pageN_tag, 0);
         }
     }
@@ -73,7 +76,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private void setBackground() {
         int theme_color = pref.loadThemeTag(resourceFile.theme_tag, R.color.theme_color_3);
         getWindow().getDecorView().setBackgroundResource(theme_color);
-        actionButton.setBackgroundColor(theme_color);
     }
 
     private void CircularFloatingActionMenu() {
@@ -86,13 +88,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
         actionButton.setBottom(50);
         actionButton.setRight(50);
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
-
         ImageView imageView1 = new ImageView(this);
         imageView1.setImageDrawable(getResources().getDrawable(R.drawable.ic_smoking));
 
         btn1 = new SubActionButton.Builder(this).setContentView(imageView1).build();
-
 
         ImageView imageView2 = new ImageView(this);
         imageView2.setImageDrawable(getResources().getDrawable(R.drawable.ic_martini));
@@ -107,11 +106,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
         btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
 
-       /* ImageView imageView5 = new ImageView(this);
-        imageView5.setImageDrawable(getResources().getDrawable(R.drawable.ic_settings));
-        btn5 = new SubActionButton.Builder(this).setContentView(imageView5).build();*/
-
-
         btn1.setOnClickListener(this);
         btn1.setId(R.id.alco_series_label);
         btn2.setOnClickListener(this);
@@ -120,7 +114,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         btn3.setId(R.id.alco_part1a);
         btn4.setOnClickListener(this);
         btn4.setId(R.id.alco_header);
-
 
         actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(btn1)
@@ -151,8 +144,8 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                 new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemValidate),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_smoking).withName(R.string.nav_smoking).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_martini).withName(R.string.nav_alcohol).setEnabled(true),
-                new SectionDrawerItem().withName(R.string.nav_SectionDrawerItemHistory),
-                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_history).setEnabled(true).withIdentifier(1),
+                new SectionDrawerItem().withName(R.string.nav_history),
+                new SecondaryDrawerItem().withIcon(R.drawable.ic_history).withName(R.string.nav_SectionDrawerItemHistory).setEnabled(true).withIdentifier(1),
                 new SectionDrawerItem().withName(R.string.action_settings),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_settings).withName(R.string.action_settings).setEnabled(true),
                 new SecondaryDrawerItem().withIcon(R.drawable.ic_exit_to_app).withName(R.string.nav_exit).setEnabled(true)
@@ -165,7 +158,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable) drawerItem).getName());
-//                                toolbar.setTitle(String.valueOf(((Nameable) drawerItem).getName()));
 
                                 if (position == 8) {
                                     finish();
@@ -173,12 +165,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
                             }
                         }
                         if (position == position) {
-                            Toast.makeText(getApplicationContext(),"Position "+position,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Position " + position, Toast.LENGTH_LONG).show();
                             OpenPositionFragment(position);
                         }
                         return false;
                     }
                 }).build();
+
 
         drawer.setSelection(0);
     }
@@ -187,18 +180,28 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         switch (position) {
             case 0:
                 navigationFragment = new home();
+                toolbar.setTitle(getResources().getString(R.string.home_title));
                 break;
             case 2:
                 navigationFragment = new tabacco();
+                toolbar.setTitle(getResources().getString(R.string.tabac_title));
+
+                toolbar.setSubtitle(getResources().getString(R.string.tabac_textInfo_1));
                 break;
             case 3:
                 navigationFragment = new alcohol();
+                toolbar.setTitle(getResources().getString(R.string.alco_title));
+                toolbar.setSubtitle(getResources().getString(R.string.alco_text_info_1));
                 break;
             case 5:
                 navigationFragment = new history();
+                toolbar.setTitle(getResources().getString(R.string.history_info_title));
+                toolbar.setSubtitle("");
                 break;
             case 7:
                 navigationFragment = new settings();
+                toolbar.setTitle(getResources().getString(R.string.set_info_3));
+                toolbar.setSubtitle("");
                 break;
         }
 
@@ -209,35 +212,10 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     }
 
-    private void setCurrentFragment(int position, ViewPager pager) {
-        int page;
-        switch (position) {
-            case 0:
-                page = 0;
-                break;
-            case 2:
-                page = 1;
-                break;
-            case 3:
-                page = 2;
-                break;
-            case 5:
-                page = 3;
-                break;
-            case 7:
-                page = 4;
-                break;
-            default:
-                Toast.makeText(Fragment_activity.this, "Position " + position, Toast.LENGTH_LONG).show();
-                page = 0;
-                break;
-        }
-        pager.setCurrentItem(page);
-    }
-
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setSelected(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.nav_home);
     }
@@ -245,12 +223,21 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen()) {
             drawer.closeDrawer();
         } else if (actionMenu.isOpen()) {
             actionMenu.close(true);
         } else {
-            Toast.makeText(this, "Зачем ты жмешь это?!", Toast.LENGTH_LONG).show();
+            if (count == 5) {
+                count = 0;
+                navigationFragment = new WTF();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.content_frame, navigationFragment).commit();
+                Toast.makeText(this, "ну и ачем ты нажал это ?!", Toast.LENGTH_LONG).show();
+
+            }
+            count++;
         }
     }
 
@@ -259,21 +246,33 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         int pos;
         switch (v.getId()) {
             case R.id.alco_series_label:
-                pos=2;
+                pos = 2;
                 break;
             case R.id.alco_list_view:
-                pos=3;
+                pos = 3;
                 break;
             case R.id.alco_part1a:
-                pos=7;
+                pos = 7;
                 break;
             case R.id.alco_header:
-                pos=5;
+                pos = 5;
                 break;
             default:
-                pos=0;
+                pos = 0;
         }
 
         OpenPositionFragment(pos);
+    }
+
+    public void getLocationPoints() {
+        GPS gps = new GPS(getApplicationContext());
+        if (gps.canGetLocation()) {
+            resourceFile.latitude = gps.getLatitude();
+            resourceFile.longitude = gps.getLongitude();
+        } else {
+            gps.showSettingsAlert();
+        }
+
+
     }
 }

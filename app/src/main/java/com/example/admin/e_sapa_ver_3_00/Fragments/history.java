@@ -2,7 +2,6 @@ package com.example.admin.e_sapa_ver_3_00.Fragments;
 
 import android.app.Fragment;
 import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -55,7 +54,8 @@ public class history extends Fragment {
         hist_adapter =new CustomList.history_list_view(getActivity(),
                 funcClass.get_all_barcode(),
                 funcClass.get_all_description(),
-                funcClass.get_all_result());
+                funcClass.get_all_result_boolean(),
+                funcClass.get_all_dateTime());
 
         history_listView=(ListView)view.findViewById(R.id.history_list_view);
         history_listView.setAdapter(hist_adapter);
@@ -70,19 +70,4 @@ public class history extends Fragment {
 
         return view;
     }
-
-private class load_data_of_BD extends AsyncTask<Void,Void,Void>{
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
-    @Override
-    protected Void doInBackground(Void... params) {
-        
-        return null;
-    }
-}
-
 }
