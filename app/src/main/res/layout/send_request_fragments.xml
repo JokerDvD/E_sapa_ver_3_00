@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/SendrequestLayout"
     android:layout_width="match_parent"
@@ -151,4 +151,4 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

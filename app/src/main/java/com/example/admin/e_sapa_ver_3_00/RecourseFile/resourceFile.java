@@ -13,7 +13,7 @@ public class resourceFile {
     public static boolean IsValid;
     public static String BatchStatus;
     public static String StartDate;
-    public static String url = "http://192.168.0.160/test/CondentifyProxyService.svc?wsdl";
+    public static String url = "http://192.168.250.166/WCFCondentifyProxy/CondentifyProxyService.svc?wsdl";
     public static String envelope;
     public static String soapAction = "http://tempuri.org/ICondentifyProxyService/CheckcodeService";
     public static String UnitType;

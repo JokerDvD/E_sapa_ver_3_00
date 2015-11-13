@@ -53,7 +53,7 @@ public class Connection {
         try {
             /*
              *
-             * There i build request string, and set property to connection exemplar like "Content_type" etc...
+             * There is method building request string, and set property to connection exemplar like "Content_type" etc...
              * and return String response data
              *
              * */

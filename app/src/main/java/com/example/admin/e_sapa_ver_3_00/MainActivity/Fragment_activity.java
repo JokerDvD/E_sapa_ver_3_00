@@ -69,6 +69,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             configuration.locale = locale;
             getBaseContext().getResources().updateConfiguration(configuration, null);
             drawer.setSelection(7);
+            toolbar.setTitle(getResources().getString(R.string.set_info_2));
             pref.savePageNum(resourceFile.pageN_tag, 0);
         }
     }

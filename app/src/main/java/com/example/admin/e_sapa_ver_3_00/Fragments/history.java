@@ -65,6 +65,11 @@ public class history extends Fragment {
               Toast toast=  Toast.makeText(getActivity(), Html.fromHtml(funcClass.get_item_selected(position + 1).toString()), Toast.LENGTH_LONG);
                       toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
+                historyWithMap mapFragment=new historyWithMap();
+                Bundle bundle=new Bundle();
+                bundle.putInt("Details",position);
+                mapFragment.show(getActivity().getFragmentManager(),"test");
+
             }
         });
 
