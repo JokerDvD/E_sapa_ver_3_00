@@ -44,7 +44,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
     private int count = 0;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,11 +181,11 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 navigationFragment = new home();
                 toolbar.setTitle(getResources().getString(R.string.home_title));
+                toolbar.setTitle("");
                 break;
             case 2:
                 navigationFragment = new tabacco();
                 toolbar.setTitle(getResources().getString(R.string.tabac_title));
-
                 toolbar.setSubtitle(getResources().getString(R.string.tabac_textInfo_1));
                 break;
             case 3:
@@ -210,7 +209,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             FragmentManager manager = getFragmentManager();
             manager.beginTransaction().replace(R.id.content_frame, navigationFragment).commit();
         }
-
     }
 
     private void setToolbar() {
@@ -220,7 +218,6 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.nav_home);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -273,7 +270,5 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
         } else {
             gps.showSettingsAlert();
         }
-
-
     }
 }

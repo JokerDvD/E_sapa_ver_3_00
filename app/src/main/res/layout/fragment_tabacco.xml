@@ -14,34 +14,12 @@
         android:layout_alignParentTop="true">
 
         <RelativeLayout
-            android:id="@+id/tabac_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true">
-
-
-            <!--<ImageView
-                android:id="@+id/imageCaptcha"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView3"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/logo_main" />-->
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/tabac_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/tabac_header">
+            >
 
 
             <LinearLayout
@@ -73,7 +51,7 @@
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:inputType="number"/>
+                        android:inputType="textPersonName"/>
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -95,7 +73,7 @@
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:inputType="text|number" />
+                        android:inputType="text|textPersonName" />
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -112,13 +90,13 @@
                         android:ems="10"
                         android:gravity="center"
                         android:hint="@string/tabac_part3"
-                        android:inputType="text|number"
                         android:maxLength="3"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:textIsSelectable="false" />
+                        android:textIsSelectable="false"
+                        android:inputType="textPersonName"/>
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
                 <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -140,20 +118,19 @@
                         android:textColor="@color/ET_inserting_text_color"
                         android:textColorHint="@color/ET_divider_color"
                         android:textSize="@dimen/abc_text_size_medium_material"
-                        android:inputType="text|number"
-                        android:textIsSelectable="false" />
+                        android:textIsSelectable="false"
+                        android:inputType="textPersonName"/>
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/tabacco_barcode" />
+                android:src="@drawable/barcode" />
 
             <TextView
                 android:id="@+id/textView4"

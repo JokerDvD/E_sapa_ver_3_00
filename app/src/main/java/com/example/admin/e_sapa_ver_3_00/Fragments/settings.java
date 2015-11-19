@@ -54,14 +54,14 @@ public class settings extends Fragment implements View.OnClickListener {
                 String lang;
                 switch (position) {
                     case 1:
-                        lang = "kk";
+                        lang = "ru";
                         break;
                     case 2:
-                        lang = "ru";
+                        lang = "en";
                         break;
 
                     case 3:
-                        lang = "en";
+                        lang = "kz";
                         break;
 
                     default:

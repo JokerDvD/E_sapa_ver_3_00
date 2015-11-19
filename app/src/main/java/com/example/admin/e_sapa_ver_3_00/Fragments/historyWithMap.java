@@ -15,14 +15,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class historyWithMap extends DialogFragment implements DialogInterface.OnClickListener {
+    static final LatLng TutorialsPoint = new LatLng(21, 57);
     private View view;
-    static final LatLng TutorialsPoint = new LatLng(21 , 57);
     private GoogleMap googleMap;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         view = getActivity().getLayoutInflater().inflate(R.layout.fragment_history_with_map, null);
-Bundle bundle=getArguments();
+        Bundle bundle = getArguments();
 
         try {
             if (googleMap == null) {
@@ -32,8 +32,7 @@ Bundle bundle=getArguments();
             googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             Marker TP = googleMap.addMarker(new MarkerOptions().
                     position(TutorialsPoint).title("TutorialsPoint"));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

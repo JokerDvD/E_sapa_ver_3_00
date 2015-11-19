@@ -77,7 +77,6 @@ public class dbFuncClass {
     }
 
     public List<String> get_all_description() {
-        Log.d(LOG_SQLITE, "dbFuncClass get_all_description");
         cursor = db.query(tableName, null, null, null, null, null, null);
         if (cursor.moveToFirst()) {
             resullofDataColIndex = cursor.getColumnIndex(tag_dataofresult);
@@ -91,7 +90,6 @@ public class dbFuncClass {
     }
 
     public List<String> get_all_dateTime() {
-        Log.d(LOG_SQLITE, "getDateTime");
         cursor = db.query(tableName, null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
@@ -105,7 +103,6 @@ public class dbFuncClass {
         return dateTime;
 
     }
-
 
     public LatLng get_location(int id) {
 
@@ -125,7 +122,6 @@ public class dbFuncClass {
         }
         return latlng;
     }
-
 
     public void write_data(String code, boolean result, String dataofresult, double latitude, double longitude) {
 
