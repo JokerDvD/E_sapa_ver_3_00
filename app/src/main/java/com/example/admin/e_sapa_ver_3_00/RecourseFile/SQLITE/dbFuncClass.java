@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.dbObject.dbObject;
 import com.google.android.gms.maps.model.LatLng;
@@ -36,7 +35,6 @@ public class dbFuncClass {
 
     public dbFuncClass(Activity activity) {
 
-        Log.d(LOG_SQLITE, "dbFuncClass Contr");
         dbHelper = new DBHelper(activity);
         db = dbHelper.getWritableDatabase();
         cv = new ContentValues();
@@ -44,7 +42,7 @@ public class dbFuncClass {
         description = new ArrayList<>();
         bool = new ArrayList<>();
         data_select_item = new ArrayList<>();
-        dateTime=new ArrayList<>();
+        dateTime = new ArrayList<>();
 
         dbObject = new dbObject();
     }
@@ -98,7 +96,7 @@ public class dbFuncClass {
                 dateTime.add(" " + cursor.getString(dateTimeColIndex));
             } while (cursor.moveToNext());
         } else {
-                dateTime.add("No data to show");
+            dateTime.add("No data to show");
         }
         return dateTime;
 
@@ -124,8 +122,6 @@ public class dbFuncClass {
     }
 
     public void write_data(String code, boolean result, String dataofresult, double latitude, double longitude) {
-
-        Log.d(LOG_SQLITE, "Write SQLITE DB data");
 
         cv.put(tag_code, code);
         cv.put(tag_result, result);
