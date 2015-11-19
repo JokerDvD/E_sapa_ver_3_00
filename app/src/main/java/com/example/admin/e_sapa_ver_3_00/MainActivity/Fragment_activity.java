@@ -60,13 +60,13 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     private void setLanguage() {
         int page = pref.loadPageN(resourceFile.pageN_tag, 0);
-
+        Locale locale = new Locale(pref.loadLangTag(resourceFile.lang_tag, "ru"));
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, null);
         if (page == 6) {
-            Locale locale = new Locale(pref.loadLangTag(resourceFile.lang_tag, "ru"));
-            Locale.setDefault(locale);
-            Configuration configuration = new Configuration();
-            configuration.locale = locale;
-            getBaseContext().getResources().updateConfiguration(configuration, null);
+
             drawer.setSelection(7);
             toolbar.setTitle(getResources().getString(R.string.set_info_2));
             pref.savePageNum(resourceFile.pageN_tag, 0);

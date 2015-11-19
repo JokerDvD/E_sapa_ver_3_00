@@ -36,21 +36,27 @@ public class home extends Fragment implements BaseSliderView.OnSliderClickListen
         Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_3);
         Bitmap bitmap3 = BitmapFactory.decodeResource(getResources(), R.drawable.fon_7);
 
+        Integer[] imageCo={R.drawable.fon_6,R.drawable.fon_3,R.drawable.fon_7};
 
+        HashMap<String, Integer> file_maps = new HashMap<>();
+        file_maps.put(getResources().getString(R.string.home_text_info_6), R.drawable.fon_3);
+        file_maps.put(getResources().getString(R.string.home_text_info_3), R.drawable.fon_3);
+        file_maps.put(getResources().getString(R.string.home_text_info_7), R.drawable.fon_3);
+        file_maps.put(getResources().getString(R.string.home_text_info_1), R.drawable.fon_3);
+/*
 
-        HashMap<String, Bitmap> file_maps = new HashMap<>();
         file_maps.put(getResources().getString(R.string.home_text_info_6), bitmap1);
         file_maps.put(getResources().getString(R.string.home_text_info_3), bitmap2);
         file_maps.put(getResources().getString(R.string.home_text_info_7), bitmap3);
-        file_maps.put(getResources().getString(R.string.home_text_info_1), bitmap3);
-
+        file_maps.put(getResources().getString(R.string.home_text_info_1), bitmap1);
+*/
 
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(getActivity());
             // initialize a SliderLayout
             textSliderView
                     .description(name)
-                    .image(String.valueOf(file_maps.get(name)))
+                    .image(file_maps.get(name))
                     .setScaleType(BaseSliderView.ScaleType.Fit)
                     .setOnSliderClickListener(this);
 
