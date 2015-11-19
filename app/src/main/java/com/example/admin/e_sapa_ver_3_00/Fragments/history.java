@@ -72,7 +72,6 @@ public class history extends Fragment {
 
             }
         });
-
         return view;
     }
 }

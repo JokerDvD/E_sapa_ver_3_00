@@ -3,6 +3,8 @@ package com.example.admin.e_sapa_ver_3_00.Fragments;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +40,16 @@ public class historyWithMap extends DialogFragment implements DialogInterface.On
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         return (builder.setTitle(R.string.show_text_info_1).setView(view)
                 .setPositiveButton(R.string.show_text_info_2, this).create());
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Fragment fragment = (getFragmentManager().findFragmentById(R.id.map));
+        FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+        ft.remove(fragment);
+        ft.commit();
+
     }
 
     @Override
