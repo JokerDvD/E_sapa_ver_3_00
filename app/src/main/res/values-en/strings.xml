@@ -77,4 +77,13 @@
     <string name="tabac_textInfo_9">Connect Internet</string>
     <string name="tabac_title">Tobacco</string>
     <string name="title_activity_fragment_activity">Main</string>
+    <string name="comm_map_title">Map</string>
+    <string name="comm_map_close">Close Map</string>
+
+    <!--Setting fragment-->
+    <array name="setting_lang">
+        <item>Kazakh language</item>
+        <item>Russian language</item>
+        <item>Angliisky language</item>
+    </array>
 </resources>

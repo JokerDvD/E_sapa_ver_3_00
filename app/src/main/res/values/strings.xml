@@ -123,6 +123,7 @@
     <string name="history_info_8">Отрицательная</string>
     <string name="history_info_9">Нажмите сюда</string>
     <string name="history_info_title">История</string>
+    <string name="history_info_10">Выберите запись что бы посмотреть на карте</string>
 
 
     <!--Setting fragment-->
@@ -193,4 +194,6 @@
     <string name="positive_fragment_4">Емкость тары (бутылки), л</string>
     <string name="positive_fragment_5">Дата печати марки</string>
     <string name="positive_fragment_6">Дата розлива</string>
+    <string name="comm_map_title">Карта</string>
+    <string name="comm_map_close">Закрыть карту</string>
 </resources>

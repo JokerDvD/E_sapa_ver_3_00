@@ -80,7 +80,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
     private void CircularFloatingActionMenu() {
         ImageView imageView = new ImageView(this);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action));
 
         actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(imageView)
@@ -103,7 +103,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
 
 
         ImageView imageView4 = new ImageView(this);
-        imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_barcode));
+        imageView4.setImageDrawable(getResources().getDrawable(R.drawable.ic_history));
         btn4 = new SubActionButton.Builder(this).setContentView(imageView4).build();
 
         btn1.setOnClickListener(this);
@@ -181,7 +181,7 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             case 0:
                 navigationFragment = new home();
                 toolbar.setTitle(getResources().getString(R.string.home_title));
-                toolbar.setTitle("");
+                toolbar.setSubtitle("");
                 break;
             case 2:
                 navigationFragment = new tabacco();

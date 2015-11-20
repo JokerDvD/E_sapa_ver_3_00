@@ -44,8 +44,8 @@ public class historyWithMap extends DialogFragment implements DialogInterface.On
             e.printStackTrace();
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        return (builder.setTitle(R.string.show_text_info_1).setView(view)
-                .setPositiveButton(R.string.show_text_info_2, this).create());
+        return (builder.setTitle(R.string.comm_map_title).setView(view)
+                .setPositiveButton(R.string.comm_map_close, this).create());
     }
 
     @Override
