@@ -2,6 +2,7 @@ package com.example.admin.e_sapa_ver_3_00.MainActivity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.admin.e_sapa_ver_3_00.BarcodeActivity.scanner_actv;
 import com.example.admin.e_sapa_ver_3_00.Fragments.alcohol;
 import com.example.admin.e_sapa_ver_3_00.Fragments.history;
 import com.example.admin.e_sapa_ver_3_00.Fragments.home;
@@ -20,7 +22,6 @@ import com.example.admin.e_sapa_ver_3_00.R;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.Preferences.preferenceSave_Load;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.other.GPS;
 import com.example.admin.e_sapa_ver_3_00.RecourseFile.resourceFile;
-import com.example.admin.e_sapa_ver_3_00.WTF;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -228,11 +229,15 @@ public class Fragment_activity extends AppCompatActivity implements View.OnClick
             actionMenu.close(true);
         } else {
             if (count == 5) {
-                count = 0;
+                /*count = 0;
                 navigationFragment = new WTF();
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.content_frame, navigationFragment).commit();
-                Toast.makeText(this, "ну и ачем ты нажал это ?!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "ну и ачем ты нажал это ?!", Toast.LENGTH_LONG).show();*/
+                Intent intent=new Intent(this,scanner_actv.class);
+                startActivity(intent);
+
+            }else if( count== 3){
 
             }
             count++;
